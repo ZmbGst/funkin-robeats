@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="test.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="swiggity0000" x="0" y="0" width="301" height="382"/>
+	<SubTexture name="swiggity0001" x="303" y="0" width="301" height="379" frameX="0" frameY="-3" frameWidth="301" frameHeight="382"/>
+	<SubTexture name="swiggity0002" x="303" y="381" width="301" height="379" frameX="0" frameY="-3" frameWidth="301" frameHeight="382"/>
+	<SubTexture name="swiggity0003" x="0" y="384" width="301" height="379" frameX="0" frameY="-3" frameWidth="301" frameHeight="382"/>
+</TextureAtlas>
