@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="SpotcoSprites.png">
+	<!-- Created with Adobe Animate version 21.0.8.42666 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="spotco down0000" x="0" y="0" width="345" height="643" frameX="-9" frameY="-2" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0001" x="0" y="0" width="345" height="643" frameX="-9" frameY="-2" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0002" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0003" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0004" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0005" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0006" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0007" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0008" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0009" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0010" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco down0011" x="347" y="0" width="346" height="645" frameX="0" frameY="0" frameWidth="354" frameHeight="645"/>
+	<SubTexture name="spotco idle0000" x="695" y="0" width="347" height="640" frameX="-18" frameY="-8" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0001" x="1044" y="0" width="347" height="640" frameX="-15" frameY="-8" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0002" x="1393" y="0" width="348" height="641" frameX="-11" frameY="-7" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0003" x="1743" y="0" width="348" height="643" frameX="-7" frameY="-5" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0004" x="2093" y="0" width="348" height="644" frameX="-5" frameY="-4" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0005" x="2443" y="0" width="347" height="646" frameX="-3" frameY="-2" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0006" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0007" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0008" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0009" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0010" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0011" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0012" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0013" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco idle0014" x="2792" y="0" width="347" height="648" frameX="0" frameY="0" frameWidth="365" frameHeight="648"/>
+	<SubTexture name="spotco left0000" x="3141" y="0" width="347" height="647" frameX="-7" frameY="0" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0001" x="3490" y="0" width="347" height="645" frameX="-4" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0002" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0003" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0004" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0005" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0006" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0007" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0008" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0009" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0010" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco left0011" x="0" y="650" width="348" height="645" frameX="0" frameY="-2" frameWidth="354" frameHeight="647"/>
+	<SubTexture name="spotco right0000" x="350" y="650" width="347" height="644" frameX="-3" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0001" x="350" y="650" width="347" height="644" frameX="-3" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0002" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0003" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0004" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0005" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0006" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0007" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0008" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0009" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0010" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco right0011" x="699" y="650" width="347" height="644" frameX="0" frameY="0" frameWidth="350" frameHeight="644"/>
+	<SubTexture name="spotco up0000" x="1048" y="650" width="355" height="668"/>
+	<SubTexture name="spotco up0001" x="1048" y="650" width="355" height="668"/>
+	<SubTexture name="spotco up0002" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0003" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0004" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0005" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0006" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0007" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0008" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0009" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0010" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+	<SubTexture name="spotco up0011" x="1405" y="650" width="348" height="658" frameX="-5" frameY="-10" frameWidth="355" frameHeight="668"/>
+</TextureAtlas>

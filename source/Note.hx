@@ -144,7 +144,7 @@ class Note extends FlxSprite
 					setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 					updateHitbox();
 				default:
-					frames = Paths.getSparrowAtlas('NOTE_assets');
+					frames = Paths.getSparrowAtlas('robeatsNotes/NOTE_assets');
 
 					for (i in 0...4)
 					{

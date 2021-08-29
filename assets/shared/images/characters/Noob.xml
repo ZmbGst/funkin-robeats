@@ -1,65 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Noob with fixed arms.png">
-	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+<TextureAtlas imagePath="Noob.png">
+	<!-- Created with Adobe Animate version 21.0.8.42666 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Noob Down0000" x="0" y="0" width="282" height="599"/>
-	<SubTexture name="Noob Down0001" x="0" y="0" width="282" height="599"/>
-	<SubTexture name="Noob Down0002" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0003" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0004" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0005" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0006" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0007" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0008" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0009" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0010" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Down0011" x="284" y="0" width="282" height="594" frameX="0" frameY="-5" frameWidth="282" frameHeight="599"/>
-	<SubTexture name="Noob Left0000" x="568" y="0" width="339" height="615"/>
-	<SubTexture name="Noob Left0001" x="568" y="0" width="339" height="615"/>
-	<SubTexture name="Noob Left0002" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0003" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0004" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0005" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0006" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0007" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0008" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0009" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0010" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Left0011" x="909" y="0" width="331" height="615" frameX="-7" frameY="0" frameWidth="339" frameHeight="615"/>
-	<SubTexture name="Noob Right0000" x="1242" y="0" width="352" height="616"/>
-	<SubTexture name="Noob Right0001" x="1242" y="0" width="352" height="616"/>
-	<SubTexture name="Noob Right0002" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0003" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0004" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0005" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0006" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0007" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0008" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0009" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0010" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Right0011" x="1596" y="0" width="349" height="616" frameX="-2" frameY="0" frameWidth="352" frameHeight="616"/>
-	<SubTexture name="Noob Up0000" x="0" y="618" width="347" height="622" frameX="-1" frameY="0" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0001" x="0" y="618" width="347" height="622" frameX="-1" frameY="0" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0002" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0003" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0004" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0005" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0006" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0007" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0008" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0009" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0010" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob Up0011" x="349" y="618" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
-	<SubTexture name="Noob idle0000" x="704" y="618" width="320" height="604" frameX="-2" frameY="-11" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0001" x="1026" y="618" width="320" height="604" frameX="-2" frameY="-11" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0002" x="1348" y="618" width="322" height="606" frameX="-2" frameY="-9" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0003" x="1672" y="618" width="322" height="609" frameX="-2" frameY="-6" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0004" x="0" y="1242" width="324" height="610" frameX="-1" frameY="-5" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0005" x="326" y="1242" width="325" height="610" frameX="0" frameY="-5" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0006" x="653" y="1242" width="321" height="615" frameX="-1" frameY="0" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0007" x="653" y="1242" width="321" height="615" frameX="-1" frameY="0" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0008" x="653" y="1242" width="321" height="615" frameX="-1" frameY="0" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0009" x="653" y="1242" width="321" height="615" frameX="-1" frameY="0" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0010" x="653" y="1242" width="321" height="615" frameX="-1" frameY="0" frameWidth="325" frameHeight="615"/>
-	<SubTexture name="Noob idle0011" x="653" y="1242" width="321" height="615" frameX="-1" frameY="0" frameWidth="325" frameHeight="615"/>
+	<SubTexture name="Noob Down0000" x="0" y="0" width="282" height="596" frameX="0" frameY="-2" frameWidth="282" frameHeight="598"/>
+	<SubTexture name="Noob Down0001" x="0" y="0" width="282" height="596" frameX="0" frameY="-2" frameWidth="282" frameHeight="598"/>
+	<SubTexture name="Noob Down0002" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0003" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0004" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0005" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0006" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0007" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0008" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0009" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0010" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Down0011" x="284" y="0" width="282" height="598"/>
+	<SubTexture name="Noob Left0000" x="568" y="0" width="339" height="607"/>
+	<SubTexture name="Noob Left0001" x="568" y="0" width="339" height="607"/>
+	<SubTexture name="Noob Left0002" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0003" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0004" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0005" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0006" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0007" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0008" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0009" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0010" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Left0011" x="909" y="0" width="331" height="607" frameX="-7" frameY="0" frameWidth="339" frameHeight="607"/>
+	<SubTexture name="Noob Right0000" x="1242" y="0" width="352" height="608"/>
+	<SubTexture name="Noob Right0001" x="1242" y="0" width="352" height="608"/>
+	<SubTexture name="Noob Right0002" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0003" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0004" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0005" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0006" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0007" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0008" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0009" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0010" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Right0011" x="1596" y="0" width="349" height="604" frameX="-2" frameY="-4" frameWidth="352" frameHeight="608"/>
+	<SubTexture name="Noob Up0000" x="0" y="610" width="347" height="622" frameX="-1" frameY="0" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0001" x="0" y="610" width="347" height="622" frameX="-1" frameY="0" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0002" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0003" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0004" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0005" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0006" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0007" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0008" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0009" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0010" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob Up0011" x="349" y="610" width="353" height="621" frameX="0" frameY="-1" frameWidth="353" frameHeight="622"/>
+	<SubTexture name="Noob idle0000" x="704" y="610" width="337" height="584" frameX="0" frameY="-23" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0001" x="1043" y="610" width="332" height="589" frameX="-3" frameY="-18" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0002" x="1377" y="610" width="328" height="593" frameX="-7" frameY="-15" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0003" x="1707" y="610" width="326" height="594" frameX="-8" frameY="-14" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0004" x="0" y="1234" width="323" height="598" frameX="-10" frameY="-10" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0005" x="325" y="1234" width="323" height="601" frameX="-10" frameY="-6" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0006" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0007" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0008" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0009" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0010" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0011" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0012" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0013" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
+	<SubTexture name="Noob idle0014" x="650" y="1234" width="320" height="607" frameX="-11" frameY="0" frameWidth="337" frameHeight="608"/>
 </TextureAtlas>

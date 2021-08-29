@@ -118,7 +118,7 @@ class Character extends FlxSprite
 				healthColor = 0xFF2962ff;
 				
 				// DAD ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('ChrisSprites','shared',true);
+				tex = Paths.getSparrowAtlas('Chris','shared',true);
 				frames = tex;
 				animation.addByPrefix('idle', 'Chris Idle', 24);
 				animation.addByPrefix('singUP', 'Chris Up', 24);
@@ -134,7 +134,7 @@ class Character extends FlxSprite
 				healthColor = 0xFF2962ff;
 				
 				// DAD ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('ChrisAngrySprites','shared',true);
+				tex = Paths.getSparrowAtlas('ChrisAngry','shared',true);
 				frames = tex;
 				animation.addByPrefix('idle', 'ChrisAngry Idle', 24);
 				animation.addByPrefix('singUP', 'ChrisAngry Up', 24);

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="SpotcoChairSprites.png">
+	<!-- Created with Adobe Animate version 21.0.8.42666 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="SpotcoChair Down0000" x="0" y="0" width="445" height="627" frameX="0" frameY="0" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0001" x="0" y="0" width="445" height="627" frameX="0" frameY="0" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0002" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0003" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0004" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0005" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0006" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0007" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0008" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0009" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0010" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Down0011" x="447" y="0" width="437" height="625" frameX="-9" frameY="-2" frameWidth="446" frameHeight="627"/>
+	<SubTexture name="SpotcoChair Idle0000" x="886" y="0" width="373" height="599" frameX="0" frameY="-10" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0001" x="1261" y="0" width="370" height="599" frameX="0" frameY="-10" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0002" x="1633" y="0" width="368" height="601" frameX="0" frameY="-8" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0003" x="0" y="629" width="364" height="603" frameX="0" frameY="-6" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0004" x="366" y="629" width="360" height="606" frameX="0" frameY="-3" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0005" x="728" y="629" width="360" height="608" frameX="0" frameY="-1" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0006" x="1090" y="629" width="360" height="609" frameX="0" frameY="0" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0007" x="1090" y="629" width="360" height="609" frameX="0" frameY="0" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0008" x="1090" y="629" width="360" height="609" frameX="0" frameY="0" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0009" x="1090" y="629" width="360" height="609" frameX="0" frameY="0" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0010" x="1090" y="629" width="360" height="609" frameX="0" frameY="0" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Idle0011" x="1090" y="629" width="360" height="609" frameX="0" frameY="0" frameWidth="373" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0000" x="1452" y="629" width="374" height="609" frameX="0" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0001" x="1452" y="629" width="374" height="609" frameX="0" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0002" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0003" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0004" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0005" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0006" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0007" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0008" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0009" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0010" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Left0011" x="0" y="1240" width="371" height="609" frameX="-4" frameY="0" frameWidth="375" frameHeight="609"/>
+	<SubTexture name="SpotcoChair Right0000" x="373" y="1240" width="394" height="610" frameX="-3" frameY="0" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0001" x="373" y="1240" width="394" height="610" frameX="-3" frameY="0" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0002" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0003" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0004" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0005" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0006" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0007" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0008" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0009" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0010" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Right0011" x="769" y="1240" width="393" height="609" frameX="0" frameY="-1" frameWidth="397" frameHeight="610"/>
+	<SubTexture name="SpotcoChair Up0000" x="1164" y="1240" width="373" height="616"/>
+	<SubTexture name="SpotcoChair Up0001" x="1164" y="1240" width="373" height="616"/>
+	<SubTexture name="SpotcoChair Up0002" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0003" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0004" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0005" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0006" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0007" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0008" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0009" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0010" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+	<SubTexture name="SpotcoChair Up0011" x="1539" y="1240" width="368" height="612" frameX="-5" frameY="-4" frameWidth="373" frameHeight="616"/>
+</TextureAtlas>
