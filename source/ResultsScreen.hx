@@ -29,6 +29,7 @@ import lime.utils.Assets;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.input.FlxKeyManager;
+import flixel.util.FlxTimer;
 
 
 using StringTools;
@@ -47,6 +48,10 @@ class ResultsScreen extends FlxSubState
     public var settingsText:FlxText;
 
     public var music:FlxSound;
+    public var cheer:FlxSound;
+    public var fanfare:FlxSound;
+
+    public var STOPPLAYING:Bool=true;
 
     public var graphData:BitmapData;
 
@@ -61,10 +66,26 @@ class ResultsScreen extends FlxSubState
 
         if (!PlayState.inResults) 
         {
-            music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
-            music.volume = 0;
-            music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
-            FlxG.sound.list.add(music);
+            if (STOPPLAYING){
+            fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
+            fanfare.play(true, 0, fanfare.length);
+            FlxG.sound.list.add(fanfare);
+
+            cheer = new FlxSound().loadEmbedded(Paths.music('cheer'), false, true);
+            cheer.play(true, 0, cheer.length);
+            FlxG.sound.list.add(cheer);
+
+            STOPPLAYING = false;
+            }
+           
+            
+            new FlxTimer().start(3, function(tmr:FlxTimer){ 
+                music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
+                music.volume = 0.1;
+                music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
+                FlxG.sound.list.add(music);
+            });
+            
         }
 
         background.alpha = 0;
@@ -184,12 +205,15 @@ class ResultsScreen extends FlxSubState
         if (music != null && music.volume < 0.5)
 		    music.volume += 0.01 * elapsed;
 
+
         // keybinds
 
         if (PlayerSettings.player1.controls.ACCEPT)
         {
             music.fadeOut(0.3);
-            
+            fanfare.fadeOut(0.3);
+            cheer.fadeOut(0.3);
+
             PlayState.loadRep = false;
             PlayState.rep = null;
 
@@ -274,6 +298,8 @@ class ResultsScreen extends FlxSubState
             #end
 
             music.fadeOut(0.3);
+            fanfare.fadeOut(0.3);
+            cheer.fadeOut(0.3);
 
             if (PlayState.isSM)
                 PlayState.SONG = Song.loadFromJsonRAW(poop);
@@ -311,8 +337,10 @@ class ResultsScreen extends FlxSubState
 
             var poop:String = Highscore.formatSong(songFormat, PlayState.storyDifficulty);
 
-            if (music != null)
+            if (music != null){
                 music.fadeOut(0.3);
+                fanfare.fadeOut(0.3);
+                cheer.fadeOut(0.3);}
 
             PlayState.SONG = Song.loadFromJson(poop, PlayState.SONG.song);
             PlayState.isStoryMode = false;

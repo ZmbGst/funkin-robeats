@@ -1,0 +1,90 @@
+# Changelog
+All notable changes will be documented in this file.
+
+## [0.1.0] (06-26-2021)
+
+###
+Removed everything in this document and started typing shit
+uhh
+week 1 / 2 bgs are done
+week 1 anims are done
+week 2 anims are almost done
+week 3 bg is almost done
+week 1 songs are almost done
+
+pretty poggers if I say so myself
+
+
+## [0.2.0] (07-21-2021)
+
+###
+Its been a while since I updated this yay.
+Week 3 bgs are done
+Week 3 song 3 bg is being concepted on (im lazy)
+Week 2 animations are kinda done
+	Our animator discovered the pwoer of animate and is in the process of reanimating everything
+	with animate so thats poggers
+Week 1 songs are done
+Week 2 songs are ~40% done
+
+Coverarts for week 1 and 2 were started on and only one song from week 2 needs a cover art
+Start screen thing is done
+Technically, we're done with week 1 except for dialogue, which is something we need to touch base on.
+
+Oh yeah, we did some other QOL stuff with gf / bf animations (gf is sitting on R Lounge, bf
+gets banned when he loses, etc.)
+
+
+## [0.3.0] (08-14-2021)
+
+###
+This was supposed to be done a week later, but I'm procrastinating and don't really feel like
+finishing insight cover art
+
+All bgs are done (except for insight stage, but thats because I need to finish cover art)
+Week 1, 2 and 3 animations are pretty much done
+	Animator redid some of their idles and finished spotco idle. Just needs song 3 anim.
+
+Week 1 Inst are kinda done
+	Instrumentals are being redone + we got a vocalist so they can now send stuff out for 
+	mappers to finish 
+Week 1 Vocals are 95% done (last minute revisions from last updated instrumental)
+Week 2 Inst are all done
+Week 2 Vocals are 33% done
+Week 3 song choice was completely changed so 25% Inst / 0% Vocals are done
+
+2 songs are pretty much mapped and ready to be shipped out
+
+Week 1 / 2 dialog are done and the dialog sytem is working :sunglasses:
+
+Lots of programming stuff happened, like adding new weeks, bgs, characters, etc. into the game
+Fixed broken animations (bf dead now centers the screen properly)
+
+
+## [0.3.5] (08-29-2021)
+
+###
+Bro I feel bad for being impatient last week because a fuck ton of stuff happened
+
+Everything art is done
+Everything animation is done (just need extra dialog portraits)
+
+Week 1 songs are all done and being mapped
+Week 2 songs are 66% done (just need insight vocals)
+Week 3 song insts are 50% done
+
+Still only have 2 songs mapped, but a bunch of other songs have 1-2 maps
+
+I was a dumb dumb and was trying to recompile the game by deleting the export file, but instead I deleted the source code so I had to start back at square one
+	Shoutout to the entire team for not losing their shit and being understanding (bigger shoutout to Banana for letting me steal some of his code)
+I have to add dialog system again :sob:
+Adding a camera in rebeats fucks up every other song (bf sings dad's parts, dad sings bf's parts) so I have to re-add all the songs ingame. 
+Weeks and songs have to be re-added
+
+Made Week 3 Song 3 programming to my liking
+Added extra bells and whistles (custom menu bg, robeats text / font, splashers by https://twitter.com/peakjuggler
+
+I'm hoping this'll be the last update before we launch everything, fingers crossed y'all will love it.
+
+
+	

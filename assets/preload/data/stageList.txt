@@ -6,7 +6,5 @@ bibi
 bad-apple
 insight
 stadium
-sheep1
-sheep2
-sheep3
+sheep
 rebeats

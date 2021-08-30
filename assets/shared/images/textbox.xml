@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="textbox.png">
+	<!-- Created with Adobe Animate version 21.0.8.42666 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="textbox read0000" x="2607" y="897" width="1263" height="387"/>
+	<SubTexture name="zoom in0000" x="0" y="0" width="1653" height="507"/>
+	<SubTexture name="zoom in0001" x="1655" y="0" width="1512" height="463" frameX="-72" frameY="-23" frameWidth="1653" frameHeight="507"/>
+	<SubTexture name="zoom in0002" x="1655" y="465" width="1403" height="430" frameX="-128" frameY="-40" frameWidth="1653" frameHeight="507"/>
+	<SubTexture name="zoom in0003" x="0" y="509" width="1325" height="406" frameX="-168" frameY="-52" frameWidth="1653" frameHeight="507"/>
+	<SubTexture name="zoom in0004" x="1327" y="897" width="1278" height="391" frameX="-192" frameY="-60" frameWidth="1653" frameHeight="507"/>
+	<SubTexture name="zoom in0005" x="0" y="917" width="1262" height="386" frameX="-200" frameY="-63" frameWidth="1653" frameHeight="507"/>
+</TextureAtlas>
