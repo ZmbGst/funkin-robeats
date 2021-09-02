@@ -29,6 +29,8 @@ class DialogueBox extends FlxSpriteGroup
 	var speakerText:FlxText;
 
 	public var finishThing:Void->Void;
+	public var finishThingTwo:Void -> Void;
+	public var pleaseDontBreak:Bool = true;
 
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
@@ -56,12 +58,13 @@ class DialogueBox extends FlxSpriteGroup
 		bgFade.alpha = 0;
 		add(bgFade);
 
-		new FlxTimer().start(0.83, function(tmr:FlxTimer)
+		 if (${PlayState.SONG.song} != 'Tutorial'){
+		 new FlxTimer().start(0.83, function(tmr:FlxTimer)
 		{
 			bgFade.alpha += (1 / 5) * 0.7;
 			if (bgFade.alpha > 0.7)
 				bgFade.alpha = 0.7;
-		}, 5);
+		}, 5);}
 
 		box = new FlxSprite(-20, 45);
 		
@@ -214,10 +217,15 @@ class DialogueBox extends FlxSpriteGroup
 
 			if (dialogueList[1] == null && dialogueList[0] != null)
 			{
+				/*/if (${PlayState.SONG.song} == 'Tutorial'&& ${PlayState.songFinish}){ 
+								trace ('shitface');
+								FlxG.switchState(new ResultsScreen());
+							}/*/
 				if (!isEnding)
 				{
 					isEnding = true;
 					FlxG.sound.music.fadeOut(2.2, 0);
+					
 
 					new FlxTimer().start(0.2, function(tmr:FlxTimer)
 					{
@@ -230,13 +238,14 @@ class DialogueBox extends FlxSpriteGroup
 						dropText.alpha = swagDialogue.alpha;
 						speakerText.alpha = swagDialogue.alpha;
 					}, 5);
-
+					
 					new FlxTimer().start(1.2, function(tmr:FlxTimer)
 					{
-						finishThing();
-						kill();
+							finishThing();
+							kill();
 					});
 				}
+				
 			}
 			else
 			{

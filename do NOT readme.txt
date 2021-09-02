@@ -22,10 +22,11 @@ Robeats is a MMO Rhtyhm game where people compete in 4 player rhythm battles, ac
 
 FnF Featuring Robeats is made by
 
-Shad0wStar/Amy (Lead Project Manager/musician/mapper) - https://www.youtube.com/user/ayylgirl
+Shad0wStar/Amy (Lead Project Manager/musician/storywriter/mapper) - https://www.youtube.com/user/ayylgirl
 Banana_Switch (animator/programmer) - https://www.youtube.com/channel/UCG5dlta5UkypnDvkLuttYew
 NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
 fuzzybrexth (musician) - https://www.roblox.com/users/108915438/profile
+blah133134 (musician) - https://www.roblox.com/users/136455748/profile
 ZmbGst (artist/programmer/storywriter/mapper) - https://twitter.com/ZmbGst
 Kaiden (storywriter) - https://www.roblox.com/users/1480439134/profile
 RoDanxxx (storywriter) - https://www.roblox.com/users/630642715/profile
@@ -56,7 +57,8 @@ Credits:
 - "Monday Night Monsters," "Walkin' 'n' Strollin'," and "Show's Over" are RoBeats original songs by FinnMK
 - "Window Cleaner - Menu" is composed by Joshua Kaplan / http://openheartsound.com/
 - Some hands were borrowed from https://twitter.com/esimplyj/status/1413036302644228097?s=21
-- Perfect time splashers were borrowed from https://twitter.com/peakjuggler
+- Post week dialog code was stolen from Bob and Bosip Mod (I'm sorry, I tried to do it myself but it just made the dialogueBox code run twice and crash when I wanted the results screen to load)
+  https://gamebanana.com/mods/297087
 
 - week 1 opponent is a noob lol just look a picture of a noob
 - week 2 opponent is ChristsuYT https://www.youtube.com/channel/UC_D9wrmnZR4bqS8RmmqELQg

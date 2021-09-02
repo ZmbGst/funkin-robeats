@@ -192,6 +192,7 @@ class PlayState extends MusicBeatState
 	var idleBeat:Int = 4; // how frequently bf and dad would play their idle animation(1 - every beat, 2 - every 2 beats and so on)
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
+	public var endDialog:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
@@ -213,7 +214,7 @@ class PlayState extends MusicBeatState
 	var phaseTwo:Bool = false;
 	var bgTwo:FlxSprite;
 	var phaseThree:Bool = false;
-	var bgThree:FlxSprite;
+	var bgThree:FlxSprite; //omg theres so many variables that dont do anything but im too lazy to cipher through them and take them out 
 
 	var fc:Bool = true;
 
@@ -1545,8 +1546,11 @@ class PlayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 			#end
 		}
-
-		FlxG.sound.music.onComplete = endSong;
+		if (SONG.song.toLowerCase() == 'tutorial' && isStoryMode)
+			{trace('went to the function');
+			FlxG.sound.music.onComplete = stolenFromBobBosip;}
+		else {
+			FlxG.sound.music.onComplete = endSong;}
 		vocals.play();
 
 		// Song duration in a float, useful for the time left feature
@@ -3039,6 +3043,36 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
+	function stolenFromBobBosip():Void
+	{
+		for (i in strumLineNotes)
+			i.visible = false;
+		healthBar.visible = false;
+		healthBarBG.visible = false;
+		iconP2.visible = false;
+		iconP1.visible = false;
+		camZooming = false;
+		canPause = false;
+		FlxG.sound.music.stop();
+		vocals.stop();
+		if (curSong == 'Tutorial')
+		{
+			if (accuracy >= 50.00){
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialogend'));
+			}
+			else 
+			{
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialogendbad'));
+			}
+		}
+		
+		var doof:DialogueBox = new DialogueBox(false, endDialog);
+		doof.scrollFactor.set();
+		doof.finishThing = endSong;
+		doof.cameras = [camHUD];
+		add(doof);
+	}
+
 	function endSong():Void
 	{
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, handleInput);
@@ -3124,11 +3158,12 @@ class PlayState extends MusicBeatState
 					vocals.stop();
 					if (FlxG.save.data.scoreScreen)
 					{
-						openSubState(new ResultsScreen());
-						new FlxTimer().start(1, function(tmr:FlxTimer)
+							openSubState(new ResultsScreen());
+							new FlxTimer().start(1, function(tmr:FlxTimer)
 							{
 								inResults = true;
 							});
+						
 					}
 					else
 					{
@@ -3278,33 +3313,6 @@ class PlayState extends MusicBeatState
 					totalNotesHit += 1;
 				sicks++;
 		}
-
-		var sploosh:FlxSprite = new FlxSprite(daNote.x, playerStrums.members[daNote.noteData].y);
-            {
-                {
-                 var tex:flixel.graphics.frames.FlxAtlasFrames = Paths.getSparrowAtlas('noteSplashes');
-                 sploosh.frames = tex;
-                 sploosh.animation.addByPrefix('splash 0 0', 'note impact 1 purple', 24, false);
-                 sploosh.animation.addByPrefix('splash 0 1', 'note impact 1 blue', 24, false);
-                 sploosh.animation.addByPrefix('splash 0 2', 'note impact 1 green', 24, false);
-                 sploosh.animation.addByPrefix('splash 0 3', 'note impact 1 red', 24, false);
-                 sploosh.animation.addByPrefix('splash 0 4', 'note impact 1 yellow', 24, false);
-                 sploosh.animation.addByPrefix('splash 1 0', 'note impact 2 purple', 24, false);
-                 sploosh.animation.addByPrefix('splash 1 1', 'note impact 2 blue', 24, false);
-                 sploosh.animation.addByPrefix('splash 1 2', 'note impact 2 green', 24, false);
-                 sploosh.animation.addByPrefix('splash 1 3', 'note impact 2 red', 24, false);
-                 sploosh.animation.addByPrefix('splash 1 4', 'note impact 2 yellow', 24, false);
-                 if (daRating == 'sick')
-                    {
-                     add(sploosh);
-                     sploosh.cameras = [camHUD];
-                     sploosh.animation.play('splash ' + FlxG.random.int(0, 1) + " " + daNote.noteData);
-                     sploosh.offset.x += 90;
-                     sploosh.offset.y += 100;
-                     sploosh.animation.finishCallback = function(name) sploosh.kill();
-                   }
-                }
-            }
 		// trace('Wife accuracy loss: ' + wife + ' | Rating: ' + daRating + ' | Score: ' + score + ' | Weight: ' + (1 - wife));
 
 		if (daRating != 'shit' || daRating != 'bad')

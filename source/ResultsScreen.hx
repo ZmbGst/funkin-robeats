@@ -66,7 +66,7 @@ class ResultsScreen extends FlxSubState
 
         if (!PlayState.inResults) 
         {
-            if (STOPPLAYING){
+            if (${PlayState.SONG.song} != 'Lemon Summer One'){ //cinematrography
             fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
             fanfare.play(true, 0, fanfare.length);
             FlxG.sound.list.add(fanfare);
@@ -76,15 +76,17 @@ class ResultsScreen extends FlxSubState
             FlxG.sound.list.add(cheer);
 
             STOPPLAYING = false;
-            }
-           
-            
-            new FlxTimer().start(3, function(tmr:FlxTimer){ 
+
+             new FlxTimer().start(3, function(tmr:FlxTimer){ 
                 music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
                 music.volume = 0.1;
                 music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
                 FlxG.sound.list.add(music);
             });
+            }
+           
+            
+           
             
         }
 
@@ -210,9 +212,6 @@ class ResultsScreen extends FlxSubState
 
         if (PlayerSettings.player1.controls.ACCEPT)
         {
-            music.fadeOut(0.3);
-            fanfare.fadeOut(0.3);
-            cheer.fadeOut(0.3);
 
             PlayState.loadRep = false;
             PlayState.rep = null;
@@ -297,9 +296,10 @@ class ResultsScreen extends FlxSubState
             poop = Highscore.formatSong(PlayState.rep.replay.songName, PlayState.rep.replay.songDiff);
             #end
 
-            music.fadeOut(0.3);
+            if (${PlayState.SONG.song} != 'Lemon Summer One'){ 
+           music.fadeOut(0.3);
             fanfare.fadeOut(0.3);
-            cheer.fadeOut(0.3);
+            cheer.fadeOut(0.3);}
 
             if (PlayState.isSM)
                 PlayState.SONG = Song.loadFromJsonRAW(poop);
@@ -338,9 +338,10 @@ class ResultsScreen extends FlxSubState
             var poop:String = Highscore.formatSong(songFormat, PlayState.storyDifficulty);
 
             if (music != null){
-                music.fadeOut(0.3);
-                fanfare.fadeOut(0.3);
-                cheer.fadeOut(0.3);}
+                if (${PlayState.SONG.song} != 'Lemon Summer One'){ 
+           music.fadeOut(0.3);
+            fanfare.fadeOut(0.3);
+            cheer.fadeOut(0.3);}}
 
             PlayState.SONG = Song.loadFromJson(poop, PlayState.SONG.song);
             PlayState.isStoryMode = false;
