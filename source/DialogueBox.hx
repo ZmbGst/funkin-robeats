@@ -31,10 +31,13 @@ class DialogueBox extends FlxSpriteGroup
 	public var finishThing:Void->Void;
 	public var finishThingTwo:Void -> Void;
 	public var pleaseDontBreak:Bool = true;
+	public var noMusic = false;
 
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
 	var portraitGirlfriend:FlxSprite;
+
+	var opponent:String = '';
 
 	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
@@ -48,10 +51,23 @@ class DialogueBox extends FlxSpriteGroup
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'lemon summer one':
+				if(${PlayState.instance.accuracy} >= 92.00){
+					FlxG.sound.playMusic(Paths.music('silence'), 0);//lol everytime i do this without a playMusic thing, the previous song continues playing
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
+				}
+				else
+				{
+				FlxG.sound.playMusic(Paths.music('showsOver'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
+				}
 			default:
 				FlxG.sound.playMusic(Paths.music('showsOver'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
+		
+
+
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
 		bgFade.scrollFactor.set();
@@ -106,8 +122,8 @@ class DialogueBox extends FlxSpriteGroup
 			return;
 		
 		portraitLeft = new FlxSprite(-20, 40);
-		portraitLeft.frames = Paths.getSparrowAtlas('portraits/testtwo', 'shared');
-		portraitLeft.animation.addByPrefix('enter', 'testtwo', 24, false);
+		portraitLeft.frames = Paths.getSparrowAtlas('portraitstwo/testthree', 'shared');
+		portraitLeft.animation.addByPrefix('enter', 'swiggity', 24, false);
 		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
@@ -162,7 +178,7 @@ class DialogueBox extends FlxSpriteGroup
 		speakerText.color = 0xFFE1E8FF;
 		speakerText.font = 'Righteous';
 		add(speakerText);
-
+		
 		dialogue = new Alphabet(0, 80, "", false, true);
 		// dialogue.x = 90;
 		// add(dialogue);
@@ -174,20 +190,26 @@ class DialogueBox extends FlxSpriteGroup
 	override function update(elapsed:Float)
 	{
 		// HARD CODING CUZ IM STUPDI
-		if (PlayState.SONG.song.toLowerCase() == 'roses')
-			portraitLeft.visible = false;
-		if (PlayState.SONG.song.toLowerCase() == 'thorns')
+		switch (PlayState.SONG.song.toLowerCase())
 		{
-			portraitLeft.visible = false;
-			swagDialogue.color = FlxColor.WHITE;
-			dropText.color = FlxColor.BLACK;
+			case 'tutorial':
+				opponent = "Girlfriend";
+			case 'bibi' | 'bad apple' | 'insight':
+				opponent = "Chrisu";
+			case 'lemon summer one' | 'space battle' | 'freedom dive' | 'dark sheep':
+				opponent = "Spotco";
+			case 'rebeats':
+				opponent = "Trash Kitty";
+			default:
+				opponent = "Opponent";
+				trace ('not working');
 		}
 
 		dropText.text = swagDialogue.text;
 
 		switch (curCharacter){
 			case 'dad':
-				speakingText(242,472,"Boyfriend"); //915
+				speakingText(242,472,opponent); 
 			case 'gf':
 				speakingText(242,472,"Girlfriend");
 			case 'bf':
@@ -224,7 +246,8 @@ class DialogueBox extends FlxSpriteGroup
 				if (!isEnding)
 				{
 					isEnding = true;
-					FlxG.sound.music.fadeOut(2.2, 0);
+					if (pleaseDontBreak)
+						FlxG.sound.music.fadeOut(2.2, 0);
 					
 
 					new FlxTimer().start(0.2, function(tmr:FlxTimer)

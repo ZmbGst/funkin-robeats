@@ -2,7 +2,7 @@
   "song": {
     "notes": [
       {
-        "mustHitSection": true,
+        "mustHitSection": false,
         "typeOfSection": 0,
         "lengthInSteps": 160000,
         "bpm": 190,
@@ -23672,7 +23672,7 @@
     "needsVoices": false,
     "player1": "bf",
     "player2": "kitty",
-    "speed": 2.8,
+    "speed": 3.1,
     "song": "Rebeats",
 	"stage": "rebeats",
     "sectionLengths": [],

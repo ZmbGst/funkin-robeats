@@ -50,6 +50,7 @@ class ResultsScreen extends FlxSubState
     public var music:FlxSound;
     public var cheer:FlxSound;
     public var fanfare:FlxSound;
+    public var noMusic:Bool = true;
 
     public var STOPPLAYING:Bool=true;
 
@@ -66,7 +67,13 @@ class ResultsScreen extends FlxSubState
 
         if (!PlayState.inResults) 
         {
-            if (${PlayState.SONG.song} != 'Lemon Summer One'){ //cinematrography
+            if (${PlayState.SONG.song} == 'Lemon Summer One')//cinematrography
+            {
+                if (${PlayState.instance.accuracy} >= 92.00)
+                {
+                    noMusic = true;
+                }
+                else {
             fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
             fanfare.play(true, 0, fanfare.length);
             FlxG.sound.list.add(fanfare);
@@ -85,7 +92,7 @@ class ResultsScreen extends FlxSubState
             });
             }
            
-            
+            }         
            
             
         }

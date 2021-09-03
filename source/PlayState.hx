@@ -130,6 +130,7 @@ class PlayState extends MusicBeatState
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
+	public static var rebeatsUnlocked:Bool = false;
 
 	public var notes:FlxTypedGroup<Note>;
 
@@ -454,8 +455,8 @@ class PlayState extends MusicBeatState
 		{
 			case 'tutorial':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialog'));
-			case 'senpai':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/senpai/senpaiDialogue'));
+			case 'lemon-summer-one':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer-one/dialog'));
 			case 'roses':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/roses/rosesDialogue'));
 			case 'thorns':
@@ -672,6 +673,9 @@ class PlayState extends MusicBeatState
 						bg.active = false;
 						add(bg);
 
+						/*/health = 2;/*/
+						//sherman squid if you want to play impossible mode of rebeats, delete the /*/ things on the line above this one
+
 				}
 				default:
 					{
@@ -696,7 +700,7 @@ class PlayState extends MusicBeatState
 		{
 			switch (storyWeek)
 			{
-				case 4:
+				case 3:
 					gfCheck = 'gf-car';
 				case 5:
 					gfCheck = 'gf-christmas';
@@ -833,7 +837,7 @@ class PlayState extends MusicBeatState
 			case 'rebeats':
 				boyfriend.y -= 60;
 				boyfriend.x-=80;
-				gf.x-=110;
+				gf.x-=97;
 				gf.y-=5;
 				camPos.set(boyfriend.getGraphicMidpoint().x - 1000, boyfriend.getGraphicMidpoint().y);
 		}
@@ -1082,7 +1086,7 @@ class PlayState extends MusicBeatState
 					});
 				case 'tutorial':
 					schoolIntro(doof);
-				case 'roses':
+				case 'lemon-summer-one':
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 				case 'thorns':
@@ -1289,6 +1293,15 @@ class PlayState extends MusicBeatState
 			{
 				case 0:
 					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+					if (isStoryMode) {
+						if(curSong == 'Lemon Summer One'){
+							FlxG.sound.play(Paths.sound('Lights_Shut_off'), 0.6);
+						}
+						else if (curSong == 'Tutorial'){ 
+							FlxG.sound.play(Paths.sound('thunder_1'), 0.6);
+						}
+					}
+					
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 					ready.scrollFactor.set();
@@ -1546,9 +1559,12 @@ class PlayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 			#end
 		}
-		if (SONG.song.toLowerCase() == 'tutorial' && isStoryMode)
+		if (isStoryMode){
+		if (SONG.song.toLowerCase() == 'tutorial' ||SONG.song.toLowerCase() == 'lemon summer one')
 			{trace('went to the function');
 			FlxG.sound.music.onComplete = stolenFromBobBosip;}
+		}
+			
 		else {
 			FlxG.sound.music.onComplete = endSong;}
 		vocals.play();
@@ -2562,6 +2578,8 @@ class PlayState extends MusicBeatState
 					case 'spotcochair':
 						camFollow.y = dad.getMidpoint().y-220;
 						camFollow.x = dad.getMidpoint().x+300;
+					case 'kitty':
+						camFollow.x = dad.getMidpoint().x+210;
 				}
 			}
 
@@ -3065,6 +3083,17 @@ class PlayState extends MusicBeatState
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialogendbad'));
 			}
 		}
+		if (curSong == 'Lemon Summer One')
+		{
+			if (accuracy >= 92.00){
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer-one/dialogendbad'));
+			}
+			else 
+			{
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer-one/dialogend'));
+
+			}
+		}
 		
 		var doof:DialogueBox = new DialogueBox(false, endDialog);
 		doof.scrollFactor.set();
@@ -3185,6 +3214,12 @@ class PlayState extends MusicBeatState
 						NGio.unlockMedal(60961);
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
+
+					if(storyDifficulty == 2 && storyWeek == 1){
+						FlxG.save.data.rebeats = true;
+						rebeatsUnlocked = true;
+					}
+						
 
 					StoryMenuState.unlockNextWeek(storyWeek);
 				}
@@ -3308,7 +3343,9 @@ class PlayState extends MusicBeatState
 					totalNotesHit += 0.75;
 			case 'sick':
 				if (health < 2)
-					health += 0.04;
+					/*/if (curSong != 'Rebeats')/*/ 
+						//sherman squid if you want to play impossible mode, remove the /*/s on the line above
+						health += 0.04;
 				if (FlxG.save.data.accuracyMod == 0)
 					totalNotesHit += 1;
 				sicks++;
