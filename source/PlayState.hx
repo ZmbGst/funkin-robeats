@@ -68,6 +68,7 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
+import flixel.util.FlxSave;
 #if windows
 import Discord.DiscordClient;
 #end
@@ -1087,7 +1088,6 @@ class PlayState extends MusicBeatState
 				case 'tutorial':
 					schoolIntro(doof);
 				case 'lemon-summer-one':
-					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
@@ -1295,10 +1295,11 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 					if (isStoryMode) {
 						if(curSong == 'Lemon Summer One'){
-							FlxG.sound.play(Paths.sound('Lights_Shut_off'), 0.6);
+							FlxG.sound.play(Paths.sound('boo'), 0.6, false);
 						}
 						else if (curSong == 'Tutorial'){ 
-							FlxG.sound.play(Paths.sound('thunder_1'), 0.6);
+							FlxG.sound.play(Paths.sound('startCheer'), 0.6, false);
+							trace('hooray');
 						}
 					}
 					
@@ -1355,6 +1356,9 @@ class PlayState extends MusicBeatState
 							go.destroy();
 						}
 					});
+					if (curSong == 'Rebeats')
+					FlxG.sound.play(Paths.sound('mreow'),1,false);
+					else
 					FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
 				case 4:
 			}
@@ -3217,7 +3221,8 @@ class PlayState extends MusicBeatState
 
 					if(storyDifficulty == 2 && storyWeek == 1){
 						FlxG.save.data.rebeats = true;
-						rebeatsUnlocked = true;
+						rebeatsUnlocked = true;//so fun fact, you shouldn't use variables to determine if something should be saved or not because variables get reset after closing something (probably something to do with memory)
+											   //so unless you got a seperate document that youre writing on that has the data or whatever, use the program's FlxG.save feature to save info between game sessions
 					}
 						
 
@@ -4296,7 +4301,7 @@ class PlayState extends MusicBeatState
 					}
 		if (curStep == 1364 && curSong == 'Lemon Summer One')
 					{
-					FlxTween.tween(boyfriend,{alpha:0},3);
+					FlxTween.tween(boyfriend,{alpha:0},3);					
 					trace('poopie');
 					}
 
@@ -4484,3 +4489,4 @@ class PlayState extends MusicBeatState
 
 	var curLight:Int = 0;
 }
+//sherman squid lol maybe one day I'll add the impossible mode toggle thingy in the game but you gotta recompile the game if you want to play it have fun downloading the source code :trolled:
