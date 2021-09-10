@@ -32,10 +32,14 @@ class DialogueBox extends FlxSpriteGroup
 	public var finishThingTwo:Void -> Void;
 	public var pleaseDontBreak:Bool = true;
 	public var noMusic = false;
+	public var goodNumber:Int;
+	public var badNumber:Int;
+
 
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
 	var portraitGirlfriend:FlxSprite;
+	var portraitExtra:FlxSprite;
 
 	var opponent:String = '';
 
@@ -147,6 +151,19 @@ class DialogueBox extends FlxSpriteGroup
 		portraitGirlfriend.scrollFactor.set();
 		add(portraitGirlfriend);
 		portraitGirlfriend.visible = false;
+
+		portraitExtra = new FlxSprite(-60,0);
+		portraitExtra.frames = Paths.getSparrowAtlas('viewers/thePeeps', 'shared');
+		for(i in 0...4){
+			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);
+			
+		}
+		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.5));
+		portraitExtra.updateHitbox();
+		portraitExtra.scrollFactor.set();
+		add(portraitExtra);
+		portraitExtra.visible = false;
+		
 		
 		box.animation.play('normalOpen');
 		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
@@ -214,6 +231,8 @@ class DialogueBox extends FlxSpriteGroup
 				speakingText(242,472,"Girlfriend");
 			case 'bf':
 				speakingText(242,472,"Boyfriend");
+			case 'extra':
+				speakingText(242,472,"Viewers");
 		}
 
 		if (box.animation.curAnim != null)
@@ -257,6 +276,7 @@ class DialogueBox extends FlxSpriteGroup
 						portraitLeft.visible = false;
 						portraitRight.visible = false;
 						portraitGirlfriend.visible = false;
+						portraitExtra.visible = false;
 						swagDialogue.alpha -= 1 / 5;
 						dropText.alpha = swagDialogue.alpha;
 						speakerText.alpha = swagDialogue.alpha;
@@ -286,7 +306,6 @@ class DialogueBox extends FlxSpriteGroup
 				speakerText.text = poop;
 				speakerText.x = x;
 				speakerText.y = y;
-				trace(poop);
 	}
 
 	function startDialogue():Void
@@ -305,6 +324,7 @@ class DialogueBox extends FlxSpriteGroup
 			case 'dad':
 				portraitRight.visible = false;
 				portraitGirlfriend.visible = false;
+				portraitExtra.visible = false;
 				if (!portraitLeft.visible)
 				{
 					portraitLeft.visible = true;
@@ -314,6 +334,7 @@ class DialogueBox extends FlxSpriteGroup
 
 				portraitLeft.visible = false;
 				portraitGirlfriend.visible = false;
+				portraitExtra.visible = false;
 				if (!portraitRight.visible)
 				{
 					portraitRight.visible = true;
@@ -323,11 +344,41 @@ class DialogueBox extends FlxSpriteGroup
 
 				portraitLeft.visible = false;
 				portraitRight.visible = false;
+				portraitExtra.visible = false;
 				if (!portraitGirlfriend.visible)
 				{
 					portraitGirlfriend.visible = true;
 					portraitGirlfriend.animation.play('enter');
 				}
+			case 'extra':
+				portraitRight.visible = false;
+				portraitGirlfriend.visible = false;
+				portraitLeft.visible = false;
+			
+				//Glasses = 1 Buzz = 2 thinking = 3 You'll never know what this means >=)
+				
+				//Code to randomize the portraits and make sure the same portrait doesn't come immediately after the first instance (still can come multiple times in a session)
+				//If you steal this; first, thank you I feel I actually have some idea of what I'm doing. second, please atleast understand the logic and what each line of code does just so you can fix the issues on your code yourself
+			
+				goodNumber = FlxG.random.int(1,3);
+				portraitExtra.animation.play(""+goodNumber);
+				trace('1          '+portraitExtra.animation.frameName);//displays frame name (personx instance 10000)
+				
+				if(portraitExtra.animation.frameName == "person"+badNumber+" instance 10000"){
+					var temporary:Int = FlxG.random.int(1,3,[badNumber]);
+					portraitExtra.animation.play(""+temporary);
+					trace('2          lmao the new sprite is '+portraitExtra.animation.frameName + ' the dumb thing made the same image go twice');
+					badNumber = temporary;}
+
+				else
+				badNumber = goodNumber;
+				
+				if (!portraitExtra.visible)
+				{
+					portraitExtra.visible = true;
+					portraitExtra.animation.play(""+goodNumber);
+				}
+
 	}}
 
 	function cleanDialog():Void

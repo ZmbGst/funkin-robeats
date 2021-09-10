@@ -1463,7 +1463,7 @@ class PlayState extends MusicBeatState
 		}
 		if (data == -1)
 		{
-			trace("couldn't find a keybind with the code " + key);
+			//trace("couldn't find a keybind with the code " + key); lol i love debugging dialogue
 			return;
 		}
 		if (keys[data])

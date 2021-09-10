@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="thePeeps.png">
+	<!-- Created with Adobe Animate version 21.0.8.42666 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="person1 instance 10000" x="653" y="453" width="451" height="450"/>
+	<SubTexture name="person2 instance 10000" x="0" y="0" width="651" height="650"/>
+	<SubTexture name="person3 instance 10000" x="653" y="0" width="451" height="451"/>
+</TextureAtlas>
