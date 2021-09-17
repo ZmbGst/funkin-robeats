@@ -109,7 +109,7 @@ class KadeEngineData
 		if (FlxG.save.data.cacheImages == null)
 			FlxG.save.data.cacheImages = false;
 
-		if (FlxG.save.data.rebeats== null)
+		if (FlxG.save.data.rebeats == null)
             FlxG.save.data.rebeats = false;
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;

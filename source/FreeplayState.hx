@@ -80,7 +80,7 @@ class FreeplayState extends MusicBeatState
 			if(!(data[0]=='Rebeats')){ //I feel bad for stealing code this is from the QT mod
 				songs.push(meta);
 			}
-			else if(FlxG.save.data.rebeats && data[0]=='Rebeats')
+			if(FlxG.save.data.rebeats && data[0]=='Rebeats')
 				songs.push(meta);
 			
 			var format = StringTools.replace(meta.songName, " ", "-");
@@ -213,8 +213,8 @@ class FreeplayState extends MusicBeatState
 		changeSelection();
 		changeDiff();
 
-		 if (${PlayState.rebeatsUnlocked})
-			addSong('rebeats', 4, 'kitty');
+		//if (${PlayState.rebeatsUnlocked})
+			//addSong('rebeats', 4, 'kitty');
 
 		// FlxG.sound.playMusic(Paths.music('title'), 0);
 		// FlxG.sound.music.fadeIn(2, 0, 0.8);

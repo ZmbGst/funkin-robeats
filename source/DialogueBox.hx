@@ -125,17 +125,17 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 		
-		portraitLeft = new FlxSprite(-20, 40);
-		portraitLeft.frames = Paths.getSparrowAtlas('portraitstwo/testthree', 'shared');
-		portraitLeft.animation.addByPrefix('enter', 'swiggity', 24, false);
-		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+		portraitLeft = new FlxSprite(200, 40);
+		portraitLeft.frames = Paths.getSparrowAtlas('portraits/NoobDialogue', 'shared');
+		portraitLeft.animation.addByPrefix('enter', 'Noob Animation', 24, false);
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
 		add(portraitLeft);
 		portraitLeft.visible = false;
 
 		portraitRight = new FlxSprite(0, 40);
-		portraitRight.frames = Paths.getSparrowAtlas('portraits/test', 'shared');
+		portraitRight.frames = Paths.getSparrowAtlas('portraitstwo/testthree', 'shared');
 		portraitRight.animation.addByPrefix('enter', 'swiggity', 24, false);
 		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
 		portraitRight.updateHitbox();
@@ -170,7 +170,6 @@ class DialogueBox extends FlxSpriteGroup
 		box.updateHitbox();
 		add(box);
 
-		portraitLeft.screenCenter(X);
 
 		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
 
@@ -188,7 +187,7 @@ class DialogueBox extends FlxSpriteGroup
 		swagDialogue = new FlxTypeText(243, 525, Std.int(FlxG.width * 0.6), "", 26);
 		swagDialogue.font = 'Righteous';
 		swagDialogue.color = 0xFFFEF1FF;
-		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
+		//swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)]; lolo this is so annoying
 		add(swagDialogue);
 
 		speakerText = new FlxText(0, 0, Std.int(FlxG.width * 0.6), "", 32);

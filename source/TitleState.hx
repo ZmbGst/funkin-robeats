@@ -318,17 +318,17 @@ class TitleState extends MusicBeatState
 						trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
 						OutdatedSubState.needVer = returnedData[0];
 						OutdatedSubState.currChanges = returnedData[1];
-						FlxG.switchState(new MainMenuState());
+						FlxG.switchState(new UpdateScreen());
 					}
 					else
 					{
-						FlxG.switchState(new MainMenuState());
+						FlxG.switchState(new UpdateScreen());
 					}
 				}
 				
 				http.onError = function (error) {
 				  trace('error: $error');
-				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
+				  FlxG.switchState(new UpdateScreen()); // fail but we go anyway
 				}
 				
 				http.request();

@@ -238,6 +238,11 @@ class ResultsScreen extends FlxSubState
             {
                 FlxG.sound.playMusic(Paths.music('freakyMenu'));
                 Conductor.changeBPM(102);
+                if (${PlayState.storyDifficulty} == 2 && ${PlayState.storyWeek} == 1 && !FlxG.save.data.rebeats){
+                    FlxG.save.data.rebeats = true;
+                     FlxG.save.flush();
+                    FlxG.switchState(new RewardScreen());
+                }else
                 FlxG.switchState(new MainMenuState());
             }
             else

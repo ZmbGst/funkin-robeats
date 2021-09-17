@@ -3219,8 +3219,7 @@ class PlayState extends MusicBeatState
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
-					if(storyDifficulty == 2 && storyWeek == 1){
-						FlxG.save.data.rebeats = true;
+					if(storyDifficulty == 2 && storyWeek == 1 && !FlxG.save.data.rebeats){
 						rebeatsUnlocked = true;//so fun fact, you shouldn't use variables to determine if something should be saved or not because variables get reset after closing something (probably something to do with memory)
 											   //so unless you got a seperate document that youre writing on that has the data or whatever, use the program's FlxG.save feature to save info between game sessions
 					}

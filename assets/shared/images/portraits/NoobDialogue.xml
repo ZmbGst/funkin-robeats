@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="NoobDialogue.png">
+	<!-- Created with Adobe Animate version 21.0.8.42666 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Noob Animation0000" x="0" y="0" width="308" height="582"/>
+	<SubTexture name="Noob Animation0001" x="310" y="0" width="308" height="582"/>
+	<SubTexture name="Noob Animation0002" x="620" y="0" width="308" height="582"/>
+	<SubTexture name="Noob Animation0003" x="930" y="0" width="308" height="582"/>
+</TextureAtlas>
