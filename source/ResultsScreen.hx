@@ -67,7 +67,7 @@ class ResultsScreen extends FlxSubState
 
         if (!PlayState.inResults) 
         {
-            if (${PlayState.SONG.song} == 'Lemon Summer One')//cinematrography
+            if (${PlayState.SONG.song} == 'Lemon Summer')//cinematrography
             {
                 if (${PlayState.instance.accuracy} >= 92.00)
                 {
@@ -238,9 +238,9 @@ class ResultsScreen extends FlxSubState
             {
                 FlxG.sound.playMusic(Paths.music('freakyMenu'));
                 Conductor.changeBPM(102);
-                if (${PlayState.storyDifficulty} == 2 && ${PlayState.storyWeek} == 1 && !FlxG.save.data.rebeats){
-                    FlxG.save.data.rebeats = true;
-                     FlxG.save.flush();
+                if (${PlayState.storyDifficulty} == 2 && ${PlayState.storyWeek} == 2 && !FlxG.save.data.rebeats){
+                    FlxG.save.data.rebeats = true; //you only unlock rebeats by 
+                    FlxG.save.flush();
                     FlxG.switchState(new RewardScreen());
                 }else
                 FlxG.switchState(new MainMenuState());
@@ -308,7 +308,7 @@ class ResultsScreen extends FlxSubState
             poop = Highscore.formatSong(PlayState.rep.replay.songName, PlayState.rep.replay.songDiff);
             #end
 
-            if (${PlayState.SONG.song} != 'Lemon Summer One'){ 
+            if (${PlayState.SONG.song} != 'Lemon Summer'){ 
            music.fadeOut(0.3);
             fanfare.fadeOut(0.3);
             cheer.fadeOut(0.3);}
@@ -350,7 +350,7 @@ class ResultsScreen extends FlxSubState
             var poop:String = Highscore.formatSong(songFormat, PlayState.storyDifficulty);
 
             if (music != null){
-                if (${PlayState.SONG.song} != 'Lemon Summer One'){ 
+                if (${PlayState.SONG.song} != 'Lemon Summer'){ 
            music.fadeOut(0.3);
             fanfare.fadeOut(0.3);
             cheer.fadeOut(0.3);}}

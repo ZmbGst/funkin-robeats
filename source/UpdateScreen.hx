@@ -18,6 +18,7 @@ class UpdateScreen extends MusicBeatState
 
 	var button:FlxSprite;
 	var box:FlxSprite;
+	var stopSpamming:Bool = false;
 
 	override function create()
 	{
@@ -46,17 +47,21 @@ class UpdateScreen extends MusicBeatState
 	{
 		if (controls.ACCEPT)
 		{
-			button.offset.x +=33;
-			button.offset.y +=33;
+			if(!stopSpamming){
+				stopSpamming = true;
+				button.offset.x +=33;
+				button.offset.y +=33;
 			
-			button.animation.play('press');
-			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-			new FlxTimer().start (0.2, function(tmr:FlxTimer){
-				FlxTween.tween(box,{alpha:0},0.5); //lol this isnt efficient
-			});
-			new FlxTimer().start (0.8, function(tmr:FlxTimer){
-				FlxG.switchState(new MainMenuState());
-			});
+				button.animation.play('press');
+				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+				new FlxTimer().start (0.2, function(tmr:FlxTimer){
+					FlxTween.tween(box,{alpha:0},0.5); //lol this isnt efficient
+				});
+				new FlxTimer().start (0.8, function(tmr:FlxTimer){
+					FlxG.switchState(new MainMenuState());
+				});
+			}
+			
 			
 		}
 		super.update(elapsed);

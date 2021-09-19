@@ -456,12 +456,14 @@ class PlayState extends MusicBeatState
 		{
 			case 'tutorial':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialog'));
-			case 'lemon-summer-one':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer-one/dialog'));
-			case 'roses':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/roses/rosesDialogue'));
-			case 'thorns':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/thorns/thornsDialogue'));
+			case 'shelter':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/shelter/dialog'));
+			case 'alone':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/alone/dialog'));
+			case 'friends':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/friends/dialog'));
+			case 'lemon-summer':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialog'));
 		}
 
 		// defaults if no stage was found in chart
@@ -1087,9 +1089,13 @@ class PlayState extends MusicBeatState
 					});
 				case 'tutorial':
 					schoolIntro(doof);
-				case 'lemon-summer-one':
+				case 'shelter':
 					schoolIntro(doof);
-				case 'thorns':
+				case 'alone':
+					schoolIntro(doof);
+				case 'friends':
+					schoolIntro(doof);
+				case 'lemon-summer':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -1140,7 +1146,7 @@ class PlayState extends MusicBeatState
 		{
 			black.alpha -= 0.15;
 
-			if (black.alpha > 0)
+			if (black.alpha > 0.9)
 			{
 				tmr.reset(0.3);
 			}
@@ -1294,7 +1300,7 @@ class PlayState extends MusicBeatState
 				case 0:
 					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 					if (isStoryMode) {
-						if(curSong == 'Lemon Summer One'){
+						if(curSong == 'Lemon Summer'){
 							FlxG.sound.play(Paths.sound('boo'), 0.6, false);
 						}
 						else if (curSong == 'Tutorial'){ 
@@ -1564,15 +1570,15 @@ class PlayState extends MusicBeatState
 			#end
 		}
 		if (isStoryMode){
-		if (SONG.song.toLowerCase() == 'tutorial' ||SONG.song.toLowerCase() == 'lemon summer one')
-			{trace('went to the function');
-			FlxG.sound.music.onComplete = stolenFromBobBosip;}
-		}
-			
-		else {
-			FlxG.sound.music.onComplete = endSong;}
-		vocals.play();
-
+			if (SONG.song.toLowerCase() == 'tutorial' ||SONG.song.toLowerCase() == 'lemon summer'||SONG.song.toLowerCase() == 'friends'){
+				trace('went to the function');
+				FlxG.sound.music.onComplete = stolenFromBobBosip;
+			}
+			}
+			else {
+				FlxG.sound.music.onComplete = endSong;}
+			vocals.play();
+		
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 
@@ -3076,10 +3082,10 @@ class PlayState extends MusicBeatState
 		camZooming = false;
 		canPause = false;
 		FlxG.sound.music.stop();
-		vocals.stop();
+		vocals.volume = 0;
 		if (curSong == 'Tutorial')
 		{
-			if (accuracy >= 50.00){
+			if (accuracy >= 70.00){
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialogend'));
 			}
 			else 
@@ -3087,14 +3093,19 @@ class PlayState extends MusicBeatState
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialogendbad'));
 			}
 		}
-		if (curSong == 'Lemon Summer One')
+		if (curSong == 'Friends')
+		{
+			endDialog = CoolUtil.coolTextFile(Paths.txt('data/friends/dialogend'));
+		}
+		if (curSong == 'Lemon Summer')
 		{
 			if (accuracy >= 92.00){
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer-one/dialogendbad'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialogendbad'));
 			}
 			else 
 			{
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer-one/dialogend'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialogend'));
+				FlxTween.tween(boyfriend,{alpha:1},2);	
 
 			}
 		}
@@ -3219,7 +3230,7 @@ class PlayState extends MusicBeatState
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
-					if(storyDifficulty == 2 && storyWeek == 1 && !FlxG.save.data.rebeats){
+					if(storyDifficulty == 2 && storyWeek == 2 && !FlxG.save.data.rebeats){
 						rebeatsUnlocked = true;//so fun fact, you shouldn't use variables to determine if something should be saved or not because variables get reset after closing something (probably something to do with memory)
 											   //so unless you got a seperate document that youre writing on that has the data or whatever, use the program's FlxG.save feature to save info between game sessions
 					}
@@ -4285,22 +4296,22 @@ class PlayState extends MusicBeatState
 		}
 		#end
 		
-		if (curStep == 300 && curSong == 'Lemon Summer One')
+		if (curStep == 288 && curSong == 'Lemon Summer')
 					{
 					bgTwo.visible = true;
-					FlxTween.tween(bgOne,{alpha:0},4);
+					FlxTween.tween(bgOne,{alpha:0},5);
 					trace('poopie');
 			
 					}
-		if (curStep == 1116 && curSong == 'Lemon Summer One')
+		if (curStep == 1104 && curSong == 'Lemon Summer')
 					{
 					bgThree.visible = true;
 					FlxTween.tween(bgTwo,{alpha:0},2);
 					trace('poopie');
 					}
-		if (curStep == 1364 && curSong == 'Lemon Summer One')
+		if (curStep == 1232 && curSong == 'Lemon Summer')
 					{
-					FlxTween.tween(boyfriend,{alpha:0},3);					
+					FlxTween.tween(boyfriend,{alpha:0},14);					
 					trace('poopie');
 					}
 

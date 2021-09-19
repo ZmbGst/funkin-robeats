@@ -34,6 +34,7 @@ class DialogueBox extends FlxSpriteGroup
 	public var noMusic = false;
 	public var goodNumber:Int;
 	public var badNumber:Int;
+	public var viewer:String = 'one';
 
 
 	var portraitLeft:FlxSprite;
@@ -45,6 +46,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
+	var baseColor:FlxSprite;
 
 	public function new(talkingRight:Bool = true, ?dialogueList:Array<String>)
 	{
@@ -55,7 +57,7 @@ class DialogueBox extends FlxSpriteGroup
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			case 'lemon summer one':
+			case 'lemon summer':
 				if(${PlayState.instance.accuracy} >= 92.00){
 					FlxG.sound.playMusic(Paths.music('silence'), 0);//lol everytime i do this without a playMusic thing, the previous song continues playing
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
@@ -71,11 +73,12 @@ class DialogueBox extends FlxSpriteGroup
 		}
 		
 
-
-
-		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
+		bgFade = new FlxSprite(0, 0).loadGraphic(Paths.image('bgpurple'));
 		bgFade.scrollFactor.set();
 		bgFade.alpha = 0;
+
+		baseColor = new FlxSprite(0.0).makeGraphic(Std.int(bgFade.width), Std.int(bgFade.height), FlxColor.BLACK);
+		add(baseColor);
 		add(bgFade);
 
 		 if (${PlayState.SONG.song} != 'Tutorial'){
@@ -84,7 +87,7 @@ class DialogueBox extends FlxSpriteGroup
 			bgFade.alpha += (1 / 5) * 0.7;
 			if (bgFade.alpha > 0.7)
 				bgFade.alpha = 0.7;
-		}, 5);}
+		}, 7);}
 
 		box = new FlxSprite(-20, 45);
 		
@@ -126,7 +129,7 @@ class DialogueBox extends FlxSpriteGroup
 			return;
 		
 		portraitLeft = new FlxSprite(200, 40);
-		portraitLeft.frames = Paths.getSparrowAtlas('portraits/NoobDialogue', 'shared');
+		portraitLeft.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
 		portraitLeft.animation.addByPrefix('enter', 'Noob Animation', 24, false);
 		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 		portraitLeft.updateHitbox();
@@ -134,31 +137,31 @@ class DialogueBox extends FlxSpriteGroup
 		add(portraitLeft);
 		portraitLeft.visible = false;
 
-		portraitRight = new FlxSprite(0, 40);
-		portraitRight.frames = Paths.getSparrowAtlas('portraitstwo/testthree', 'shared');
-		portraitRight.animation.addByPrefix('enter', 'swiggity', 24, false);
-		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
+		portraitRight = new FlxSprite(740, 140);
+		portraitRight.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
+		portraitRight.animation.addByPrefix('enter', 'Bf Animation', 24, false);
+		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.175));
 		portraitRight.updateHitbox();
 		portraitRight.scrollFactor.set();
 		add(portraitRight);
 		portraitRight.visible = false;
 
-		portraitGirlfriend= new FlxSprite(-20, 40);
-		portraitGirlfriend.frames = Paths.getSparrowAtlas('portraits/testtwo', 'shared');
-		portraitGirlfriend.animation.addByPrefix('enter', 'testtwo', 24, false);
-		portraitGirlfriend.setGraphicSize(Std.int(portraitGirlfriend.width * PlayState.daPixelZoom * 0.9));
+		portraitGirlfriend= new FlxSprite(780, 140);
+		portraitGirlfriend.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
+		portraitGirlfriend.animation.addByPrefix('enter', 'Gf Animation', 24, false);
+		portraitGirlfriend.setGraphicSize(Std.int(portraitGirlfriend.width * PlayState.daPixelZoom * 0.175));
 		portraitGirlfriend.updateHitbox();
 		portraitGirlfriend.scrollFactor.set();
 		add(portraitGirlfriend);
 		portraitGirlfriend.visible = false;
 
-		portraitExtra = new FlxSprite(-60,0);
+		portraitExtra = new FlxSprite(200, 40);
 		portraitExtra.frames = Paths.getSparrowAtlas('viewers/thePeeps', 'shared');
 		for(i in 0...4){
 			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);
 			
 		}
-		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.5));
+		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.175));
 		portraitExtra.updateHitbox();
 		portraitExtra.scrollFactor.set();
 		add(portraitExtra);
@@ -212,7 +215,7 @@ class DialogueBox extends FlxSpriteGroup
 				opponent = "Girlfriend";
 			case 'bibi' | 'bad apple' | 'insight':
 				opponent = "Chrisu";
-			case 'lemon summer one' | 'space battle' | 'freedom dive' | 'dark sheep':
+			case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':
 				opponent = "Spotco";
 			case 'rebeats':
 				opponent = "Trash Kitty";
@@ -271,6 +274,7 @@ class DialogueBox extends FlxSpriteGroup
 					new FlxTimer().start(0.2, function(tmr:FlxTimer)
 					{
 						box.alpha -= 1 / 5;
+						baseColor.alpha -= 1 / 5 * 0.7;
 						bgFade.alpha -= 1 / 5 * 0.7;
 						portraitLeft.visible = false;
 						portraitRight.visible = false;
@@ -306,6 +310,17 @@ class DialogueBox extends FlxSpriteGroup
 				speakerText.x = x;
 				speakerText.y = y;
 	}
+
+	/*/public function loadOffsetFile(viewer:String)
+	{
+		var offset:Array<String> = CoolUtil.coolTextFile(Paths.txt('images/viewers/viewersOffsets','shared'));
+
+		for (i in 0...offset.length)
+		{
+			var data:Array<String> = offset[i].split(' ');
+			addOffset(data[0], Std.parseInt(data[1]), Std.parseInt(data[2]));
+		}
+	}/*/
 
 	function startDialogue():Void
 	{

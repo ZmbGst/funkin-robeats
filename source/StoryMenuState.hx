@@ -28,7 +28,8 @@ class StoryMenuState extends MusicBeatState
 	{
 		return [
 			['Tutorial'],
-			['Lemon Summer One'],
+			['Shelter','Alone','Friends'],
+			['Lemon Summer'],
 		];
 	}
 	var curDifficulty:Int = 1;
@@ -37,6 +38,7 @@ class StoryMenuState extends MusicBeatState
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 	];
 

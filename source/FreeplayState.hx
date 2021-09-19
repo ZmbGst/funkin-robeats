@@ -80,8 +80,12 @@ class FreeplayState extends MusicBeatState
 			if(!(data[0]=='Rebeats')){ //I feel bad for stealing code this is from the QT mod
 				songs.push(meta);
 			}
-			if(FlxG.save.data.rebeats && data[0]=='Rebeats')
+			if(FlxG.save.data.rebeats && data[0]=='Rebeats'){
 				songs.push(meta);
+				trace('rebeats added');
+			} else
+			trace ('rebeats not added');
+				
 			
 			var format = StringTools.replace(meta.songName, " ", "-");
 			switch (format) {

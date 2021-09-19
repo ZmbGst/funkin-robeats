@@ -82,7 +82,7 @@ Adding a camera in rebeats fucks up every other song (bf sings dad's parts, dad 
 Weeks and songs have to be re-added
 
 Made Week 3 Song 3 programming to my liking
-Added extra bells and whistles (custom menu bg, robeats text / font, splashers by https://twitter.com/peakjuggler
+Added extra bells and whistles (custom menu bg, robeats text / font)
 
 I'm hoping this'll be the last update before we launch everything, fingers crossed y'all will love it.
 

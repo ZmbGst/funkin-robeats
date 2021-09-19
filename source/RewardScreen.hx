@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.app.Application;
@@ -23,6 +24,7 @@ class RewardScreen extends MusicBeatState
 	var congrats:FlxText; 
 	var button:FlxSprite;
 	var danceLeft:Bool = false;
+	var stopSpamming:Bool = false;
 
 	override function create()
 	{
@@ -30,6 +32,7 @@ class RewardScreen extends MusicBeatState
 
 		super.create();
 		var bg:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('bgpurple'));
+		var frame:FlxSprite = new FlxSprite(bg.x, bg.y).loadGraphic(Paths.image('frame'));
 		
 		gfDance = new FlxSprite(FlxG.width*0.35,FlxG.height*0.15);
 		gfDance.frames = Paths.getSparrowAtlas('characters/GF_assets', 'shared');
@@ -45,34 +48,41 @@ class RewardScreen extends MusicBeatState
 			}
 		
 		
-		song = new FlxSprite(250, 150).loadGraphic(Paths.image('one/cover arts/rebeats', 'shared'));
+		song = new FlxSprite(225, 150).loadGraphic(Paths.image('one/cover arts/rebeats', 'shared'));
 		song.setGraphicSize(Std.int(song.width * 0.675));
 		song.updateHitbox();
 
-		var songBorder:FlxSprite = new FlxSprite(song.x-20, song.y-20).makeGraphic(Std.int(song.width * 1.1375), Std.int(song.height *  1.1375), FlxColor.BLUE);
+		var songBorder:FlxSprite = new FlxSprite(song.x-28.5, song.y-28.5).loadGraphic(Paths.image('songFrame'));
+		songBorder.setGraphicSize(Std.int(song.width * 1.1375), Std.int(song.height *  1.1375));
 
-
+		var fanfare:FlxSound = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
+            FlxG.sound.list.add(fanfare);
 		
-		add(bg);	
-		add(gfDance);
-		add(songBorder);
-		add(song);
 		
 
-		button = new FlxSprite(1050, 500);
+		button = new FlxSprite(930, 450);
 		button.frames = Paths.getSparrowAtlas('buttonShit', 'preload');
 		button.animation.addByPrefix('idle', 'buttonIdle', 24, false);
 		button.animation.addByPrefix('press','buttonConfirm0', 24, false);
 		button.setGraphicSize(Std.int(button.width * 0.45));
 		button.updateHitbox();
 		button.animation.play('idle');
-		add(button);
-		FlxG.camera.fade(FlxColor.BLACK, 0.8, true);
 
-		congrats = new FlxText(100, 50, Std.int(FlxG.width * 0.9), "Congrats, you unlocked a new song in Freeplay!", 50);
+		//FlxG.camera.fade(FlxColor.BLACK, 0.8, true);
+
+		congrats = new FlxText(72, 50, Std.int(FlxG.width * 0.9), "Congrats, you unlocked a new song in Freeplay!", 50);
 		congrats.color = 0xFFFFEA00;
 		congrats.font = 'Righteous';
+		
+		add(bg);	
+		add(gfDance);
+		add(songBorder);
+		add(song);
 		add(congrats);
+		add(frame);
+		add(button);
+		
+		fanfare.play(true, 0, fanfare.length);
 
 		Conductor.changeBPM(102);
 	}
@@ -98,17 +108,21 @@ class RewardScreen extends MusicBeatState
 		Conductor.songPosition = FlxG.sound.music.time;
 		if (controls.ACCEPT)
 		{
-			button.offset.x +=33;
-			button.offset.y +=33;
+			if(!stopSpamming){
+				stopSpamming = true;
+				button.offset.x +=33;
+				button.offset.y +=33;
 			
-			button.animation.play('press');
-			gfDance.animation.remove('danceRight');
-			gfDance.animation.remove('danceLeft');
-			gfDance.animation.play('cheer');
-			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-			new FlxTimer().start (1, function(tmr:FlxTimer){
-				FlxG.switchState(new MainMenuState());
+				button.animation.play('press');
+				gfDance.animation.remove('danceRight');
+				gfDance.animation.remove('danceLeft');
+				gfDance.animation.play('cheer');
+				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+				new FlxTimer().start (1, function(tmr:FlxTimer){
+					FlxG.switchState(new MainMenuState());
 			});
+			}
+			
 			
 		}
 		super.update(elapsed);

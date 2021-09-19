@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Dialogue.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Bf Animation0000" x="0" y="584" width="417" height="279"/>
+	<SubTexture name="Bf Animation0001" x="419" y="584" width="417" height="279"/>
+	<SubTexture name="Bf Animation0002" x="838" y="584" width="417" height="279"/>
+	<SubTexture name="Bf Animation0003" x="1240" y="0" width="417" height="279"/>
+	<SubTexture name="Gf Animation0000" x="1240" y="281" width="312" height="275"/>
+	<SubTexture name="Gf Animation0001" x="1257" y="558" width="312" height="275"/>
+	<SubTexture name="Gf Animation0002" x="1554" y="281" width="312" height="275"/>
+	<SubTexture name="Gf Animation0003" x="1659" y="0" width="312" height="275"/>
+	<SubTexture name="Noob Animation0000" x="0" y="0" width="308" height="582"/>
+	<SubTexture name="Noob Animation0001" x="310" y="0" width="308" height="582"/>
+	<SubTexture name="Noob Animation0002" x="620" y="0" width="308" height="582"/>
+	<SubTexture name="Noob Animation0003" x="930" y="0" width="308" height="582"/>
+</TextureAtlas>

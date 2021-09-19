@@ -1,4 +1,6 @@
 Tutorial:gf:0
-Lemon Summer One:noob:1
 Shelter:noob:1
+Alone:noob:1
+Friends:noob:1
+Lemon Summer:spotco:3
 Rebeats:kitty:4

@@ -803,6 +803,9 @@ class LockWeeksOption extends Option
 		StoryMenuState.weekUnlocked = [true, true];
 		trace('Weeks Locked');
 		display = updateDisplay();
+		FlxG.save.data.rebeats = false;
+        FlxG.save.flush();
+		trace('rebeats is dead');
 		return true;
 	}
 
