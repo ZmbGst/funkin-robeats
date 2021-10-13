@@ -130,7 +130,21 @@ class DialogueBox extends FlxSpriteGroup
 		
 		portraitLeft = new FlxSprite(200, 40);
 		portraitLeft.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
-		portraitLeft.animation.addByPrefix('enter', 'Noob Animation', 24, false);
+
+		//all of these switch statements are determined by songs as opposed to weeks because the people speaking for these songs are the ones going to sing
+		switch (PlayState.SONG.song.toLowerCase())
+		{
+			case 'shelter' | 'alone' | 'friends': 
+				portraitLeft.animation.addByPrefix('enter', 'Noob Animation', 24, false);
+			case 'bibi' | 'bad apple' | 'insight':	
+				portraitLeft.animation.addByPrefix('enter', 'Chrisu Animation', 24, false);
+			case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':
+				portraitLeft.animation.addByPrefix('enter', 'Spotco Animation', 24, false);
+			default:
+				portraitLeft.animation.addByPrefix('enter', 'Gf Animation', 24, false);
+				trace ('wrong image');
+		}
+		
 		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
@@ -213,6 +227,8 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			case 'tutorial':
 				opponent = "Girlfriend";
+			case 'shelter' | 'alone' | 'friends':
+				opponent = "Noob";
 			case 'bibi' | 'bad apple' | 'insight':
 				opponent = "Chrisu";
 			case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':

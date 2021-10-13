@@ -23,8 +23,6 @@ class GameplayCustomizeState extends MusicBeatState
     var defaultY:Float = FlxG.height / 2 - 50;
 
     var background:FlxSprite;
-    var curt:FlxSprite;
-    var front:FlxSprite;
 
     var sick:FlxSprite;
 
@@ -48,10 +46,8 @@ class GameplayCustomizeState extends MusicBeatState
 
         sick = new FlxSprite().loadGraphic(Paths.image('sick','shared'));
         sick.scrollFactor.set();
-        background = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback','shared'));
-        curt = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains','shared'));
-        front = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront','shared'));
-
+        background = new FlxSprite(-330, -70).loadGraphic(Paths.image('one/djzero', 'shared'));
+        
 		//Conductor.changeBPM(102);
 		persistentUpdate = true;
 
@@ -62,20 +58,17 @@ class GameplayCustomizeState extends MusicBeatState
         FlxG.cameras.add(camHUD);
 
         background.scrollFactor.set(0.9,0.9);
-        curt.scrollFactor.set(0.9,0.9);
-        front.scrollFactor.set(0.9,0.9);
+        
 
         add(background);
-        add(front);
-        add(curt);
 
 		var camFollow = new FlxObject(0, 0, 1, 1);
 
-		dad = new Character(100, 100, 'dad');
+		dad = new Character(224, 80, 'noob');
 
-        bf = new Boyfriend(770, 450, 'bf');
+        bf = new Boyfriend(770, 290, 'bf');
 
-        gf = new Character(400, 130, 'gf');
+        gf = new Character(300, 25, 'gf');
 		gf.scrollFactor.set(0.95, 0.95);
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x + 400, dad.getGraphicMidpoint().y);

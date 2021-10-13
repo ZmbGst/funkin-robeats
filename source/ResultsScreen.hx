@@ -308,10 +308,11 @@ class ResultsScreen extends FlxSubState
             poop = Highscore.formatSong(PlayState.rep.replay.songName, PlayState.rep.replay.songDiff);
             #end
 
-            if (${PlayState.SONG.song} != 'Lemon Summer'){ 
+          /*/  if (${PlayState.SONG.song} != 'Lemon Summer'){ 
            music.fadeOut(0.3);
             fanfare.fadeOut(0.3);
-            cheer.fadeOut(0.3);}
+            cheer.fadeOut(0.3);
+            }/*/
 
             if (PlayState.isSM)
                 PlayState.SONG = Song.loadFromJsonRAW(poop);
@@ -349,11 +350,11 @@ class ResultsScreen extends FlxSubState
 
             var poop:String = Highscore.formatSong(songFormat, PlayState.storyDifficulty);
 
-            if (music != null){
+           /*/ if (music != null){
                 if (${PlayState.SONG.song} != 'Lemon Summer'){ 
            music.fadeOut(0.3);
             fanfare.fadeOut(0.3);
-            cheer.fadeOut(0.3);}}
+            cheer.fadeOut(0.3);}}/*/
 
             PlayState.SONG = Song.loadFromJson(poop, PlayState.SONG.song);
             PlayState.isStoryMode = false;

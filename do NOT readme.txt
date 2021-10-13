@@ -12,13 +12,17 @@
                                       /      /                                    
                                                                                   
 ##################################################################################
-i stole this from stamper.
+ninjamuffin stole this from stamper.
 
 ##############################################################################################################################################################
-omg wow I'm supposed to be working on week 3 bg before I fly to california but I'm instead typing stuff.
-anyways heres all the other info / credits
+Thanks for downloading the Friday Night Funkin Featuring Robeats mod. We spent a very very long time on this mod and are glad you decided to check it out
+Here's all the important stuff
 
-Robeats is a MMO Rhtyhm game where people compete in 4 player rhythm battles, acquiring coins to spend on new songs and gear. Theres over 200 unique songs to play and is pretty swag, you should play it. https://www.roblox.com/games/698448212. Oh yeah forgot to mention, its a Roblox game oops.
+
+Robeats is a MMO Rhtyhm game where people compete in 4 player rhythm battles, acquiring coins to spend on new songs and gear. Theres over 200 unique songs to play and is pretty swag
+you should play it. https://www.roblox.com/games/698448212. 
+Oh yeah forgot to mention, its a Roblox game oops.
+
 
 FnF Featuring Robeats is made by
 
@@ -27,8 +31,7 @@ FnF Featuring Robeats is made by
 *NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
 fuzzybrexth (musician) - https://www.roblox.com/users/108915438/profile
 blah133134 (musician) - https://www.roblox.com/users/136455748/profile
-pierceisdyinglol (asset extractor/mapper) - https://www.roblox.com/users/71887421/profile
-*ZmbGst (artist/programmer/storywriter/mapper) - https://twitter.com/ZmbGst
+*ZmbGst (artist/programmer/animator/storywriter/mapper) - https://twitter.com/ZmbGst
 Kaiden (storywriter) - https://www.roblox.com/users/1480439134/profile
 *RoDanxxx (storywriter) - https://www.roblox.com/users/630642715/profile
 Technical_Sleepy (mapper) - https://www.roblox.com/users/147763448/profile
@@ -38,14 +41,9 @@ doofyplayer (mapper) - https://www.roblox.com/users/127036995/profile
 TheRussean (mapper) - https://www.roblox.com/users/474197899/profile
 Zembonics (mapper) - https://www.roblox.com/users/544940271/profile
 
-and of course
-https://www.roblox.com/games/698448212 thats Robeats btw, check it out
-
 wow thats a lot of people, but thats because we care about this mod a lot
 Robeats is a fun game and many of our first introductions to rhythm games, so this mod is sorta a gift back
 kinda
-
-
 
 
 Credits:
@@ -59,8 +57,10 @@ Credits:
 - RoBeats! Is currently run by spotco, Dopheide, and many notable contributors from Gamefam
 - "Monday Night Monsters," "Walkin' 'n' Strollin'," and "Show's Over" are RoBeats original songs by FinnMK
 - "Window Cleaner - Menu" is composed by Joshua Kaplan / http://openheartsound.com/
+- Official Robeats assets were acquired from pierceisdyinglol https://www.roblox.com/users/71887421/profile
 - Some hands were borrowed from https://twitter.com/esimplyj/status/1413036302644228097?s=21
 - Meowing from https://www.roblox.com/users/158507862/profile
+
 
 - week 1 opponent is a noob lol just look a picture of a noob
 - week 2 opponent is ChristsuYT https://www.youtube.com/channel/UC_D9wrmnZR4bqS8RmmqELQg
@@ -68,8 +68,8 @@ Credits:
 - secret song opponent is created by Terces https://www.roblox.com/users/72532056/profile
 
 
-One more thing, this mod has a lot of fan-canon (i think the term is called? Basically the story / settings have been altered to fit a better narrative and shouldn't
-be used to judge an irl character's personality / the game itself) so a lot of it is fiction based on the game and its culture. I highly recommend playing the Roblox game
+One more thing, this mod has a lot of fan-canon (i think the term is called? Basically the story / settings have been altered to fit a better narrative and aren't representative of
+an irl character's personality / the game itself) so a lot of it is fiction based on the game and its culture. I highly recommend playing the Roblox game
 to get a better idea on what the game is about. Consider this the "foot in the door" if you've never played the game. 
 --------------------------------------------------------------------------------------
 

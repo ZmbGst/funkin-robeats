@@ -945,7 +945,7 @@ class PlayState extends MusicBeatState
 			songPosBar = new FlxBar(songPosBG.x + 4, songPosBG.y + 4, LEFT_TO_RIGHT, Std.int(songPosBG.width - 8), Std.int(songPosBG.height - 8), this,
 				'songPositionBar', 0, 90000);
 			songPosBar.scrollFactor.set();
-			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
+			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.CYAN);
 			add(songPosBar);
 
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - (SONG.song.length * 5), songPosBG.y, 0, SONG.song, 16);
@@ -3369,6 +3369,7 @@ class PlayState extends MusicBeatState
 
 		if (daRating != 'shit' || daRating != 'bad')
 		{
+			
 			songScore += Math.round(score);
 			songScoreDef += Math.round(ConvertScore.convertScore(noteDiff));
 
@@ -3391,8 +3392,9 @@ class PlayState extends MusicBeatState
 
 			rating.loadGraphic(Paths.image(pixelShitPart1 + daRating + pixelShitPart2));
 			rating.screenCenter();
-			rating.y -= 50;
-			rating.x = coolText.x - 125;
+			rating.y = playerStrums.members[daNote.noteData].y;
+			rating.x = daNote.x;
+			
 
 			if (FlxG.save.data.changedHit)
 			{
@@ -3417,8 +3419,10 @@ class PlayState extends MusicBeatState
 			timeShown = 0;
 			switch (daRating)
 			{
-				case 'shit' | 'bad':
+				case 'shit':
 					currentTimingShown.color = FlxColor.RED;
+				case 'bad':
+					currentTimingShown.color = FlxColor.YELLOW;
 				case 'good':
 					currentTimingShown.color = FlxColor.GREEN;
 				case 'sick':
@@ -3428,7 +3432,7 @@ class PlayState extends MusicBeatState
 			currentTimingShown.borderSize = 1;
 			currentTimingShown.borderColor = FlxColor.BLACK;
 			currentTimingShown.text = msTiming + "ms";
-			currentTimingShown.size = 20;
+			currentTimingShown.size = 26;
 
 			if (msTiming >= 0.03 && offsetTesting)
 			{
@@ -3452,19 +3456,30 @@ class PlayState extends MusicBeatState
 			if (currentTimingShown.alpha != 1)
 				currentTimingShown.alpha = 1;
 
-			if (!PlayStateChangeables.botPlay || loadRep)
-				add(currentTimingShown);
+			var comboCir:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
+			comboCir.screenCenter();
+			comboCir.x =  currentTimingShown.x + 400;
+			comboCir.y += currentTimingShown.y - 40;
+			comboCir.acceleration.y = 400;
+			comboCir.velocity.y -= 150;
+			comboCir.setGraphicSize(Std.int(comboCir.width * daPixelZoom * 0.13));
 
-			var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
+			if (!PlayStateChangeables.botPlay || loadRep){
+				add(comboCir);
+				add(currentTimingShown);
+				}
+
+
+			var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2)); //flushed why do I have this 
 			comboSpr.screenCenter();
-			comboSpr.x = rating.x;
-			comboSpr.y = rating.y + 100;
+			comboSpr.x =  coolText.x - 125;
+			comboSpr.y += 50;
 			comboSpr.acceleration.y = 600;
 			comboSpr.velocity.y -= 150;
 
 			currentTimingShown.screenCenter();
-			currentTimingShown.x = comboSpr.x + 100;
-			currentTimingShown.y = rating.y + 100;
+			currentTimingShown.x = comboSpr.x-20;
+			currentTimingShown.y = comboSpr.y + 60; //uhh wtf did I do here?
 			currentTimingShown.acceleration.y = 600;
 			currentTimingShown.velocity.y -= 150;
 
@@ -3494,10 +3509,12 @@ class PlayState extends MusicBeatState
 
 			currentTimingShown.updateHitbox();
 			comboSpr.updateHitbox();
+			comboCir.updateHitbox();
 			rating.updateHitbox();
 
 			currentTimingShown.cameras = [camHUD];
 			comboSpr.cameras = [camHUD];
+			comboCir.cameras = [camHUD];
 			rating.cameras = [camHUD];
 
 			var seperatedScore:Array<Int> = [];
@@ -3527,8 +3544,8 @@ class PlayState extends MusicBeatState
 			{
 				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
 				numScore.screenCenter();
-				numScore.x = rating.x + (43 * daLoop) - 50;
-				numScore.y = rating.y + 100;
+				numScore.x = comboCir.x + (34 * daLoop)+36;
+				numScore.y = comboCir.y + 140;
 				numScore.cameras = [camHUD];
 
 				if (!curStage.startsWith('school'))
@@ -3537,7 +3554,7 @@ class PlayState extends MusicBeatState
 						{
 							numScore.antialiasing = true;
 						}
-					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
+					numScore.setGraphicSize(Std.int(numScore.width * 0.45));
 				}
 				else
 				{
@@ -3551,7 +3568,7 @@ class PlayState extends MusicBeatState
 
 				add(numScore);
 
-				FlxTween.tween(numScore, {alpha: 0}, 0.2, {
+				FlxTween.tween(numScore, {alpha: 0}, 0.1, {
 					onComplete: function(tween:FlxTween)
 					{
 						numScore.destroy();
@@ -3594,6 +3611,16 @@ class PlayState extends MusicBeatState
 				startDelay: Conductor.crochet * 0.001
 			});
 
+			FlxTween.tween(comboCir, {alpha: 0}, 0.2, {
+				startDelay: Conductor.crochet * 0.002,
+				onUpdate: function(tween:FlxTween)
+				{
+					if (currentTimingShown != null)
+						currentTimingShown.alpha -= 0.02;
+					timeShown++;
+				}
+			});
+
 			curSection += 1;
 		}
 	}
@@ -3633,6 +3660,7 @@ class PlayState extends MusicBeatState
 			};
 			if (controls.RIGHT_P)
 			{
+
 				luaModchart.executeState('keyPressed', ["right"]);
 			};
 		};
@@ -4296,20 +4324,20 @@ class PlayState extends MusicBeatState
 		}
 		#end
 		
-		if (curStep == 288 && curSong == 'Lemon Summer')
+		if (curStep == 288 && curSong == 'Lemon Summer' && curStage == 'sheep')
 					{
 					bgTwo.visible = true;
 					FlxTween.tween(bgOne,{alpha:0},5);
 					trace('poopie');
 			
 					}
-		if (curStep == 1104 && curSong == 'Lemon Summer')
+		if (curStep == 1104 && curSong == 'Lemon Summer' && curStage == 'sheep')
 					{
 					bgThree.visible = true;
 					FlxTween.tween(bgTwo,{alpha:0},2);
 					trace('poopie');
 					}
-		if (curStep == 1232 && curSong == 'Lemon Summer')
+		if (curStep == 1232 && curSong == 'Lemon Summer' && curStage == 'sheep')
 					{
 					FlxTween.tween(boyfriend,{alpha:0},14);					
 					trace('poopie');

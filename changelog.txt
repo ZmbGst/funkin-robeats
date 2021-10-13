@@ -84,7 +84,23 @@ Weeks and songs have to be re-added
 Made Week 3 Song 3 programming to my liking
 Added extra bells and whistles (custom menu bg, robeats text / font)
 
-I'm hoping this'll be the last update before we launch everything, fingers crossed y'all will love it.
+I'm hoping this'll be the last update before we launch everything, fingers crossed y'all will love it. (edit: lol no)
 
 
-	
+## [0.4.0] (09-20-2021)
+
+###
+Omg its our first beta build its so cute. i kinda rushed it because one of our music producers is leaving to another country and we wanted to give him the build as a going away present.
+
+I think all base programming is done and now its just dumb debugging
+
+Week 1 songs are all done and mapped (we need some remaps)
+Week 2 songs are the same as before
+Week 3 song insts are all done and 25% of those songs have vocals 
+
+We got all of week 1 charts done (I copy pasted alone hard for this build, but its fine)
+Slow progress on week 2 / 3 charts
+
+I haven't worked on the trailer animation stuff besides stair paralax, but I'm going to hivemind on that now. 
+
+

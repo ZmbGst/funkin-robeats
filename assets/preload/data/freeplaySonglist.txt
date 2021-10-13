@@ -1,4 +1,4 @@
-Tutorial:gf:0
+Monday Night Monsters:gf:0
 Shelter:noob:1
 Alone:noob:1
 Friends:noob:1
