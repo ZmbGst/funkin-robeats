@@ -1276,7 +1276,7 @@ class PlayState extends MusicBeatState
 			boyfriend.playAnim('idle');
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-			introAssets.set('default', ['ready', "set", "go"]);
+			introAssets.set('default', ['ok', 'ready', "set", "go"]);
 			introAssets.set('school', ['weeb/pixelUI/ready-pixel', 'weeb/pixelUI/set-pixel', 'weeb/pixelUI/date-pixel']);
 			introAssets.set('schoolEvil', ['weeb/pixelUI/ready-pixel', 'weeb/pixelUI/set-pixel', 'weeb/pixelUI/date-pixel']);
 
@@ -1298,26 +1298,43 @@ class PlayState extends MusicBeatState
 
 			{
 				case 0:
+					var ok:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
+					ok.scrollFactor.set();
+					ok.updateHitbox();
+
+					ok.setGraphicSize(Std.int(ok.width * 0.75));
+					ok.screenCenter();
+					ok.y-=100;
+					add(ok);
+					FlxTween.tween(ok, {y: ok.y += 100, alpha: 0}, Conductor.crochet / 1000, {
+						ease: FlxEase.cubeInOut,
+						onComplete: function(twn:FlxTween)
+						{
+							ok.destroy();
+						}
+					});
+
+
 					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 					if (isStoryMode) {
-						if(curSong == 'Lemon Summer'){
+						if(curSong == 'Lemon Summer' || curSong == 'Insight'){
 							FlxG.sound.play(Paths.sound('boo'), 0.6, false);
 						}
-						else if (curSong == 'Tutorial'){ 
+						else if (curSong == 'Bibi Hendl' || curSong == 'Bad Apple'){ 
 							FlxG.sound.play(Paths.sound('startCheer'), 0.6, false);
 							trace('hooray');
 						}
 					}
 					
 				case 1:
-					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
+					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 					ready.scrollFactor.set();
 					ready.updateHitbox();
 
-					if (curStage.startsWith('school'))
-						ready.setGraphicSize(Std.int(ready.width * daPixelZoom));
+						ready.setGraphicSize(Std.int(ready.width * 0.75));
 
 					ready.screenCenter();
+					ready.y-=100;
 					add(ready);
 					FlxTween.tween(ready, {y: ready.y += 100, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
@@ -1328,13 +1345,13 @@ class PlayState extends MusicBeatState
 					});
 					FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
 				case 2:
-					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
+					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 					set.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
-						set.setGraphicSize(Std.int(set.width * daPixelZoom));
+						set.setGraphicSize(Std.int(set.width * 0.75));
 
 					set.screenCenter();
+					set.y-=100;
 					add(set);
 					FlxTween.tween(set, {y: set.y += 100, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
@@ -1345,15 +1362,15 @@ class PlayState extends MusicBeatState
 					});
 					FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
 				case 3:
-					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
+					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[3]));
 					go.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
-						go.setGraphicSize(Std.int(go.width * daPixelZoom));
+						go.setGraphicSize(Std.int(go.width * 1.5));
 
 					go.updateHitbox();
 
 					go.screenCenter();
+					go.y-=100;
 					add(go);
 					FlxTween.tween(go, {y: go.y += 100, alpha: 0}, Conductor.crochet / 1000, {
 						ease: FlxEase.cubeInOut,
@@ -4324,6 +4341,12 @@ class PlayState extends MusicBeatState
 		}
 		#end
 		
+		if (curStep == 2 && curSong == 'Bibi Hendl')
+			FlxG.sound.play(Paths.sound('announcer1'), 0.8, false);	
+		if (curStep == 672 && curSong == 'Bibi Hendl')
+			FlxG.sound.play(Paths.sound('announcer2'), 0.8, false);	
+
+		//dark sheep stuff
 		if (curStep == 288 && curSong == 'Lemon Summer' && curStage == 'sheep')
 					{
 					bgTwo.visible = true;
