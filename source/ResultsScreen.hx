@@ -69,7 +69,7 @@ class ResultsScreen extends FlxSubState
         {
             if (${PlayState.SONG.song} == 'Lemon Summer')//cinematrography
             {
-                if (${PlayState.instance.accuracy} >= 92.00)
+                if (${PlayState.instance.accuracy} >= 98.00)
                 {
                     noMusic = true;
                 }

@@ -27,9 +27,9 @@ class StoryMenuState extends MusicBeatState
 	static function weekData():Array<Dynamic>
 	{
 		return [
-			['Tutorial'],
+			['Monday Night Monsters'],
 			['Shelter','Alone','Friends'],
-			['Lemon Summer'],
+			['Bibi Hendl','Bad Apple','Lemon Summer'],
 		];
 	}
 	var curDifficulty:Int = 1;

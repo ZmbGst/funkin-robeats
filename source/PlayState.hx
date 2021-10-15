@@ -402,7 +402,7 @@ class PlayState extends MusicBeatState
 		persistentDraw = true;
 
 		if (SONG == null)
-			SONG = Song.loadFromJson('tutorial', 'tutorial');
+			SONG = Song.loadFromJson('monday-night-monsters', 'data/monday-night-monsters');
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
@@ -454,14 +454,18 @@ class PlayState extends MusicBeatState
 		// dialogue shit
 		switch (songLowercase)
 		{
-			case 'tutorial':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialog'));
+			case 'monday-night-monsters':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialog'));
 			case 'shelter':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/shelter/dialog'));
 			case 'alone':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/alone/dialog'));
 			case 'friends':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/friends/dialog'));
+			case 'bibi-hendl':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/bibi-hendl/dialog'));
+			case 'bad-apple':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/bad-apple/dialog'));
 			case 'lemon-summer':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialog'));
 		}
@@ -1087,18 +1091,10 @@ class PlayState extends MusicBeatState
 							});
 						});
 					});
-				case 'tutorial':
-					schoolIntro(doof);
-				case 'shelter':
-					schoolIntro(doof);
-				case 'alone':
-					schoolIntro(doof);
-				case 'friends':
-					schoolIntro(doof);
-				case 'lemon-summer':
-					schoolIntro(doof);
-				default:
+				case 'rebeats':
 					startCountdown();
+				default:
+					schoolIntro(doof);
 			}
 		}
 		else
@@ -1317,9 +1313,9 @@ class PlayState extends MusicBeatState
 
 					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 					if (isStoryMode) {
-						if(curSong == 'Lemon Summer' || curSong == 'Insight'){
+						if(curSong == 'Lemon Summer' || curSong == 'Insight')
 							FlxG.sound.play(Paths.sound('boo'), 0.6, false);
-						}
+						
 						else if (curSong == 'Bibi Hendl' || curSong == 'Bad Apple'){ 
 							FlxG.sound.play(Paths.sound('startCheer'), 0.6, false);
 							trace('hooray');
@@ -1380,7 +1376,7 @@ class PlayState extends MusicBeatState
 						}
 					});
 					if (curSong == 'Rebeats')
-					FlxG.sound.play(Paths.sound('mreow'),1,false);
+					FlxG.sound.play(Paths.sound('mreow'), 1.2,false);
 					else
 					FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
 				case 4:
@@ -1570,9 +1566,9 @@ class PlayState extends MusicBeatState
 		lastReportedPlayheadPosition = 0;
 
 		if (!paused)
-		{
-			#if sys
-			if (!isStoryMode && isSM)
+			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
+			/*/#if sys
+				if (!isStoryMode && isSM)
 			{
 				trace("Loading " + pathToSm + "/" + sm.header.MUSIC);
 				var bytes = File.getBytes(pathToSm + "/" + sm.header.MUSIC);
@@ -1584,16 +1580,13 @@ class PlayState extends MusicBeatState
 				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 			#else
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
-			#end
-		}
-		if (isStoryMode){
-			if (SONG.song.toLowerCase() == 'tutorial' ||SONG.song.toLowerCase() == 'lemon summer'||SONG.song.toLowerCase() == 'friends'){
+			#end/*/
+			if (SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'lemon summer'||SONG.song.toLowerCase() == 'friends' &&isStoryMode){
 				trace('went to the function');
 				FlxG.sound.music.onComplete = stolenFromBobBosip;
-			}
-			}
-			else {
-				FlxG.sound.music.onComplete = endSong;}
+				}
+			else 
+				FlxG.sound.music.onComplete = endSong;
 			vocals.play();
 		
 		// Song duration in a float, useful for the time left feature
@@ -2640,6 +2633,8 @@ class PlayState extends MusicBeatState
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;
+					case 'rebeats':
+						camFollow.x = boyfriend.getMidpoint().x - 350;
 				}
 			}
 		}
@@ -2881,7 +2876,7 @@ class PlayState extends MusicBeatState
 
 				if (!daNote.mustPress && daNote.wasGoodHit)
 				{
-					if (SONG.song != 'Tutorial')
+					if (SONG.song != 'Monday Night Monsters')
 						camZooming = true;
 
 					var altAnim:String = "";
@@ -3100,14 +3095,14 @@ class PlayState extends MusicBeatState
 		canPause = false;
 		FlxG.sound.music.stop();
 		vocals.volume = 0;
-		if (curSong == 'Tutorial')
+		if (curSong == 'Monday Night Monsters')
 		{
 			if (accuracy >= 70.00){
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialogend'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialogend'));
 			}
 			else 
 			{
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/tutorial/dialogendbad'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsterss/dialogendbad'));
 			}
 		}
 		if (curSong == 'Friends')
@@ -3116,7 +3111,7 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong == 'Lemon Summer')
 		{
-			if (accuracy >= 92.00){
+			if (accuracy >= 98.00){
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialogendbad'));
 			}
 			else 
@@ -4412,7 +4407,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		if (curSong == 'Tutorial' && dad.curCharacter == 'gf')
+		if (curSong == 'Monday Night Monsters' && dad.curCharacter == 'gf')
 		{
 			if (curBeat % 2 == 1 && dad.animOffsets.exists('danceLeft'))
 				dad.playAnim('danceLeft');

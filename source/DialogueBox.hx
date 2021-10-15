@@ -58,7 +58,7 @@ class DialogueBox extends FlxSpriteGroup
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'lemon summer':
-				if(${PlayState.instance.accuracy} >= 92.00){
+				if(${PlayState.instance.accuracy} >= 98.00){
 					FlxG.sound.playMusic(Paths.music('silence'), 0);//lol everytime i do this without a playMusic thing, the previous song continues playing
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 				}
@@ -136,16 +136,29 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			case 'shelter' | 'alone' | 'friends': 
 				portraitLeft.animation.addByPrefix('enter', 'Noob Animation', 24, false);
-			case 'bibi' | 'bad apple' | 'insight':	
-				portraitLeft.animation.addByPrefix('enter', 'Chrisu Animation', 24, false);
+
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+			
+			case 'bibi hendl' | 'bad apple' | 'insight':	
+				portraitLeft.animation.addByPrefix('enter', 'Chris Animation', 24, false);
+
+				trace ('uh oh, stinky!');
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.135));
+			
 			case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':
 				portraitLeft.animation.addByPrefix('enter', 'Spotco Animation', 24, false);
+
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+		
 			default:
 				portraitLeft.animation.addByPrefix('enter', 'Gf Animation', 24, false);
 				trace ('wrong image');
+
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 		}
 		
-		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+		
+		
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
 		add(portraitLeft);
@@ -229,7 +242,7 @@ class DialogueBox extends FlxSpriteGroup
 				opponent = "Girlfriend";
 			case 'shelter' | 'alone' | 'friends':
 				opponent = "Noob";
-			case 'bibi' | 'bad apple' | 'insight':
+			case 'bibi hendl' | 'bad apple' | 'insight':
 				opponent = "Chrisu";
 			case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':
 				opponent = "Spotco";
