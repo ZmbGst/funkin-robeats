@@ -36,6 +36,9 @@ using StringTools;
 
 class ResultsScreen extends FlxSubState
 {
+    public static var isDialogue:Bool;
+    public static var dialogueText:Array<String>;
+    
     public var background:FlxSprite;
     public var text:FlxText;
 
@@ -51,6 +54,7 @@ class ResultsScreen extends FlxSubState
     public var cheer:FlxSound;
     public var fanfare:FlxSound;
     public var noMusic:Bool = true;
+    public var leaveSong:Bool = true;
 
     public var STOPPLAYING:Bool=true;
 
@@ -61,6 +65,7 @@ class ResultsScreen extends FlxSubState
 
 	override function create()
 	{	
+        trace ('this is a new file');
         background = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
         background.scrollFactor.set();
         add(background);
@@ -73,27 +78,29 @@ class ResultsScreen extends FlxSubState
                 {
                     noMusic = true;
                 }
-                else {
-            fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
-            fanfare.play(true, 0, fanfare.length);
-            FlxG.sound.list.add(fanfare);
+                else 
+                {
+                    fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
+                    fanfare.play(true, 0, fanfare.length);
+                    FlxG.sound.list.add(fanfare);
 
-            cheer = new FlxSound().loadEmbedded(Paths.music('cheer'), false, true);
-            cheer.play(true, 0, cheer.length);
-            FlxG.sound.list.add(cheer);
+                    cheer = new FlxSound().loadEmbedded(Paths.music('cheer'), false, true);
+                    cheer.play(true, 0, cheer.length);
+                    FlxG.sound.list.add(cheer);
 
-            STOPPLAYING = false;
-
-             new FlxTimer().start(3, function(tmr:FlxTimer){ 
-                music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
-                music.volume = 0.1;
-                music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
-                FlxG.sound.list.add(music);
-            });
-            }
+                    STOPPLAYING = false;
+                }
            
             }         
-           
+           else 
+           {
+                new FlxTimer().start(3, function(tmr:FlxTimer){ 
+                   music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
+                   music.volume = 0.1;
+                   music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
+                   FlxG.sound.list.add(music);
+                });
+           }
             
         }
 
@@ -137,12 +144,12 @@ class ResultsScreen extends FlxSubState
         add(anotherBackground);
         
         graph = new HitGraph(FlxG.width - 500,45,495,240);
-        graph.alpha = 0;
+        graph.alpha = 1;
 
         graphSprite = new OFLSprite(FlxG.width - 510,45,460,240,graph);
 
         graphSprite.scrollFactor.set();
-        graphSprite.alpha = 0;
+        graphSprite.alpha = 1;
         
         add(graphSprite);
 
@@ -190,21 +197,38 @@ class ResultsScreen extends FlxSubState
         settingsText.scrollFactor.set();
         add(settingsText);
 
-
-        FlxTween.tween(background, {alpha: 0.5},0.5);
-        FlxTween.tween(text, {y:20},0.5,{ease: FlxEase.expoInOut});
-        FlxTween.tween(comboText, {y:145},0.5,{ease: FlxEase.expoInOut});
-        FlxTween.tween(contText, {y:FlxG.height - 45},0.5,{ease: FlxEase.expoInOut});
-        FlxTween.tween(settingsText, {y:FlxG.height - 35},0.5,{ease: FlxEase.expoInOut});
-        FlxTween.tween(anotherBackground, {alpha: 0.6},0.5, {onUpdate: function(tween:FlxTween) {
-            graph.alpha = FlxMath.lerp(0,1,tween.percent);
-            graphSprite.alpha = FlxMath.lerp(0,1,tween.percent);
-        }});
+        if (isDialogue)
+            {
+                leaveSong = false;
+                var doof:DialogueBox = new DialogueBox(false, dialogueText);
+                doof.scrollFactor.set();
+                doof.finishThing = showIt;
+                doof.cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+                add(doof);
+            }
+        else
+            showIt();
 
         cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
 		super.create();
 	}
+
+    function showIt()
+        {
+            leaveSong = true;
+            FlxTween.tween(background, {alpha: 0.5},0.5);
+            //FlxTween.tween(graph, {alpha:1},0.5);
+            //FlxTween.tween(graphSprite, {alpha: 1},0.5);
+            FlxTween.tween(text, {y:20},0.5,{ease: FlxEase.expoInOut});
+            FlxTween.tween(comboText, {y:145},0.5,{ease: FlxEase.expoInOut});
+            FlxTween.tween(contText, {y:FlxG.height - 45},0.5,{ease: FlxEase.expoInOut});
+            FlxTween.tween(settingsText, {y:FlxG.height - 35},0.5,{ease: FlxEase.expoInOut});
+            FlxTween.tween(anotherBackground, {alpha: 0.6},0.5, {onUpdate: function(tween:FlxTween) {
+                graph.alpha = FlxMath.lerp(0,1,tween.percent);
+                graphSprite.alpha = FlxMath.lerp(0,1,tween.percent);
+            }});
+        }
 
 
     var frames = 0;
@@ -217,9 +241,8 @@ class ResultsScreen extends FlxSubState
 
         // keybinds
 
-        if (PlayerSettings.player1.controls.ACCEPT)
+        if (PlayerSettings.player1.controls.ACCEPT && leaveSong)
         {
-
             PlayState.loadRep = false;
             PlayState.rep = null;
 
@@ -236,20 +259,21 @@ class ResultsScreen extends FlxSubState
 
             if (PlayState.isStoryMode)
             {
+                trace('lol fuck you');
                 FlxG.sound.playMusic(Paths.music('freakyMenu'));
                 Conductor.changeBPM(102);
-                if (${PlayState.storyDifficulty} == 2 && ${PlayState.storyWeek} == 2 && !FlxG.save.data.rebeats){
-                    FlxG.save.data.rebeats = true; //you only unlock rebeats by 
+                if (${PlayState.storyDifficulty} == 2 && ${PlayState.storyWeek} == 3 && !FlxG.save.data.rebeats){
+                    FlxG.save.data.rebeats = true; //you only unlock rebeats by beating last week on hard
                     FlxG.save.flush();
                     FlxG.switchState(new RewardScreen());
                 }else
-                FlxG.switchState(new MainMenuState());
+                FlxG.switchState(new StoryMenuState());
             }
             else
                 FlxG.switchState(new FreeplayState());
         }
 
-        if (FlxG.keys.justPressed.F1 && !PlayState.loadRep)
+        if (FlxG.keys.justPressed.F1 && !PlayState.loadRep && leaveSong)
         {
             trace(PlayState.rep.path);
             PlayState.rep = Replay.LoadReplay(PlayState.rep.path);
@@ -323,7 +347,7 @@ class ResultsScreen extends FlxSubState
             LoadingState.loadAndSwitchState(new PlayState());
         }
 
-        if (FlxG.keys.justPressed.F2  && !PlayState.loadRep)
+        if (FlxG.keys.justPressed.F2  && !PlayState.loadRep && leaveSong)
         {
             PlayState.rep = null;
 

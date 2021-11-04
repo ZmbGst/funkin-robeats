@@ -27,17 +27,17 @@ Oh yeah forgot to mention, its a Roblox game oops.
 FnF Featuring Robeats is made by
 
 *Shad0wStar/Amy (Lead Project Manager/musician/storywriter/mapper) - https://www.youtube.com/user/ayylgirl
+*ZmbGst (Co-Project Manager/artist/programmer/animator/storywriter/mapper) - https://twitter.com/ZmbGst
 *Banana_Switch (animator/programmer) - https://www.youtube.com/channel/UCG5dlta5UkypnDvkLuttYew
 *NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
 fuzzybrexth (musician) - https://www.roblox.com/users/108915438/profile
 blah133134 (musician) - https://www.roblox.com/users/136455748/profile
-*ZmbGst (artist/programmer/animator/storywriter/mapper) - https://twitter.com/ZmbGst
 Kaiden (storywriter) - https://www.roblox.com/users/1480439134/profile
 *RoDanxxx (storywriter) - https://www.roblox.com/users/630642715/profile
+doofyplayer (lead mapper) - https://www.roblox.com/users/127036995/profile
 Technical_Sleepy (mapper) - https://www.roblox.com/users/147763448/profile
 Vixlovo (mapper) - https://www.roblox.com/users/2517715868/profile
 NightSkii (mapper) - https://www.roblox.com/users/87128592/profile
-doofyplayer (mapper) - https://www.roblox.com/users/127036995/profile
 TheRussean (mapper) - https://www.roblox.com/users/474197899/profile
 Zembonics (mapper) - https://www.roblox.com/users/544940271/profile
 
@@ -58,8 +58,10 @@ Credits:
 - "Monday Night Monsters," "Walkin' 'n' Strollin'," and "Show's Over" are RoBeats original songs by FinnMK
 - "Window Cleaner - Menu" is composed by Joshua Kaplan / http://openheartsound.com/
 - Official Robeats assets were acquired from pierceisdyinglol https://www.roblox.com/users/71887421/profile
+- Some extra results screen debugging by EpicGamer https://twitter.com/Epic2469
 - Some hands were borrowed from https://twitter.com/esimplyj/status/1413036302644228097?s=21
 - Meowing from https://www.roblox.com/users/158507862/profile
+
 
 
 - week 1 opponent is a noob lol just look a picture of a noob

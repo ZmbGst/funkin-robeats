@@ -211,12 +211,18 @@ class PlayState extends MusicBeatState
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
-	var phaseOne:Bool = true;
+
+	var shakeCam:Bool = false;
+	var superShake:Bool = false;
+	var announcerFlagOne:Bool = true;
+	var announcerFlagTwo:Bool = true;
 	var bgOne:FlxSprite;
-	var phaseTwo:Bool = false;
 	var bgTwo:FlxSprite;
-	var phaseThree:Bool = false;
-	var bgThree:FlxSprite; //omg theres so many variables that dont do anything but im too lazy to cipher through them and take them out 
+	var bgThree:FlxSprite;
+	var blackFade:FlxSprite;
+
+	var hasDialogue:Bool = false;
+	
 
 	var fc:Bool = true;
 
@@ -290,6 +296,7 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 
+		FlxG.cameras.bgColor = 0xFF390659;
 		FlxG.mouse.visible = false;
 		instance = this;
 
@@ -393,6 +400,7 @@ class PlayState extends MusicBeatState
 		camHUD = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 
+
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 
@@ -466,6 +474,8 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/bibi-hendl/dialog'));
 			case 'bad-apple':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/bad-apple/dialog'));
+			case 'insight':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/insight/dialog'));
 			case 'lemon-summer':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialog'));
 		}
@@ -657,6 +667,8 @@ class PlayState extends MusicBeatState
 				{
 						defaultCamZoom = 1.05;
 						curStage = 'sheep';
+						blackFade = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+						
 						bgOne = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium1'));
 						if(FlxG.save.data.antialiasing)
 							{
@@ -665,6 +677,7 @@ class PlayState extends MusicBeatState
 						bgOne.scrollFactor.set(0.9, 0.9);
 						bgOne.active = false;
 						add(bgOne);
+						
 
 				}
 				case 'rebeats':
@@ -861,7 +874,12 @@ class PlayState extends MusicBeatState
 			// Shitty layering but whatev it works LOL
 			if (curStage == 'bibi'||curStage == 'bad-apple'||curStage == 'insight'){
 				add(people);
-				trace('poopie');}
+				trace('poopie');
+				}
+			if (curStage == 'sheep'){
+				add(blackFade);
+				trace('why are you so mean to me');
+				}
 			
 		}
 
@@ -949,7 +967,7 @@ class PlayState extends MusicBeatState
 			songPosBar = new FlxBar(songPosBG.x + 4, songPosBG.y + 4, LEFT_TO_RIGHT, Std.int(songPosBG.width - 8), Std.int(songPosBG.height - 8), this,
 				'songPositionBar', 0, 90000);
 			songPosBar.scrollFactor.set();
-			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.CYAN);
+			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.WHITE);
 			add(songPosBar);
 
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - (SONG.song.length * 5), songPosBG.y, 0, SONG.song, 16);
@@ -1376,7 +1394,7 @@ class PlayState extends MusicBeatState
 						}
 					});
 					if (curSong == 'Rebeats')
-					FlxG.sound.play(Paths.sound('mreow'), 1.2,false);
+					FlxG.sound.play(Paths.sound('mreow'), 1.3,false);
 					else
 					FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
 				case 4:
@@ -1581,7 +1599,7 @@ class PlayState extends MusicBeatState
 			#else
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 			#end/*/
-			if (SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'lemon summer'||SONG.song.toLowerCase() == 'friends' &&isStoryMode){
+			if ((SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'lemon summer'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight') &&isStoryMode){
 				trace('went to the function');
 				FlxG.sound.music.onComplete = stolenFromBobBosip;
 				}
@@ -1612,7 +1630,7 @@ class PlayState extends MusicBeatState
 				- 1000);
 			songPosBar.numDivisions = 1000;
 			songPosBar.scrollFactor.set();
-			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
+			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.WHITE);
 			add(songPosBar);
 
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - (SONG.song.length * 5), songPosBG.y, 0, SONG.song, 16);
@@ -2082,6 +2100,13 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		if (shakeCam) //flushed this looks nonsensical
+		{
+			FlxG.camera.shake(0.002, 0.02);
+		}
+		if (superShake)
+			FlxG.camera.shake(0.015, 0.02);
+
 		#if !debug
 		perfectMode = false;
 		#end
@@ -2693,6 +2718,7 @@ class PlayState extends MusicBeatState
 
 				vocals.stop();
 				FlxG.sound.music.stop();
+				FlxG.sound.pause();
 
 				openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
@@ -3095,6 +3121,7 @@ class PlayState extends MusicBeatState
 		canPause = false;
 		FlxG.sound.music.stop();
 		vocals.volume = 0;
+
 		if (curSong == 'Monday Night Monsters')
 		{
 			if (accuracy >= 70.00){
@@ -3102,12 +3129,16 @@ class PlayState extends MusicBeatState
 			}
 			else 
 			{
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsterss/dialogendbad'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialogendbad'));
 			}
 		}
 		if (curSong == 'Friends')
 		{
 			endDialog = CoolUtil.coolTextFile(Paths.txt('data/friends/dialogend'));
+		}
+		if (curSong == 'Insight')
+		{
+			endDialog = CoolUtil.coolTextFile(Paths.txt('data/insight/dialogend')); //wanna see if I can add bad ending dialogue but itll portray chrisu negatively and idk if I wanna do that
 		}
 		if (curSong == 'Lemon Summer')
 		{
@@ -3118,15 +3149,14 @@ class PlayState extends MusicBeatState
 			{
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialogend'));
 				FlxTween.tween(boyfriend,{alpha:1},2);	
-
+				FlxTween.tween(iconP1,{alpha:1},2);	
 			}
 		}
-		
-		var doof:DialogueBox = new DialogueBox(false, endDialog);
-		doof.scrollFactor.set();
-		doof.finishThing = endSong;
-		doof.cameras = [camHUD];
-		add(doof);
+
+		hasDialogue = true;
+		ResultsScreen.isDialogue = hasDialogue;
+		ResultsScreen.dialogueText = endDialog;
+		endSong();
 	}
 
 	function endSong():Void
@@ -3169,6 +3199,9 @@ class PlayState extends MusicBeatState
 		vocals.volume = 0;
 		FlxG.sound.music.pause();
 		vocals.pause();
+		/*/if (SONG.song.toLowerCase() == 'monday night monsters' &&isStoryMode)
+			storyPlaylist.push('lemon summer');   use this to add another song to play thats not on storymode lists, just replace mnm/*/
+
 		if (SONG.validScore)
 		{
 			// adjusting the highscore song name to be compatible
@@ -4336,30 +4369,194 @@ class PlayState extends MusicBeatState
 		}
 		#end
 		
-		if (curStep == 2 && curSong == 'Bibi Hendl')
-			FlxG.sound.play(Paths.sound('announcer1'), 0.8, false);	
-		if (curStep == 672 && curSong == 'Bibi Hendl')
-			FlxG.sound.play(Paths.sound('announcer2'), 0.8, false);	
+		if (curStep == 2 && curSong == 'Bibi Hendl'){ //I'm too stupid to find a more efficient way for this to work and not play during a results screen
+			if (announcerFlagOne)
+				FlxG.sound.play(Paths.sound('announcer1'), 0.8, false);	
+			announcerFlagOne = false;
+		}
+			
+		if (curStep == 672 && curSong == 'Bibi Hendl'){
+			if (announcerFlagTwo)
+				FlxG.sound.play(Paths.sound('announcer2'), 0.8, false);	
+			announcerFlagTwo = false;
+		}
 
-		//dark sheep stuff
-		if (curStep == 288 && curSong == 'Lemon Summer' && curStage == 'sheep')
-					{
+		//dark sheep camera stuff because modcharts suck with cameras
+
+		if (curSong == 'Dark Sheep' && curStage == 'sheep'){
+		
+			switch (curStep){
+				case 12:
+					FlxTween.tween(FlxG.camera, {zoom: 1.9}, 1.5);
+					FlxTween.tween(blackFade,{alpha:0.65},1.5);//fix to make prettier
+					trace('should be zooming out');
+				case 32:
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut}); //god damnit why can I just make FlxG.camera.zoom = 1.05;
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+					blackFade.visible = false;
+					trace('crash');
+				case 288: // too early
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 384: 
+					shakeCam = true;
+				case 432:
+					shakeCam = false;
+					superShake = true;
+				case 446:
+					superShake = false;
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 576:
+					FlxG.camera.flash(0x5000A36C, 0.5);// I'll change this to an image later
 					bgTwo.visible = true;
 					FlxTween.tween(bgOne,{alpha:0},5);
 					trace('poopie');
-			
-					}
-		if (curStep == 1104 && curSong == 'Lemon Summer' && curStage == 'sheep')
-					{
+				case 640:
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 706: 
+					FlxG.camera.flash(0x5000A36C, 0.5); //too early
+				case 768:
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 832: 
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 1136:
+					shakeCam = true;
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 1);
+				case 1152:
+					shakeCam = false;
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
+				case 1198:
+					shakeCam = true;
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 1.5);
+				case 1216:
+					shakeCam = false;
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
+				case 1328:
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+					FlxTween.tween(FlxG.camera, {zoom: 0.0001}, 1{ease: FlxEase. quadOut});
+				case 1344: //check later
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
+				case 1472:
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 1592:
+					superShake = true;
+				case 1608:
+					superShake = false;
+					shakeCam = true;
+				case 1712:
+					shakeCam = false;
+				case 1728: 
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 1920:
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 3);
+					shakeCam = true;
+				case 1952:
+					shakeCam = false;
+					superShake = true;
+				case 1968:
+					superShake = false;
+				case 1984:
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
+				case 2112:
+					shakeCam = true;
+				
+				case 2114:// please don't look at the next 100 lines of code
+					superShake = true;
+				case 2118:
+					superShake = false;
+				case 2122:
+					superShake = true;
+				case 2126:
+					superShake = false;
+				case 2130: 
+					superShake = true;
+				case 2134:
+					superShake = false;
+
+				case 2146:
+					superShake = true;
+				case 2150:
+					superShake = false;
+				case 2154:
+					superShake = true;
+				case 2158:
+					superShake = false;
+				case 2162:
+					superShake = true;
+				case 2166:
+					superShake = false;
+
+				case 2178:
+					superShake = true;
+				case 2182:
+					superShake = false;
+				case 2186:
+					superShake = true;
+				case 2190:
+					superShake = false;
+				case 2194:
+					superShake = true;
+				case 2198:
+					superShake = false;
+
+				case 2210:
+					superShake = true;
+				case 2214:
+					superShake = false;
+				case 2218:
+					superShake = true;
+				case 2222:
+					superShake = false;
+				case 2226:
+					superShake = true;
+				case 2230:
+					superShake = false;
+				case 2232: 
+					shakeCam = false;
+				
+				case 2236:// too late 
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
+					FlxG.camera.flash(0x5000A36C, 0.5);
 					bgThree.visible = true;
 					FlxTween.tween(bgTwo,{alpha:0},2);
 					trace('poopie');
-					}
-		if (curStep == 1232 && curSong == 'Lemon Summer' && curStage == 'sheep')
-					{
-					FlxTween.tween(boyfriend,{alpha:0},14);					
+				case 2304:
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 2368:
+					FlxG.camera.flash(0x5000A36C, 0.5);
+				case 2432:
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 2496:
+					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 2592:
+					shakeCam = true;
+				case 2642:
+					shakeCam = false;
+					superShake = true;
+				case 2656:
+					superShake = false;
+				case 2664:
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.5);
+					shakeCam = true;
+				case 2672:
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
+					shakeCam = false;
+				case 2678: 
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.5);
+					shakeCam = true;
+				case 2686:
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
+					shakeCam = false;
+				case 2718: 
+					FlxG.camera.flash(0x5000A36C, 0.5);
+					superShake = true;
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 5.5);
+					FlxTween.tween(boyfriend,{alpha:0},5.5);		
+					FlxTween.tween(iconP1,{alpha:0},5.5);		
 					trace('poopie');
-					}
+				case 2784:
+					superShake = false;
+			}
+		}
 
 		// yes this updates every step.
 		// yes this is bad

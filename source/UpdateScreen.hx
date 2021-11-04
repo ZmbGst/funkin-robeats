@@ -18,6 +18,7 @@ class UpdateScreen extends MusicBeatState
 
 	var button:FlxSprite;
 	var box:FlxSprite;
+	var titleText:FlxSprite;
 	var stopSpamming:Bool = false;
 
 	override function create()
@@ -40,14 +41,34 @@ class UpdateScreen extends MusicBeatState
 		button.updateHitbox();
 		button.animation.play('idle');
 		add(button);
+
+		titleText = new FlxSprite(125, FlxG.height * 0.1);
+		titleText.frames = Paths.getSparrowAtlas('titleEnter');
+		titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
+		if(FlxG.save.data.antialiasing)
+			{
+				titleText.antialiasing = true;
+			}
+		titleText.animation.play('idle');
+		titleText.updateHitbox();
+		titleText.alpha = 0;
+		add(titleText);
+
 		FlxG.camera.fade(FlxColor.BLACK, 0.8, true);
+
+
 	}
 
 	override function update(elapsed:Float)
 	{
+		new FlxTimer().start(5.0, function(tmr:FlxTimer){
+			FlxTween.tween(titleText,{alpha:1},2);
+		});
+		
 		if (controls.ACCEPT)
 		{
 			if(!stopSpamming){
+				remove(titleText);
 				stopSpamming = true;
 				button.offset.x +=33;
 				button.offset.y +=33;

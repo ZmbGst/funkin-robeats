@@ -25,6 +25,7 @@ class RewardScreen extends MusicBeatState
 	var button:FlxSprite;
 	var danceLeft:Bool = false;
 	var stopSpamming:Bool = false;
+	var titleText:FlxSprite;
 
 	override function create()
 	{
@@ -48,8 +49,8 @@ class RewardScreen extends MusicBeatState
 			}
 		
 		
-		song = new FlxSprite(225, 150).loadGraphic(Paths.image('one/cover arts/rebeats', 'shared'));
-		song.setGraphicSize(Std.int(song.width * 0.675));
+		song = new FlxSprite(225, 150).loadGraphic(Paths.image('one/cover arts/rebeats', 'shared')); //ok so I'm going to have to make these cover arts be the same dimensions so that I only have to chnage the file path, but I can imagine this	
+		song.setGraphicSize(Std.int(song.width * 0.675));											 //screen being used to display different songs like dark sheep instead of just rebeats
 		song.updateHitbox();
 
 		var songBorder:FlxSprite = new FlxSprite(song.x-28.5, song.y-28.5).loadGraphic(Paths.image('songFrame'));
@@ -73,6 +74,18 @@ class RewardScreen extends MusicBeatState
 		congrats = new FlxText(72, 50, Std.int(FlxG.width * 0.9), "Congrats, you unlocked a new song in Freeplay!", 50);
 		congrats.color = 0xFFFFEA00;
 		congrats.font = 'Righteous';
+
+		titleText = new FlxSprite(125, FlxG.height * 0.1);
+		titleText.frames = Paths.getSparrowAtlas('titleEnter');
+		titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
+		if(FlxG.save.data.antialiasing)
+			{
+				titleText.antialiasing = true;
+			}
+		titleText.animation.play('idle');
+		titleText.updateHitbox();
+		titleText.alpha = 0;
+
 		
 		add(bg);	
 		add(gfDance);
@@ -81,6 +94,7 @@ class RewardScreen extends MusicBeatState
 		add(congrats);
 		add(frame);
 		add(button);
+		add(titleText);
 		
 		fanfare.play(true, 0, fanfare.length);
 
@@ -106,9 +120,15 @@ class RewardScreen extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		Conductor.songPosition = FlxG.sound.music.time;
+
+		new FlxTimer().start(10.0, function(tmr:FlxTimer){ //longer timer because hopefully people know what to press to go to next screen at this point
+			FlxTween.tween(titleText,{alpha:1},2);
+		});
+
 		if (controls.ACCEPT)
 		{
 			if(!stopSpamming){
+				remove(titleText);
 				stopSpamming = true;
 				button.offset.x +=33;
 				button.offset.y +=33;

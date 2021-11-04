@@ -29,7 +29,8 @@ class StoryMenuState extends MusicBeatState
 		return [
 			['Monday Night Monsters'],
 			['Shelter','Alone','Friends'],
-			['Bibi Hendl','Bad Apple','Lemon Summer'],
+			['Bibi Hendl','Bad Apple','Insight'],
+			['Lemon Summer']
 		];
 	}
 	var curDifficulty:Int = 1;
@@ -38,6 +39,7 @@ class StoryMenuState extends MusicBeatState
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 	];

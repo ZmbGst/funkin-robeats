@@ -1,20 +1,20 @@
-Spotco: ...
-Spotco: It appears I've made a mistake.
-Spotco: You... you aren't hacking.
-Spotco: Fortunately
-Spotco: My deepest apologies, I tend to get a bit out of control when it comes to my life’s work
-Spotco: I'll restore your code... here.
-Gf: Ahh, feels good to be free again!
-Bf: Beep!
-Gf: About the people who reported us, they probably were just Chris’ hyperfans
-Gf: They were mad that he lost to Boyfriend.
-Bf: Bip bap!
-Spotco: I see. I’ll have to be more cautious in the future with who sends reports then.
-Spotco: Sorry for all the trouble I've caused you. You're welcome in this city anytime.
-Spotco: and if you want, that earlier offer is still on the table
-Bf: Bleep bep!
-Gf: Well, I think I had enough excitement for one day. What say we head home?
-Bf: *eagerly nodds*
-Spotco: Have a good day! Please come again soon!
-Gf: You too!
-Bf: *waves goodbye*
+:dad:...
+:dad:It appears I've made a mistake.
+:dad:You... you aren't hacking.
+:dad:Fortunately
+:dad:My deepest apologies, I tend to get a bit out of control when it comes to my life’s work
+:dad:I'll restore your code... here.
+:gf:Ahh, feels good to be free again!
+:bf:Beep!
+:gf:About the people who reported us, they probably were just Chris’ hyperfans
+:gf:They were mad that he lost to Boyfriend.
+:bf:Bip bap!
+:dad:I see. I’ll have to be more cautious in the future with who sends reports then.
+:dad:Sorry for all the trouble I've caused you. You're welcome in this city anytime.
+:dad:and if you want, that earlier offer is still on the table
+:bf:Bleep bep!
+:gf:Well, I think I had enough excitement for one day. What say we head home?
+:bf:*eagerly nodds*
+:dad:Have a good day! Please come again soon!
+:gf:You too!
+:bf:*waves goodbye*

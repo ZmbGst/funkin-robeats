@@ -4,5 +4,8 @@ Alone:noob:1
 Friends:noob:1
 Bibi Hendl:chris:2
 Bad Apple:chris:2
+Insight:chrisangry:2
 Lemon Summer:spotco:3
+Space Battle:spotco:3
+Dark Sheep:spotcochair:3
 Rebeats:kitty:4

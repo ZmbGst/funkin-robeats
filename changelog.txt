@@ -1,5 +1,6 @@
 # Changelog
 All notable changes will be documented in this file.
+Also btw the mod started production earlier than when I first typed stuff here
 
 ## [0.1.0] (06-26-2021)
 
@@ -104,3 +105,16 @@ Slow progress on week 2 / 3 charts
 I haven't worked on the trailer animation stuff besides stair paralax, but I'm going to hivemind on that now. 
 
 
+## [0.5.0] (10-20-2021)
+
+###
+Week 2 build is ready for team to QA test
+
+Trailer is complete and ready to be uploaded
+
+A lot of debugging was done, but we still got some more. Some QOL thingies were added like camera shakes and flashes
+
+Week 1 and 2 songs / maps are done (need remaps)
+Literally only Lemon Summer normal is the only week 3 song ready. Everything else is the same as last week.
+
+Hopefully this comes out in November (I swear to god if I have to edit this)

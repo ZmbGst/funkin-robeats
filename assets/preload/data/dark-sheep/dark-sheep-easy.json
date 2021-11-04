@@ -1,0 +1,37 @@
+{
+  "song": {
+    "notes": [
+      {
+        "mustHitSection": true,
+        "typeOfSection": 0,
+        "lengthInSteps": 160000,
+        "bpm": 177,
+        "changeBPM": true,
+        "timePosition": 2722,
+        "sectionNotes": [
+          [
+            241281,
+            7,
+            -241281
+          ],
+		  [
+            241281,
+            2,
+            -241281
+          ]
+        ]
+      }
+    ],
+    "bpm": 177,
+    "sections": 1,
+    "needsVoices": true,
+    "player1": "bf",
+    "player2": "spotcochair",
+    "speed": 3.1,
+    "song": "Dark Sheep",
+	"stage": "sheep",
+	"gfVersion": "gf-car",
+    "sectionLengths": [],
+    "validScore": true
+  }
+}

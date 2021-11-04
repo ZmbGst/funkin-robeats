@@ -184,8 +184,9 @@ class DialogueBox extends FlxSpriteGroup
 
 		portraitExtra = new FlxSprite(200, 40);
 		portraitExtra.frames = Paths.getSparrowAtlas('viewers/thePeeps', 'shared');
-		for(i in 0...4){
+		for(i in 0...9){
 			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);
+			trace('added ' + i);
 			
 		}
 		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.175));
@@ -403,12 +404,12 @@ class DialogueBox extends FlxSpriteGroup
 				//Code to randomize the portraits and make sure the same portrait doesn't come immediately after the first instance (still can come multiple times in a session)
 				//If you steal this; first, thank you I feel I actually have some idea of what I'm doing. second, please atleast understand the logic and what each line of code does just so you can fix the issues on your code yourself
 			
-				goodNumber = FlxG.random.int(1,3);
+				goodNumber = FlxG.random.int(1,8);
 				portraitExtra.animation.play(""+goodNumber);
-				trace('1          '+portraitExtra.animation.frameName);//displays frame name (personx instance 10000)
+				trace('1          '+portraitExtra.animation.frameName);//displays frame name (personx0000)
 				
 				if(portraitExtra.animation.frameName == "person"+badNumber+" instance 10000"){
-					var temporary:Int = FlxG.random.int(1,3,[badNumber]);
+					var temporary:Int = FlxG.random.int(1,8,[badNumber]);
 					portraitExtra.animation.play(""+temporary);
 					trace('2          lmao the new sprite is '+portraitExtra.animation.frameName + ' the dumb thing made the same image go twice');
 					badNumber = temporary;}
