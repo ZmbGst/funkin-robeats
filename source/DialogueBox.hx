@@ -12,8 +12,11 @@ import flixel.util.FlxTimer;
 
 using StringTools;
 
+
+
 class DialogueBox extends FlxSpriteGroup
 {
+	public var animOffsets:Map<String, Array<Dynamic>>;
 	var box:FlxSprite;
 
 	var curCharacter:String = '';
@@ -31,6 +34,7 @@ class DialogueBox extends FlxSpriteGroup
 	public var finishThing:Void->Void;
 	public var finishThingTwo:Void -> Void;
 	public var pleaseDontBreak:Bool = true;
+	public var fuzzy:Bool = false;
 	public var noMusic = false;
 	public var goodNumber:Int;
 	public var badNumber:Int;
@@ -50,6 +54,8 @@ class DialogueBox extends FlxSpriteGroup
 
 	public function new(talkingRight:Bool = true, ?dialogueList:Array<String>)
 	{
+		animOffsets = new Map<String, Array<Dynamic>>();
+
 		super();
 
 		switch (PlayState.SONG.song.toLowerCase())
@@ -164,6 +170,7 @@ class DialogueBox extends FlxSpriteGroup
 		add(portraitLeft);
 		portraitLeft.visible = false;
 
+
 		portraitRight = new FlxSprite(740, 140);
 		portraitRight.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
 		portraitRight.animation.addByPrefix('enter', 'Bf Animation', 24, false);
@@ -172,6 +179,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitRight.scrollFactor.set();
 		add(portraitRight);
 		portraitRight.visible = false;
+
 
 		portraitGirlfriend= new FlxSprite(780, 140);
 		portraitGirlfriend.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
@@ -182,13 +190,17 @@ class DialogueBox extends FlxSpriteGroup
 		add(portraitGirlfriend);
 		portraitGirlfriend.visible = false;
 
+
+
 		portraitExtra = new FlxSprite(200, 40);
 		portraitExtra.frames = Paths.getSparrowAtlas('viewers/thePeeps', 'shared');
-		for(i in 0...9){
-			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);
+		for(i in 0...8){
+			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);// call animation name "person1" "1" in the code
 			trace('added ' + i);
+			loadOffsetFile(""+i);
 			
 		}
+		portraitExtra.animation.addByPrefix('8', 'person8', 24, false);
 		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.175));
 		portraitExtra.updateHitbox();
 		portraitExtra.scrollFactor.set();
@@ -341,16 +353,21 @@ class DialogueBox extends FlxSpriteGroup
 				speakerText.y = y;
 	}
 
-	/*/public function loadOffsetFile(viewer:String)
+	public function loadOffsetFile(viewer:String)
 	{
-		var offset:Array<String> = CoolUtil.coolTextFile(Paths.txt('images/viewers/viewersOffsets','shared'));
+		var offset:Array<String> = CoolUtil.coolTextFile(Paths.txt('images/viewers/thePeepsOffsets','shared'));
 
 		for (i in 0...offset.length)
 		{
 			var data:Array<String> = offset[i].split(' ');
 			addOffset(data[0], Std.parseInt(data[1]), Std.parseInt(data[2]));
 		}
-	}/*/
+	}
+	public function addOffset(name:String, x:Float = 0, y:Float = 0)
+	{
+		animOffsets[name] = [x, y];
+	}
+	
 
 	function startDialogue():Void
 	{
@@ -395,32 +412,51 @@ class DialogueBox extends FlxSpriteGroup
 					portraitGirlfriend.animation.play('enter');
 				}
 			case 'extra':
+				fuzzy = false;
 				portraitRight.visible = false;
 				portraitGirlfriend.visible = false;
 				portraitLeft.visible = false;
+
+
+
 			
 				//Glasses = 1 Buzz = 2 thinking = 3 You'll never know what this means >=)
 				
 				//Code to randomize the portraits and make sure the same portrait doesn't come immediately after the first instance (still can come multiple times in a session)
 				//If you steal this; first, thank you I feel I actually have some idea of what I'm doing. second, please atleast understand the logic and what each line of code does just so you can fix the issues on your code yourself
 			
-				goodNumber = FlxG.random.int(1,8);
-				portraitExtra.animation.play(""+goodNumber);
+				goodNumber = FlxG.random.int(1,7);
+				playAnim(""+goodNumber);
 				trace('1          '+portraitExtra.animation.frameName);//displays frame name (personx0000)
 				
 				if(portraitExtra.animation.frameName == "person"+badNumber+" instance 10000"){
-					var temporary:Int = FlxG.random.int(1,8,[badNumber]);
-					portraitExtra.animation.play(""+temporary);
+					var temporary:Int = FlxG.random.int(1,7,[badNumber]);
+					playAnim(""+temporary);
 					trace('2          lmao the new sprite is '+portraitExtra.animation.frameName + ' the dumb thing made the same image go twice');
 					badNumber = temporary;}
 
 				else
 				badNumber = goodNumber;
 				
+
+
+
 				if (!portraitExtra.visible)
 				{
 					portraitExtra.visible = true;
-					portraitExtra.animation.play(""+goodNumber);
+					playAnim(""+goodNumber);
+				}
+			case 'banned':
+				fuzzy = true;
+				portraitRight.visible = false;
+				portraitGirlfriend.visible = false;
+				portraitLeft.visible = false;
+				playAnim('8');
+
+				if (!portraitExtra.visible)
+				{
+					portraitExtra.visible = true;
+					playAnim('8');
 				}
 
 	}}
@@ -430,5 +466,18 @@ class DialogueBox extends FlxSpriteGroup
 		var splitName:Array<String> = dialogueList[0].split(":");
 		curCharacter = splitName[1];
 		dialogueList[0] = dialogueList[0].substr(splitName[1].length + 2).trim();
+	}
+
+	public function playAnim(AnimName:String):Void
+	{
+		portraitExtra.animation.play(AnimName);
+		var daOffset = animOffsets.get("person" +AnimName);
+		
+		if (animOffsets.exists("person"+AnimName))
+		{
+			portraitExtra.offset.set(daOffset[0], daOffset[1]);
+		}
+		else
+			portraitExtra.offset.set(0, 0);
 	}
 }

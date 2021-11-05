@@ -82,6 +82,7 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
+		FlxG.cameras.bgColor = FlxColor.BLACK;
 		weekUnlocked = unlockWeeks();
 
 		#if windows

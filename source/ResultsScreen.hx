@@ -69,40 +69,7 @@ class ResultsScreen extends FlxSubState
         background = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
         background.scrollFactor.set();
         add(background);
-
-        if (!PlayState.inResults) 
-        {
-            if (${PlayState.SONG.song} == 'Lemon Summer')//cinematrography
-            {
-                if (${PlayState.instance.accuracy} >= 98.00)
-                {
-                    noMusic = true;
-                }
-                else 
-                {
-                    fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
-                    fanfare.play(true, 0, fanfare.length);
-                    FlxG.sound.list.add(fanfare);
-
-                    cheer = new FlxSound().loadEmbedded(Paths.music('cheer'), false, true);
-                    cheer.play(true, 0, cheer.length);
-                    FlxG.sound.list.add(cheer);
-
-                    STOPPLAYING = false;
-                }
-           
-            }         
-           else 
-           {
-                new FlxTimer().start(3, function(tmr:FlxTimer){ 
-                   music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
-                   music.volume = 0.1;
-                   music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
-                   FlxG.sound.list.add(music);
-                });
-           }
-            
-        }
+       
 
         background.alpha = 0;
 
@@ -121,8 +88,7 @@ class ResultsScreen extends FlxSubState
             text.text = "Week Cleared!";
         }
 
-        comboText = new FlxText(20,-75,0,'Judgements:\nPerfects - ${PlayState.sicks}\nGreats - ${PlayState.goods}\nOkays - ${PlayState.bads}\n\nMisses: ${(PlayState.isStoryMode ? PlayState.campaignMisses : PlayState.misses)}\nHighest Combo: ${PlayState.highestCombo + 1}\nScore: ${PlayState.instance.songScore}\nAccuracy: ${HelperFunctions.truncateFloat(PlayState.instance.accuracy,2)}%\n\n${Ratings.GenerateLetterRank(PlayState.instance.accuracy)}\n\n${!PlayState.loadRep ? "F1 - Break the game\nF2 - Break the game" : ""}
-        ');
+        comboText = new FlxText(20,-75,0,'Judgements:\nPerfects - ${PlayState.sicks}\nGreats - ${PlayState.goods}\nOkays - ${PlayState.bads}\n\nMisses: ${(PlayState.isStoryMode ? PlayState.campaignMisses : PlayState.misses)}\nHighest Combo: ${PlayState.highestCombo + 1}\nScore: ${PlayState.instance.songScore}\nAccuracy: ${HelperFunctions.truncateFloat(PlayState.instance.accuracy,2)}%\n\n${Ratings.GenerateLetterRank(PlayState.instance.accuracy)}\n\n ');
         comboText.size = 28;
         comboText.font = 'Righteous';
         comboText.setBorderStyle(FlxTextBorderStyle.OUTLINE,FlxColor.BLACK,4,1);
@@ -217,6 +183,7 @@ class ResultsScreen extends FlxSubState
     function showIt()
         {
             leaveSong = true;
+            musicFUCKINGRULES();
             FlxTween.tween(background, {alpha: 0.5},0.5);
             //FlxTween.tween(graph, {alpha:1},0.5);
             //FlxTween.tween(graphSprite, {alpha: 1},0.5);
@@ -230,6 +197,41 @@ class ResultsScreen extends FlxSubState
             }});
         }
 
+        function musicFUCKINGRULES(){
+         if (!PlayState.inResults) 
+        {
+            if (${PlayState.SONG.song} == 'Lemon Summer')//cinematrography
+            {
+                if (${PlayState.instance.accuracy} >= 98.00)
+                {
+                    noMusic = true;
+                }
+                else 
+                {
+                    fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
+                    fanfare.play(true, 0, fanfare.length);
+                    FlxG.sound.list.add(fanfare);
+
+                    cheer = new FlxSound().loadEmbedded(Paths.music('cheer'), false, true);
+                    cheer.play(true, 0, cheer.length);
+                    FlxG.sound.list.add(cheer);
+
+                    STOPPLAYING = false;
+                }
+           
+            }         
+           else 
+           {
+                new FlxTimer().start(3, function(tmr:FlxTimer){ 
+                   music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
+                   music.volume = 0.1;
+                   music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
+                   FlxG.sound.list.add(music);
+                });
+           }
+            
+        }
+      }
 
     var frames = 0;
 
@@ -273,7 +275,7 @@ class ResultsScreen extends FlxSubState
                 FlxG.switchState(new FreeplayState());
         }
 
-        if (FlxG.keys.justPressed.F1 && !PlayState.loadRep && leaveSong)
+        /*/if (FlxG.keys.justPressed.F1 && !PlayState.loadRep && leaveSong)
         {
             trace(PlayState.rep.path);
             PlayState.rep = Replay.LoadReplay(PlayState.rep.path);
@@ -332,11 +334,11 @@ class ResultsScreen extends FlxSubState
             poop = Highscore.formatSong(PlayState.rep.replay.songName, PlayState.rep.replay.songDiff);
             #end
 
-          /*/  if (${PlayState.SONG.song} != 'Lemon Summer'){ 
+          if (${PlayState.SONG.song} != 'Lemon Summer'){ 
            music.fadeOut(0.3);
             fanfare.fadeOut(0.3);
             cheer.fadeOut(0.3);
-            }/*/
+            }
 
             if (PlayState.isSM)
                 PlayState.SONG = Song.loadFromJsonRAW(poop);
@@ -374,17 +376,17 @@ class ResultsScreen extends FlxSubState
 
             var poop:String = Highscore.formatSong(songFormat, PlayState.storyDifficulty);
 
-           /*/ if (music != null){
+           if (music != null){
                 if (${PlayState.SONG.song} != 'Lemon Summer'){ 
            music.fadeOut(0.3);
             fanfare.fadeOut(0.3);
-            cheer.fadeOut(0.3);}}/*/
+            cheer.fadeOut(0.3);}}
 
             PlayState.SONG = Song.loadFromJson(poop, PlayState.SONG.song);
             PlayState.isStoryMode = false;
             PlayState.storyDifficulty = PlayState.storyDifficulty;
             LoadingState.loadAndSwitchState(new PlayState());
-        }
+        }/*/
 
 		super.update(elapsed);
 		

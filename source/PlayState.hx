@@ -338,10 +338,12 @@ class PlayState extends MusicBeatState
 
 		removedVideo = false;
 
-		#if windows
+		#if windows		//wtf why does optimization get turned off if a modchart exists. 
 		executeModchart = FileSystem.exists(Paths.lua(songLowercase + "/modchart"));
-		if (executeModchart)
-			PlayStateChangeables.Optimize = false;
+		if (!PlayStateChangeables.Optimize){ 
+			if (executeModchart)
+				PlayStateChangeables.Optimize = false;
+		}
 		#end
 		#if !cpp
 		executeModchart = false; // FORCE disable for non cpp targets
@@ -519,27 +521,6 @@ class PlayState extends MusicBeatState
 			stageCheck = SONG.stage;
 		}
 
-		
-		bgTwo = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium2'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bgTwo.antialiasing = true;
-							}
-						bgTwo.scrollFactor.set(0.9, 0.9);
-						bgTwo.active = false;
-						bgTwo.visible = false;
-						add(bgTwo);
-						
-		bgThree = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium3'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bgThree.antialiasing = true;
-							}
-						bgThree.scrollFactor.set(0.9, 0.9);
-						bgThree.active = false;
-						bgThree.visible = false;
-						add(bgThree);
-
 		if (!PlayStateChangeables.Optimize)
 		{
 			switch (stageCheck)
@@ -676,7 +657,30 @@ class PlayState extends MusicBeatState
 							}
 						bgOne.scrollFactor.set(0.9, 0.9);
 						bgOne.active = false;
+						
+
+						bgTwo = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium2'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bgTwo.antialiasing = true;
+							}
+						bgTwo.scrollFactor.set(0.9, 0.9);
+						bgTwo.active = false;
+						bgTwo.visible = false;
+						
+						add(bgThree);
+						add(bgTwo);
 						add(bgOne);
+						
+						
+		bgThree = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium3'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bgThree.antialiasing = true;
+							}
+						bgThree.scrollFactor.set(0.9, 0.9);
+						bgThree.active = false;
+						bgThree.visible = false;
 						
 
 				}
@@ -3504,6 +3508,8 @@ class PlayState extends MusicBeatState
 			var comboCir:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
 			comboCir.screenCenter();
 			comboCir.x =  currentTimingShown.x + 400;
+			if(PlayStateChangeables.Optimize)
+				comboCir.x =  currentTimingShown.x + 120;
 			comboCir.y += currentTimingShown.y - 40;
 			comboCir.acceleration.y = 400;
 			comboCir.velocity.y -= 150;
@@ -3524,6 +3530,8 @@ class PlayState extends MusicBeatState
 
 			currentTimingShown.screenCenter();
 			currentTimingShown.x = comboSpr.x-20;
+			if(PlayStateChangeables.Optimize)
+				currentTimingShown.x = comboSpr.x-300;
 			currentTimingShown.y = comboSpr.y + 60; //uhh wtf did I do here?
 			currentTimingShown.acceleration.y = 600;
 			currentTimingShown.velocity.y -= 150;
@@ -4383,19 +4391,20 @@ class PlayState extends MusicBeatState
 
 		//dark sheep camera stuff because modcharts suck with cameras
 
-		if (curSong == 'Dark Sheep' && curStage == 'sheep'){
+	if (PlayStateChangeables.Optimize == false){
+		if (curSong == 'Dark Sheep' && curStage == 'sheep' && announcerFlagOne){
 		
-			switch (curStep){
+			switch (curStep)
+				{
 				case 12:
-					FlxTween.tween(FlxG.camera, {zoom: 1.9}, 1.5);
-					FlxTween.tween(blackFade,{alpha:0.65},1.5);//fix to make prettier
-					trace('should be zooming out');
+					FlxTween.tween(FlxG.camera, {zoom: 1.9}, 1.7);
+					FlxTween.tween(blackFade,{alpha:0.65},1.7);//fix to make prettier
 				case 32:
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut}); //god damnit why can I just make FlxG.camera.zoom = 1.05;
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 					blackFade.visible = false;
 					trace('crash');
-				case 288: // too early
+				case 288:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 384: 
 					shakeCam = true;
@@ -4412,8 +4421,8 @@ class PlayState extends MusicBeatState
 					trace('poopie');
 				case 640:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
-				case 706: 
-					FlxG.camera.flash(0x5000A36C, 0.5); //too early
+				case 704: 
+					FlxG.camera.flash(0x5000A36C, 0.5);
 				case 768:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 832: 
@@ -4432,14 +4441,14 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
 				case 1328:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
-					FlxTween.tween(FlxG.camera, {zoom: 0.0001}, 1{ease: FlxEase. quadOut});
-				case 1344: //check later
+					FlxTween.tween(FlxG.camera, {zoom: 0.0001}, 0.75, {ease: FlxEase.quadOut});
+				case 1342:
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
 				case 1472:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
-				case 1592:
+				case 1596:
 					superShake = true;
-				case 1608:
+				case 1600:
 					superShake = false;
 					shakeCam = true;
 				case 1712:
@@ -4513,11 +4522,11 @@ class PlayState extends MusicBeatState
 				case 2232: 
 					shakeCam = false;
 				
-				case 2236:// too late 
+				case 2240:
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
 					FlxG.camera.flash(0x5000A36C, 0.5);
 					bgThree.visible = true;
-					FlxTween.tween(bgTwo,{alpha:0},2);
+					FlxTween.tween(bgTwo,{alpha:0},5);
 					trace('poopie');
 				case 2304:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
@@ -4529,7 +4538,7 @@ class PlayState extends MusicBeatState
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 2592:
 					shakeCam = true;
-				case 2642:
+				case 2640:
 					shakeCam = false;
 					superShake = true;
 				case 2656:
@@ -4540,7 +4549,7 @@ class PlayState extends MusicBeatState
 				case 2672:
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
 					shakeCam = false;
-				case 2678: 
+				case 2680: 
 					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.5);
 					shakeCam = true;
 				case 2686:
@@ -4555,8 +4564,12 @@ class PlayState extends MusicBeatState
 					trace('poopie');
 				case 2784:
 					superShake = false;
+					announcerFlagOne = false; //I love reusing old variables
 			}
 		}
+	}
+
+		
 
 		// yes this updates every step.
 		// yes this is bad
