@@ -805,6 +805,7 @@ class LockWeeksOption extends Option
 		display = updateDisplay();
 		FlxG.save.data.rebeats = false;
 		FlxG.save.data.sheep = false;
+		FlxG.save.data.kitty = false;
         FlxG.save.flush();
 		trace('rebeats is dead');
 		return true;

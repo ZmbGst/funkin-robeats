@@ -1121,8 +1121,11 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			if (curSong == 'Rebeats')
+			if (curSong == 'Rebeats' && FlxG.save.data.kitty == false){
 				schoolIntro(doof);
+				FlxG.save.data.kitty = true; //I love seeing the same god damn cutscene for a extremely hard song
+			}
+				
 			else
 				startCountdown();
 		}
@@ -3470,8 +3473,9 @@ class PlayState extends MusicBeatState
 			if (currentTimingShown != null)
 				remove(currentTimingShown);
 
-			currentTimingShown = new FlxText(0, 0, 0, "0ms");
-			timeShown = 0;
+			currentTimingShown = new FlxText(0, 0, 0, "0ms"); //I'm a little idiot. I forgot I set this to be centered and had the x value here at 300
+			timeShown = 0; //I also love how the dumbass text will always be in front of the opponent when the cam is on their screen and youre singing. I cant find a good spot to 
+						   //put it. ugh fnf
 			switch (daRating)
 			{
 				case 'shit':
@@ -3484,10 +3488,10 @@ class PlayState extends MusicBeatState
 					currentTimingShown.color = FlxColor.CYAN;
 			}
 			currentTimingShown.borderStyle = OUTLINE;
-			currentTimingShown.borderSize = 1;
+			currentTimingShown.borderSize = 2;
 			currentTimingShown.borderColor = FlxColor.BLACK;
 			currentTimingShown.text = msTiming + "ms";
-			currentTimingShown.size = 26;
+			currentTimingShown.size = 19;
 
 			if (msTiming >= 0.03 && offsetTesting)
 			{
@@ -3513,13 +3517,13 @@ class PlayState extends MusicBeatState
 
 			var comboCir:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
 			comboCir.screenCenter();
-			comboCir.x =  currentTimingShown.x + 400;
+			comboCir.x =  currentTimingShown.x + 480;
 			if(PlayStateChangeables.Optimize)
-				comboCir.x =  currentTimingShown.x + 120;
-			comboCir.y += currentTimingShown.y - 40;
+				comboCir.x =  currentTimingShown.x + 185;
+			comboCir.y += currentTimingShown.y + 30;
 			comboCir.acceleration.y = 400;
 			comboCir.velocity.y -= 150;
-			comboCir.setGraphicSize(Std.int(comboCir.width * daPixelZoom * 0.13));
+			comboCir.setGraphicSize(Std.int(comboCir.width * daPixelZoom * 0.08));
 
 			if (!PlayStateChangeables.botPlay || loadRep){
 				add(comboCir);
@@ -3535,7 +3539,7 @@ class PlayState extends MusicBeatState
 			comboSpr.velocity.y -= 150;
 
 			currentTimingShown.screenCenter();
-			currentTimingShown.x = comboSpr.x-20;
+			currentTimingShown.x = comboSpr.x+20;
 			if(PlayStateChangeables.Optimize)
 				currentTimingShown.x = comboSpr.x-300;
 			currentTimingShown.y = comboSpr.y + 60; //uhh wtf did I do here?
@@ -3554,7 +3558,7 @@ class PlayState extends MusicBeatState
 					{
 						rating.antialiasing = true;
 					}
-				comboSpr.setGraphicSize(Std.int(comboSpr.width * 0.7));
+				comboSpr.setGraphicSize(Std.int(comboSpr.width * 0.5));
 				if(FlxG.save.data.antialiasing)
 					{
 						comboSpr.antialiasing = true;
@@ -3603,8 +3607,8 @@ class PlayState extends MusicBeatState
 			{
 				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
 				numScore.screenCenter();
-				numScore.x = comboCir.x + (34 * daLoop)+36;
-				numScore.y = comboCir.y + 140;
+				numScore.x = comboCir.x + (23 * daLoop);//36
+				numScore.y = comboCir.y + 90;//140
 				numScore.cameras = [camHUD];
 
 				if (!curStage.startsWith('school'))
@@ -3613,7 +3617,7 @@ class PlayState extends MusicBeatState
 						{
 							numScore.antialiasing = true;
 						}
-					numScore.setGraphicSize(Std.int(numScore.width * 0.45));
+					numScore.setGraphicSize(Std.int(numScore.width * 0.35));
 				}
 				else
 				{
