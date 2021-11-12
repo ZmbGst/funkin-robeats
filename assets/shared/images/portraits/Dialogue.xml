@@ -1,25 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Dialogue.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Bf Animation instance 10000" x="0" y="0" width="416" height="279"/>
-	<SubTexture name="Bf Animation instance 10001" x="418" y="0" width="416" height="279"/>
-	<SubTexture name="Bf Animation instance 10002" x="836" y="0" width="416" height="279"/>
-	<SubTexture name="Bf Animation instance 10003" x="1254" y="0" width="416" height="279"/>
-	<SubTexture name="Chris Animation instance 10000" x="1672" y="0" width="336" height="518"/>
-	<SubTexture name="Chris Animation instance 10001" x="0" y="520" width="336" height="518"/>
-	<SubTexture name="Chris Animation instance 10002" x="338" y="520" width="336" height="518"/>
-	<SubTexture name="Chris Animation instance 10003" x="676" y="520" width="336" height="518"/>
-	<SubTexture name="Gf Animation instance 10000" x="1014" y="520" width="313" height="273"/>
-	<SubTexture name="Gf Animation instance 10001" x="1329" y="520" width="313" height="273"/>
-	<SubTexture name="Gf Animation instance 10002" x="1644" y="520" width="313" height="273"/>
-	<SubTexture name="Gf Animation instance 10003" x="0" y="1040" width="313" height="273"/>
-	<SubTexture name="Noob Animation instance 10000" x="315" y="1040" width="308" height="583"/>
-	<SubTexture name="Noob Animation instance 10001" x="625" y="1040" width="308" height="583"/>
-	<SubTexture name="Noob Animation instance 10002" x="935" y="1040" width="308" height="583"/>
-	<SubTexture name="Noob Animation instance 10003" x="1245" y="1040" width="308" height="583"/>
-	<SubTexture name="Spotco Animation instance 10000" x="1555" y="1040" width="357" height="421"/>
-	<SubTexture name="Spotco Animation instance 10001" x="0" y="1625" width="357" height="421"/>
-	<SubTexture name="Spotco Animation instance 10002" x="359" y="1625" width="357" height="421"/>
-	<SubTexture name="Spotco Animation instance 10003" x="718" y="1625" width="357" height="421"/>
+	<SubTexture name="Bf Animation instance 10000" x="718" y="1405" width="416" height="280"/>
+	<SubTexture name="Bf Animation instance 10001" x="0" y="1529" width="416" height="280"/>
+	<SubTexture name="Bf Animation instance 10002" x="418" y="1687" width="416" height="280"/>
+	<SubTexture name="Bf Animation instance 10003" x="836" y="1687" width="416" height="280"/>
+	<SubTexture name="Chris Animation instance 10000" x="0" y="585" width="336" height="519"/>
+	<SubTexture name="Chris Animation instance 10001" x="338" y="585" width="336" height="519"/>
+	<SubTexture name="Chris Animation instance 10002" x="676" y="585" width="336" height="519"/>
+	<SubTexture name="Chris Animation instance 10003" x="1014" y="884" width="336" height="519"/>
+	<SubTexture name="Gf Animation instance 10000" x="1711" y="884" width="313" height="273"/>
+	<SubTexture name="Gf Animation instance 10001" x="1711" y="1159" width="313" height="273"/>
+	<SubTexture name="Gf Animation instance 10002" x="1711" y="1434" width="313" height="273"/>
+	<SubTexture name="Gf Animation instance 10003" x="1711" y="1709" width="313" height="273"/>
+	<SubTexture name="Noob Animation instance 10000" x="0" y="0" width="308" height="583"/>
+	<SubTexture name="Noob Animation instance 10001" x="310" y="0" width="308" height="583"/>
+	<SubTexture name="Noob Animation instance 10002" x="620" y="0" width="308" height="583"/>
+	<SubTexture name="Noob Animation instance 10003" x="930" y="0" width="308" height="583"/>
+	<SubTexture name="Spotco Animation instance 10000" x="1352" y="884" width="357" height="421"/>
+	<SubTexture name="Spotco Animation instance 10001" x="0" y="1106" width="357" height="421"/>
+	<SubTexture name="Spotco Animation instance 10002" x="359" y="1106" width="357" height="421"/>
+	<SubTexture name="Spotco Animation instance 10003" x="1352" y="1307" width="357" height="421"/>
+	<SubTexture name="kittyAnimation instance 10000" x="1240" y="0" width="401" height="440"/>
+	<SubTexture name="kittyAnimation instance 10001" x="1643" y="0" width="401" height="440"/>
+	<SubTexture name="kittyAnimation instance 10002" x="1240" y="442" width="401" height="440"/>
+	<SubTexture name="kittyAnimation instance 10003" x="1643" y="442" width="401" height="440"/>
 </TextureAtlas>

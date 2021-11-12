@@ -1121,7 +1121,10 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			startCountdown();
+			if (curSong == 'Rebeats')
+				schoolIntro(doof);
+			else
+				startCountdown();
 		}
 
 		if (!loadRep)

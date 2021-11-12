@@ -148,7 +148,6 @@ class DialogueBox extends FlxSpriteGroup
 			case 'bibi hendl' | 'bad apple' | 'insight':	
 				portraitLeft.animation.addByPrefix('enter', 'Chris Animation', 24, false);
 
-				trace ('uh oh, stinky!');
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.135));
 			
 			case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':
@@ -156,9 +155,12 @@ class DialogueBox extends FlxSpriteGroup
 
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 		
+			case 'rebeats':
+				portraitLeft.animation.addByPrefix('enter', 'kittyAnimation', 24, false);
+
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 			default:
 				portraitLeft.animation.addByPrefix('enter', 'Gf Animation', 24, false);
-				trace ('wrong image');
 
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 		}

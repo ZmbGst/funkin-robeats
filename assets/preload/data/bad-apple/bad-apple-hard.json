@@ -5540,7 +5540,7 @@
     "startTime": 1739.13043478261,
     "changeBPM": false,
     "endTime": 3478.26086956522,
-    "mustHitSection": true
+    "mustHitSection": false
    },
    {
     "lengthInSteps": 16,
@@ -5551,7 +5551,7 @@
     "startTime": 3478.26086956522,
     "changeBPM": false,
     "endTime": 5217.39130434783,
-    "mustHitSection": true
+    "mustHitSection": false
    },
    {
     "lengthInSteps": 16,
@@ -5562,7 +5562,7 @@
     "startTime": 5217.39130434783,
     "changeBPM": false,
     "endTime": 6956.52173913044,
-    "mustHitSection": true
+    "mustHitSection": false
    },
    {
     "lengthInSteps": 16,
@@ -5573,7 +5573,7 @@
     "startTime": 6956.52173913044,
     "changeBPM": false,
     "endTime": 8695.65217391304,
-    "mustHitSection": true
+    "mustHitSection": false
    },
    {
     "lengthInSteps": 16,
@@ -5584,7 +5584,7 @@
     "startTime": 8695.65217391304,
     "changeBPM": false,
     "endTime": 10434.7826086957,
-    "mustHitSection": false
+    "mustHitSection": true
    },
    {
     "lengthInSteps": 16,
@@ -5595,7 +5595,7 @@
     "startTime": 10434.7826086957,
     "changeBPM": false,
     "endTime": 12173.9130434783,
-    "mustHitSection": false
+    "mustHitSection": true
    },
    {
     "lengthInSteps": 16,
@@ -5606,7 +5606,7 @@
     "startTime": 12173.9130434783,
     "changeBPM": false,
     "endTime": 13913.0434782609,
-    "mustHitSection": false
+    "mustHitSection": true
    },
    {
     "lengthInSteps": 16,
@@ -5617,7 +5617,7 @@
     "startTime": 13913.0434782609,
     "changeBPM": false,
     "endTime": 15652.1739130435,
-    "mustHitSection": false
+    "mustHitSection": true
    },
    {
     "lengthInSteps": 16,
@@ -28848,6 +28848,17 @@
     "bpm": 138,
     "startTime": 3686956.52173913,
     "changeBPM": false,
+    "endTime": 3688695.65217391,
+    "mustHitSection": true
+   },
+   {
+    "lengthInSteps": 16,
+    "altAnim": false,
+    "typeOfSection": 0,
+    "sectionNotes": [],
+    "bpm": 138,
+    "startTime": 3688695.65217391,
+    "changeBPM": false,
     "endTime": null,
     "mustHitSection": true
    }
@@ -28867,6 +28878,6 @@
   "needsVoices": true,
   "sections": 1,
   "bpm": 138,
-  "speed": 3.1
+  "speed": 3
  }
 }
