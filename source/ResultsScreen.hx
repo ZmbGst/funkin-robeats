@@ -267,6 +267,7 @@ class ResultsScreen extends FlxSubState
                 if (${PlayState.storyDifficulty} == 2 && ${PlayState.storyWeek} == 3 && !FlxG.save.data.rebeats){
                     FlxG.save.data.rebeats = true; //you only unlock rebeats by beating last week on hard
                     FlxG.save.flush();
+                    Conductor.changeBPM(102);
                     FlxG.switchState(new RewardScreen());
                 }else
                 FlxG.switchState(new StoryMenuState());
@@ -275,7 +276,7 @@ class ResultsScreen extends FlxSubState
                 FlxG.switchState(new FreeplayState());
         }
 
-        /*/if (FlxG.keys.justPressed.F1 && !PlayState.loadRep && leaveSong)
+        /*/if (FlxG.keys.justPressed.F1 && !PlayState.loadRep && leaveSong) yeah the f1 f2 stuff just doesn't want to work half the time so fuck replays and recordings
         {
             trace(PlayState.rep.path);
             PlayState.rep = Replay.LoadReplay(PlayState.rep.path);

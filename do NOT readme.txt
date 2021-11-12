@@ -26,20 +26,19 @@ Oh yeah forgot to mention, its a Roblox game oops.
 
 FnF Featuring Robeats is made by
 
-*Shad0wStar/Amy (Lead Project Manager/musician/storywriter/mapper) - https://www.youtube.com/user/ayylgirl
-*ZmbGst (Co-Project Manager/artist/programmer/animator/storywriter/mapper) - https://twitter.com/ZmbGst
-*Banana_Switch (animator/programmer) - https://www.youtube.com/channel/UCG5dlta5UkypnDvkLuttYew
-*NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
-fuzzybrexth (musician) - https://www.roblox.com/users/108915438/profile
+Shad0wStar/Amy (Lead Project Manager/musician/storywriter/mapper) - https://www.youtube.com/user/ayylgirl
+ZmbGst (Co-Project Manager/artist/programmer/animator/storywriter/mapper) - https://twitter.com/ZmbGst
+Banana_Switch (animator/programmer) - https://www.youtube.com/channel/UCG5dlta5UkypnDvkLuttYew
 blah133134 (musician) - https://www.roblox.com/users/136455748/profile
-Kaiden (storywriter) - https://www.roblox.com/users/1480439134/profile
-*RoDanxxx (storywriter) - https://www.roblox.com/users/630642715/profile
-doofyplayer (lead mapper) - https://www.roblox.com/users/127036995/profile
+NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
+fuzzybrexth (musician) - https://www.roblox.com/users/108915438/profile
+doofyplayer (lead mapper/reviewer) - https://www.roblox.com/users/127036995/profile
 Technical_Sleepy (mapper) - https://www.roblox.com/users/147763448/profile
 Vixlovo (mapper) - https://www.roblox.com/users/2517715868/profile
-NightSkii (mapper) - https://www.roblox.com/users/87128592/profile
 TheRussean (mapper) - https://www.roblox.com/users/474197899/profile
 Zembonics (mapper) - https://www.roblox.com/users/544940271/profile
+Kaiden (storywriter) - https://www.roblox.com/users/1480439134/profile
+RoDanxxx (storywriter) - https://www.roblox.com/users/630642715/profile
 
 wow thats a lot of people, but thats because we care about this mod a lot
 Robeats is a fun game and many of our first introductions to rhythm games, so this mod is sorta a gift back
@@ -60,7 +59,9 @@ Credits:
 - Official Robeats assets were acquired from pierceisdyinglol https://www.roblox.com/users/71887421/profile
 - Some extra results screen debugging by EpicGamer https://twitter.com/Epic2469
 - Some hands were borrowed from https://twitter.com/esimplyj/status/1413036302644228097?s=21
+- Special thanks to NightSkii for making a map https://www.roblox.com/users/87128592/profile
 - Meowing from https://www.roblox.com/users/158507862/profile
+- Freedom Dive and Space Battle Cover art done by https://www.instagram.com/quirkeii/
 
 
 

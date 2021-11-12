@@ -220,6 +220,7 @@ class PlayState extends MusicBeatState
 	var bgTwo:FlxSprite;
 	var bgThree:FlxSprite;
 	var blackFade:FlxSprite;
+	public var ummBanned:FlxSprite;
 
 	var hasDialogue:Bool = false;
 	
@@ -462,25 +463,7 @@ class PlayState extends MusicBeatState
 			+ Conductor.timeScale + '\nBotPlay : ' + PlayStateChangeables.botPlay);
 
 		// dialogue shit
-		switch (songLowercase)
-		{
-			case 'monday-night-monsters':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialog'));
-			case 'shelter':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/shelter/dialog'));
-			case 'alone':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/alone/dialog'));
-			case 'friends':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/friends/dialog'));
-			case 'bibi-hendl':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/bibi-hendl/dialog'));
-			case 'bad-apple':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/bad-apple/dialog'));
-			case 'insight':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/insight/dialog'));
-			case 'lemon-summer':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialog'));
-		}
+		dialogue = CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+'/dialog'));
 
 		// defaults if no stage was found in chart
 		var stageCheck:String = 'stage';
@@ -668,9 +651,15 @@ class PlayState extends MusicBeatState
 						bgTwo.active = false;
 						bgTwo.visible = false;
 						
-						add(bgThree);
-						add(bgTwo);
-						add(bgOne);
+						ummBanned = new FlxSprite(0,0).loadGraphic(Paths.image('two/SpotcoDelete'));
+						if(FlxG.save.data.antialiasing)
+							{
+								bgTwo.antialiasing = true;
+							}
+						ummBanned.active = false;
+						ummBanned.scrollFactor.set(1,1);
+						ummBanned.visible = false;
+						ummBanned.setGraphicSize(Std.int(ummBanned.width * 0.75));
 						
 						
 		bgThree = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium3'));
@@ -681,6 +670,10 @@ class PlayState extends MusicBeatState
 						bgThree.scrollFactor.set(0.9, 0.9);
 						bgThree.active = false;
 						bgThree.visible = false;
+
+						add(bgThree);
+						add(bgTwo);
+						add(bgOne);
 						
 
 				}
@@ -882,6 +875,7 @@ class PlayState extends MusicBeatState
 				}
 			if (curStage == 'sheep'){
 				add(blackFade);
+				add(ummBanned);
 				trace('why are you so mean to me');
 				}
 			
@@ -1063,6 +1057,12 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		if(songLowercase == 'dark-sheep'){
+			ummBanned.cameras = [camHUD];
+			ummBanned.x = FlxG.width/4;
+			ummBanned.y = FlxG.height/20;
+		}
+		
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -3144,14 +3144,14 @@ class PlayState extends MusicBeatState
 		{
 			endDialog = CoolUtil.coolTextFile(Paths.txt('data/insight/dialogend')); //wanna see if I can add bad ending dialogue but itll portray chrisu negatively and idk if I wanna do that
 		}
-		if (curSong == 'Lemon Summer')
+		if (curSong == 'Dark Sheep')
 		{
 			if (accuracy >= 98.00){
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialogendbad'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogendbad'));
 			}
 			else 
 			{
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/lemon-summer/dialogend'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogend'));
 				FlxTween.tween(boyfriend,{alpha:1},2);	
 				FlxTween.tween(iconP1,{alpha:1},2);	
 			}
@@ -3203,8 +3203,11 @@ class PlayState extends MusicBeatState
 		vocals.volume = 0;
 		FlxG.sound.music.pause();
 		vocals.pause();
-		/*/if (SONG.song.toLowerCase() == 'monday night monsters' &&isStoryMode)
-			storyPlaylist.push('lemon summer');   use this to add another song to play thats not on storymode lists, just replace mnm/*/
+		if (SONG.song.toLowerCase() == 'space battle' && isStoryMode && accuracy >= 90.00){
+			storyPlaylist.push('dark sheep');  //you unlock dark sheep by getting the 90 acc no matter what
+			FlxG.save.data.sheep = true;
+		}
+			
 
 		if (SONG.validScore)
 		{
@@ -4415,10 +4418,10 @@ class PlayState extends MusicBeatState
 					superShake = false;
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 576:
-					FlxG.camera.flash(0x5000A36C, 0.5);// I'll change this to an image later
+					FlxG.camera.flash(0x5000A36C, 0.5);
 					bgTwo.visible = true;
+					banned();
 					FlxTween.tween(bgOne,{alpha:0},5);
-					trace('poopie');
 				case 640:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 704: 
@@ -4526,8 +4529,8 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut});
 					FlxG.camera.flash(0x5000A36C, 0.5);
 					bgThree.visible = true;
+					banned();
 					FlxTween.tween(bgTwo,{alpha:0},5);
-					trace('poopie');
 				case 2304:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 2368:
@@ -4557,6 +4560,7 @@ class PlayState extends MusicBeatState
 					shakeCam = false;
 				case 2718: 
 					FlxG.camera.flash(0x5000A36C, 0.5);
+					banned();
 					superShake = true;
 					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 5.5);
 					FlxTween.tween(boyfriend,{alpha:0},5.5);		
@@ -4752,7 +4756,15 @@ class PlayState extends MusicBeatState
 			}
 		}
 	}
+	function banned(){
+		ummBanned.visible = true;
+		FlxTween.tween(ummBanned, {alpha:0},2, 
+			{onComplete: function(twn:FlxTween){
+				ummBanned.alpha=1;
+				ummBanned.visible = false;
+			}});
 
+	}
 	var curLight:Int = 0;
 }
 //sherman squid lol maybe one day I'll add the impossible mode toggle thingy in the game but you gotta recompile the game if you want to play it have fun downloading the source code :trolled:

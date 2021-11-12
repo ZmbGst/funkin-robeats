@@ -27587,7 +27587,7 @@
     "mustHitSection": true
    }
   ],
-  "player2": "spotcochair",
+  "player2": "spotco",
   "gfVersion": "gf-car",
   "eventObjects": [
    {
@@ -27601,7 +27601,7 @@
   "song": "Lemon Summer",
   "sections": 1,
   "needsVoices": true,
-  "stage": "sheep",
+  "stage": "stadium",
   "validScore": true,
   "speed": 2.6,
   "bpm": 180

@@ -77,14 +77,14 @@ class FreeplayState extends MusicBeatState
 		{
 			var data:Array<String> = initSonglist[i].split(':');
 			var meta = new SongMetadata(data[0], Std.parseInt(data[2]), data[1]);
-			if(!(data[0]=='Rebeats')){ //I feel bad for stealing code this is from the QT mod
+			
+			if(!(data[0]=='Rebeats' || data[0]=='Dark Sheep')){ //I feel bad for stealing code this is from the QT mod
 				songs.push(meta);
 			}
-			if(FlxG.save.data.rebeats && data[0]=='Rebeats'){
+			if(FlxG.save.data.rebeats && data[0] == 'Rebeats')
 				songs.push(meta);
-				trace('rebeats added');
-			} else
-			trace ('rebeats not added');
+			if(FlxG.save.data.sheep && data[0] == 'Dark Sheep')
+				songs.push(meta);
 				
 			
 			var format = StringTools.replace(meta.songName, " ", "-");

@@ -804,6 +804,7 @@ class LockWeeksOption extends Option
 		trace('Weeks Locked');
 		display = updateDisplay();
 		FlxG.save.data.rebeats = false;
+		FlxG.save.data.sheep = false;
         FlxG.save.flush();
 		trace('rebeats is dead');
 		return true;

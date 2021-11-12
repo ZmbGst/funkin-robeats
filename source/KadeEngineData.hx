@@ -112,6 +112,9 @@ class KadeEngineData
 		if (FlxG.save.data.rebeats == null)
             FlxG.save.data.rebeats = false;
 
+		if (FlxG.save.data.sheep == null)
+            FlxG.save.data.sheep = false;
+
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 		
 		KeyBinds.gamepad = gamepad != null;
