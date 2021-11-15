@@ -660,6 +660,7 @@ class PlayState extends MusicBeatState
 						ummBanned.scrollFactor.set(1,1);
 						ummBanned.visible = false;
 						ummBanned.setGraphicSize(Std.int(ummBanned.width * 0.75));
+						health = 2;
 						
 						
 		bgThree = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium3'));
@@ -1081,7 +1082,7 @@ class PlayState extends MusicBeatState
 
 		trace('starting');
 
-		if (isStoryMode)
+		if (isStoryMode && FlxG.save.data.cutscene == false)
 		{
 			switch (StringTools.replace(curSong, " ", "-").toLowerCase())
 			{
@@ -1118,16 +1119,23 @@ class PlayState extends MusicBeatState
 				default:
 					schoolIntro(doof);
 			}
+			FlxG.save.data.cutscene = true; //I love seeing the same god damn cutscene for a extremely hard song
+			trace ('You shouldnt see this message twice');
 		}
 		else
 		{
-			if (curSong == 'Rebeats' && FlxG.save.data.kitty == false){
-				schoolIntro(doof);
-				FlxG.save.data.kitty = true; //I love seeing the same god damn cutscene for a extremely hard song
+			if (curSong == 'Rebeats' && FlxG.save.data.cutscene == false){
+				schoolIntro(doof);	
+				FlxG.save.data.cutscene = true;	
+				trace ('You shouldnt see this message twice');
+			}
+						
+			else{
+				startCountdown();
+				trace('the feature worked!');
 			}
 				
-			else
-				startCountdown();
+
 		}
 
 		if (!loadRep)
@@ -1235,8 +1243,22 @@ class PlayState extends MusicBeatState
 	function startCountdown():Void
 	{
 		inCutscene = false;
-
-		appearStaticArrows();
+		if (!(curSong == 'Dark Sheep')){
+			appearStaticArrows();
+		}
+		else{
+				healthBarBG.visible = false;
+				kadeEngineWatermark.visible = false;
+				healthBar.visible = false;
+				iconP1.visible = false;
+				iconP2.visible = false;
+				scoreTxt.visible = false;
+				for (i in 0...8){
+					strumLineNotes.members[i].visible = false;
+				}
+				
+		}
+		
 		//generateStaticArrows(0);
 		//generateStaticArrows(1);
 
@@ -2203,6 +2225,7 @@ class PlayState extends MusicBeatState
 			luaModchart.setVar('hudZoom', camHUD.zoom);
 			luaModchart.setVar('cameraZoom', FlxG.camera.zoom);
 			luaModchart.executeState('update', [elapsed]);
+			
 
 			for (i in luaWiggles)
 			{
@@ -2238,6 +2261,11 @@ class PlayState extends MusicBeatState
 				iconP2.visible = true;
 				scoreTxt.visible = true;
 			}
+		
+		
+			for (i in 0...8){
+				strumLineNotes.members[i].alpha = luaModchart.getVar("strumLineAlpha", 'float');
+			}
 
 			var p1 = luaModchart.getVar("strumLine1Visible", 'bool');
 			var p2 = luaModchart.getVar("strumLine2Visible", 'bool');
@@ -2248,6 +2276,7 @@ class PlayState extends MusicBeatState
 				if (i <= playerStrums.length)
 					playerStrums.members[i].visible = p2;
 			}
+			strumLine.x = luaModchart.getVar("strumLineX", 'float');
 		}
 		#end
 
@@ -3209,6 +3238,7 @@ class PlayState extends MusicBeatState
 		vocals.volume = 0;
 		FlxG.sound.music.pause();
 		vocals.pause();
+		FlxG.save.data.cutscene = true;
 		if (SONG.song.toLowerCase() == 'space battle' && isStoryMode && accuracy >= 90.00){
 			storyPlaylist.push('dark sheep');  //you unlock dark sheep by getting the 90 acc no matter what
 			FlxG.save.data.sheep = true;
@@ -4400,10 +4430,11 @@ class PlayState extends MusicBeatState
 		}
 
 		//dark sheep camera stuff because modcharts suck with cameras
+		//edit: they probably don't but I didn't bother to learn because I couldn't find the old API when I made the cam stuff and didn't think of looking in modChartState
 
 	if (PlayStateChangeables.Optimize == false){
 		if (curSong == 'Dark Sheep' && curStage == 'sheep' && announcerFlagOne){
-		
+		health -= 0.005;
 			switch (curStep)
 				{
 				case 12:

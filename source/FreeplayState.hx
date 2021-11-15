@@ -66,6 +66,7 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
+		FlxG.save.data.cutscene = false;
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('data/freeplaySonglist'));
 
 		//var diffList = "";

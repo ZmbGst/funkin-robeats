@@ -403,6 +403,7 @@ class ModchartState
 				setVar("showOnlyStrums", false);
 				setVar("strumLine1Visible", true);
 				setVar("strumLine2Visible", true);
+				setVar("strumLineAlpha", 1);
 	
 				setVar("screenWidth",FlxG.width);
 				setVar("screenHeight",FlxG.height);
@@ -412,8 +413,10 @@ class ModchartState
 				setVar("hudHeight", PlayState.instance.camHUD.height);
 	
 				setVar("mustHit", false);
+				setVar("health", PlayState.instance.health);
 
 				setVar("strumLineY", PlayState.instance.strumLine.y);
+				setVar("strumLineX", PlayState.instance.strumLine.x);
 				
 				// callbacks
 	
@@ -524,6 +527,10 @@ class ModchartState
 					PlayState.instance.strumLine.y = y;
 				});
 	
+				Lua_helper.add_callback(lua, "setStrumlineX", function(x:Float)
+					{
+						PlayState.instance.strumLine.x = x;
+					});
 				// actors
 				
 				Lua_helper.add_callback(lua,"getRenderedNotes", function() {

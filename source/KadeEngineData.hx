@@ -115,8 +115,8 @@ class KadeEngineData
 		if (FlxG.save.data.sheep == null)
             FlxG.save.data.sheep = false;
 
-		if (FlxG.save.data.kitty == null)
-            FlxG.save.data.kitty = false;
+		if (FlxG.save.data.cutscene == null)
+            FlxG.save.data.cutscene = false;
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 		
