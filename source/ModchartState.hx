@@ -664,7 +664,7 @@ class ModchartState
 					getActorByName(id).velocity.y = y;
 				});
 				
-				Lua_helper.add_callback(lua,"setActorAngle", function(angle:Int,id:String) {
+				Lua_helper.add_callback(lua,"setActorAngle", function(angle:Float,id:String) {
 					getActorByName(id).angle = angle;
 				});
 	

@@ -660,7 +660,8 @@ class PlayState extends MusicBeatState
 						ummBanned.scrollFactor.set(1,1);
 						ummBanned.visible = false;
 						ummBanned.setGraphicSize(Std.int(ummBanned.width * 0.75));
-						health = 2;
+						if (PlayStateChangeables.Optimize == false)
+							health = 2;
 						
 						
 		bgThree = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium3'));
@@ -4444,10 +4445,10 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1, {ease: FlxEase.quadOut}); //god damnit why can I just make FlxG.camera.zoom = 1.05;
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 					blackFade.visible = false;
-					trace('crash');
 				case 288:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 384: 
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 5.2);	
 					shakeCam = true;
 				case 432:
 					shakeCam = false;
@@ -4456,16 +4457,31 @@ class PlayState extends MusicBeatState
 					superShake = false;
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 576:
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
 					FlxG.camera.flash(0x5000A36C, 0.5);
 					bgTwo.visible = true;
 					banned();
 					FlxTween.tween(bgOne,{alpha:0},5);
 				case 640:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 646:
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.1);
+				case 664: 
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
+				case 678: 
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.1);
+				case 696:
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
 				case 704: 
 					FlxG.camera.flash(0x5000A36C, 0.5);
 				case 768:
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
+				case 800:
+					FlxTween.tween(FlxG.camera, {zoom: 1.15}, 0.2);
+				case 808:
+					FlxTween.tween(FlxG.camera, {zoom: 1.25}, 0.2);
+				case 816: 
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 1.4);
 				case 832: 
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 1136:

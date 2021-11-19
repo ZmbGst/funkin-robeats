@@ -7176,6 +7176,11 @@
           ],
           [
             215599,
+            3,
+            339
+          ],
+          [
+            215599,
             7,
             339
           ],
@@ -8187,10 +8192,9 @@
     "needsVoices": true,
     "player1": "bf",
     "player2": "spotcochair",
-    "speed": 3.1,
+    "speed": 2.5,
     "song": "Dark Sheep",
-	"stage": "sheep",
-	"gfVersion": "gf-car",
+    "stage": "sheep",
     "sectionLengths": [],
     "validScore": true
   }
