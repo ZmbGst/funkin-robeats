@@ -3162,7 +3162,7 @@ class PlayState extends MusicBeatState
 		FlxG.sound.music.stop();
 		vocals.volume = 0;
 
-		if (curSong == 'Monday Night Monsters')
+		if (curSong == 'Monday Night Monsters') //imagine making all of this like 10 lines :star_struck:
 		{
 			if (accuracy >= 70.00){
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialogend'));
@@ -3179,6 +3179,10 @@ class PlayState extends MusicBeatState
 		if (curSong == 'Insight')
 		{
 			endDialog = CoolUtil.coolTextFile(Paths.txt('data/insight/dialogend')); //wanna see if I can add bad ending dialogue but itll portray chrisu negatively and idk if I wanna do that
+		}
+		if(curSong == 'Space Battle')
+		{
+			endDialog = CoolUtil.coolTextFile(Paths.txt('data/space-battle/dialogend'));
 		}
 		if (curSong == 'Dark Sheep')
 		{
@@ -3570,7 +3574,7 @@ class PlayState extends MusicBeatState
 			comboSpr.velocity.y -= 150;
 
 			currentTimingShown.screenCenter();
-			currentTimingShown.x = comboSpr.x+20;
+			currentTimingShown.x = comboSpr.x+60;
 			if(PlayStateChangeables.Optimize)
 				currentTimingShown.x = comboSpr.x-300;
 			currentTimingShown.y = comboSpr.y + 60; //uhh wtf did I do here?

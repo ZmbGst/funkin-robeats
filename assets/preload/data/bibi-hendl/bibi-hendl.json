@@ -2778,7 +2778,7 @@
     "startTime": 106466.165413534,
     "changeBPM": false,
     "endTime": 108270.676691729,
-    "mustHitSection": true
+    "mustHitSection": false
    },
    {
     "lengthInSteps": 16,
@@ -25382,17 +25382,6 @@
     "bpm": 133,
     "startTime": 3814736.84210526,
     "changeBPM": false,
-    "endTime": 3816541.35338346,
-    "mustHitSection": true
-   },
-   {
-    "lengthInSteps": 16,
-    "altAnim": false,
-    "typeOfSection": 0,
-    "sectionNotes": [],
-    "bpm": 133,
-    "startTime": 3816541.35338346,
-    "changeBPM": false,
     "endTime": null,
     "mustHitSection": true
    }
@@ -25412,6 +25401,6 @@
   "needsVoices": true,
   "sections": 1,
   "bpm": 133,
-  "speed": 3.1
+  "speed": 2.5
  }
 }

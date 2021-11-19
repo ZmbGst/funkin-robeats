@@ -198,9 +198,9 @@ class ResultsScreen extends FlxSubState
         }
 
         function musicFUCKINGRULES(){
-         if (!PlayState.inResults) 
+         if (!PlayState.inResults && !PlayState.isStoryMode) 
         {
-            if (${PlayState.SONG.song} == 'Lemon Summer')//cinematrography
+            if (${PlayState.SONG.song} == 'Dark Sheep')//cinematrography
             {
                 if (${PlayState.instance.accuracy} >= 98.00)
                 {
@@ -208,6 +208,13 @@ class ResultsScreen extends FlxSubState
                 }
                 else 
                 {
+                    new FlxTimer().start(3, function(tmr:FlxTimer){ 
+                        music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
+                        music.volume = 0.4;
+                        music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
+                        FlxG.sound.list.add(music);
+                    });
+                    
                     fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
                     fanfare.play(true, 0, fanfare.length);
                     FlxG.sound.list.add(fanfare);
@@ -224,10 +231,20 @@ class ResultsScreen extends FlxSubState
            {
                 new FlxTimer().start(3, function(tmr:FlxTimer){ 
                    music = new FlxSound().loadEmbedded(Paths.music('showsOver'), true, true);
-                   music.volume = 0.1;
+                   music.volume = 0.2;
                    music.play(false, FlxG.random.int(0, Std.int(music.length / 2)));
                    FlxG.sound.list.add(music);
                 });
+
+                fanfare = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
+                fanfare.play(true, 0, fanfare.length);
+                FlxG.sound.list.add(fanfare);
+
+                cheer = new FlxSound().loadEmbedded(Paths.music('cheer'), false, true);
+                cheer.play(true, 0, cheer.length);
+                FlxG.sound.list.add(cheer);
+
+                STOPPLAYING = false;
            }
             
         }
