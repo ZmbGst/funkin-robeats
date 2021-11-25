@@ -1,0 +1,35 @@
+{
+  "song": {
+    "notes": [
+      {
+        "mustHitSection": true,
+        "typeOfSection": 0,
+        "lengthInSteps": 160000,
+        "bpm": 191,
+        "changeBPM": true,
+        "timePosition": 24,
+        "sectionNotes": [
+          [
+            24,
+            7,
+            1571
+          ],
+          [
+            24,
+            0,
+            1571
+          ]
+        ]
+      }
+    ],
+    "bpm": 191,
+    "sections": 1,
+    "needsVoices": false,
+    "player1": "bf",
+    "player2": "kitty",
+    "speed": 3.1,
+    "song": "Explosion",
+    "sectionLengths": [],
+    "validScore": true
+  }
+}

@@ -463,6 +463,7 @@ class PlayState extends MusicBeatState
 			+ Conductor.timeScale + '\nBotPlay : ' + PlayStateChangeables.botPlay);
 
 		// dialogue shit
+		if (CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+'/dialog')) != null)
 		dialogue = CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+'/dialog'));
 
 		// defaults if no stage was found in chart
@@ -1364,13 +1365,11 @@ class PlayState extends MusicBeatState
 
 					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
 					if (isStoryMode) {
-						if(curSong == 'Lemon Summer' || curSong == 'Insight')
+						if(storyWeek == 3 || curSong == 'Insight')
 							FlxG.sound.play(Paths.sound('boo'), 0.6, false);
 						
-						else if (curSong == 'Bibi Hendl' || curSong == 'Bad Apple'){ 
+						else if (curSong == 'Bibi Hendl' || curSong == 'Bad Apple')
 							FlxG.sound.play(Paths.sound('startCheer'), 0.6, false);
-							trace('hooray');
-						}
 					}
 					
 				case 1:
@@ -1632,10 +1631,10 @@ class PlayState extends MusicBeatState
 			#else
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 			#end/*/
-			if ((SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'lemon summer'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight') &&isStoryMode){
-				trace('went to the function');
-				FlxG.sound.music.onComplete = stolenFromBobBosip;
-				}
+			if(isStoryMode){
+				if ((SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'space battle'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight' ||SONG.song.toLowerCase() == 'dark sheep'))
+					FlxG.sound.music.onComplete = stolenFromBobBosip;
+			}
 			else 
 				FlxG.sound.music.onComplete = endSong;
 			vocals.play();
@@ -3151,56 +3150,57 @@ class PlayState extends MusicBeatState
 
 	function stolenFromBobBosip():Void
 	{
-		for (i in strumLineNotes)
-			i.visible = false;
-		healthBar.visible = false;
-		healthBarBG.visible = false;
-		iconP2.visible = false;
-		iconP1.visible = false;
-		camZooming = false;
-		canPause = false;
-		FlxG.sound.music.stop();
-		vocals.volume = 0;
-
-		if (curSong == 'Monday Night Monsters') //imagine making all of this like 10 lines :star_struck:
-		{
-			if (accuracy >= 70.00){
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialogend'));
-			}
-			else 
+		
+			for (i in strumLineNotes)
+				i.visible = false;
+			healthBar.visible = false;
+			healthBarBG.visible = false;
+			iconP2.visible = false;
+			iconP1.visible = false;
+			camZooming = false;
+			canPause = false;
+			FlxG.sound.music.stop();
+			vocals.volume = 0;
+	
+			if (curSong == 'Monday Night Monsters') //imagine making all of this like 10 lines :star_struck:
 			{
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialogendbad'));
+				if (accuracy >= 70.00){
+					endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialogend'));
+				}
+				else 
+				{
+					endDialog = CoolUtil.coolTextFile(Paths.txt('data/monday-night-monsters/dialogendbad'));
+				}
 			}
-		}
-		if (curSong == 'Friends')
-		{
-			endDialog = CoolUtil.coolTextFile(Paths.txt('data/friends/dialogend'));
-		}
-		if (curSong == 'Insight')
-		{
-			endDialog = CoolUtil.coolTextFile(Paths.txt('data/insight/dialogend')); //wanna see if I can add bad ending dialogue but itll portray chrisu negatively and idk if I wanna do that
-		}
-		if(curSong == 'Space Battle')
-		{
-			endDialog = CoolUtil.coolTextFile(Paths.txt('data/space-battle/dialogend'));
-		}
-		if (curSong == 'Dark Sheep')
-		{
-			if (accuracy >= 98.00){
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogendbad'));
-			}
-			else 
+			if (curSong == 'Friends')
 			{
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogend'));
-				FlxTween.tween(boyfriend,{alpha:1},2);	
-				FlxTween.tween(iconP1,{alpha:1},2);	
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/friends/dialogend'));
 			}
-		}
-
-		hasDialogue = true;
-		ResultsScreen.isDialogue = hasDialogue;
-		ResultsScreen.dialogueText = endDialog;
-		endSong();
+			if (curSong == 'Insight')
+			{
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/insight/dialogend')); //wanna see if I can add bad ending dialogue but itll portray chrisu negatively and idk if I wanna do that
+			}
+			if(curSong == 'Space Battle')
+			{
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/space-battle/dialogend'));
+			}
+			if (curSong == 'Dark Sheep')
+			{
+				if (accuracy >= 98.00){
+					endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogendbad'));
+				}
+				else 
+				{
+					endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogend'));
+					FlxTween.tween(boyfriend,{alpha:1},2);	
+					FlxTween.tween(iconP1,{alpha:1},2);	
+				}
+			}
+		
+			hasDialogue = true;
+			ResultsScreen.isDialogue = hasDialogue;
+			ResultsScreen.dialogueText = endDialog;
+			endSong();
 	}
 
 	function endSong():Void
@@ -3243,7 +3243,7 @@ class PlayState extends MusicBeatState
 		vocals.volume = 0;
 		FlxG.sound.music.pause();
 		vocals.pause();
-		FlxG.save.data.cutscene = true;
+		FlxG.save.data.cutscene = false;
 		if (SONG.song.toLowerCase() == 'space battle' && isStoryMode && accuracy >= 90.00){
 			storyPlaylist.push('dark sheep');  //you unlock dark sheep by getting the 90 acc no matter what
 			FlxG.save.data.sheep = true;
@@ -4517,7 +4517,7 @@ class PlayState extends MusicBeatState
 				case 1728: 
 					FlxG.camera.flash(0x50FFFFFF, 0.5);
 				case 1920:
-					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 3);
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 4.8);
 					shakeCam = true;
 				case 1952:
 					shakeCam = false;
@@ -4605,18 +4605,18 @@ class PlayState extends MusicBeatState
 				case 2656:
 					superShake = false;
 				case 2664:
-					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.5);
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.75);
 					shakeCam = true;
 				case 2672:
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
 					shakeCam = false;
 				case 2680: 
-					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.5);
+					FlxTween.tween(FlxG.camera, {zoom: 1.3}, 0.75);
 					shakeCam = true;
 				case 2686:
 					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.1);
 					shakeCam = false;
-				case 2718: 
+				case 2720: 
 					FlxG.camera.flash(0x5000A36C, 0.5);
 					banned();
 					superShake = true;

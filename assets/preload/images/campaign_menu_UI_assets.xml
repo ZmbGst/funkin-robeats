@@ -2,12 +2,12 @@
 <TextureAtlas imagePath="campaign_menu_UI_assets.png">
 	<!-- Created with Adobe Animate version 22.0.0.93 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="HARD0000" x="0" y="139" width="211" height="67"/>
+	<SubTexture name="EASY0000" x="0" y="139" width="196" height="65"/>
 	<SubTexture name="NORMAL0000" x="0" y="70" width="308" height="67"/>
 	<SubTexture name="ROBEATS0000" x="0" y="0" width="362" height="68"/>
-	<SubTexture name="arrow left0000" x="310" y="70" width="48" height="85"/>
-	<SubTexture name="arrow push left0000" x="433" y="87" width="42" height="75"/>
-	<SubTexture name="arrow push right0000" x="360" y="95" width="41" height="74"/>
-	<SubTexture name="arrow right0000" x="433" y="0" width="47" height="85"/>
-	<SubTexture name="lock0000" x="364" y="0" width="67" height="93"/>
+	<SubTexture name="arrow left0000" x="0" y="206" width="48" height="85"/>
+	<SubTexture name="arrow push left0000" x="99" y="206" width="42" height="75"/>
+	<SubTexture name="arrow push right0000" x="143" y="206" width="41" height="74"/>
+	<SubTexture name="arrow right0000" x="50" y="206" width="47" height="85"/>
+	<SubTexture name="lock0000" x="198" y="139" width="67" height="93"/>
 </TextureAtlas>

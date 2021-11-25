@@ -185,10 +185,10 @@ class StoryMenuState extends MusicBeatState
 
 		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
 		sprDifficulty.frames = ui_tex;
-		sprDifficulty.animation.addByPrefix('easy', 'NORMAL'); //easy code is normal ingame
-		sprDifficulty.animation.addByPrefix('normal', 'HARD'); //normal code is hard ingame
+		sprDifficulty.animation.addByPrefix('easy', 'EASY'); 
+		sprDifficulty.animation.addByPrefix('normal', 'NORMAL'); 
 		sprDifficulty.animation.addByPrefix('hard', 'ROBEATS'); //hard code is robeats ingame
-		sprDifficulty.animation.play('normal');
+		sprDifficulty.animation.play('easy');
 		changeDifficulty();
 
 		difficultySelectors.add(sprDifficulty);
@@ -396,12 +396,12 @@ class StoryMenuState extends MusicBeatState
 		{
 			case 0:
 				sprDifficulty.animation.play('easy');
-				sprDifficulty.offset.x = 67; //75
-				sprDifficulty.setGraphicSize(Std.int(sprDifficulty.width*1.5));
+				sprDifficulty.offset.x = 10; //75
+				sprDifficulty.setGraphicSize(Std.int(sprDifficulty.width*1));
 			case 1:
 				sprDifficulty.animation.play('normal');
-				sprDifficulty.offset.x = 25;//35
-				sprDifficulty.setGraphicSize(Std.int(sprDifficulty.width*1));
+				sprDifficulty.offset.x = 67;//35
+				sprDifficulty.setGraphicSize(Std.int(sprDifficulty.width*1.5));
 			case 2:
 				sprDifficulty.animation.play('hard');
 				sprDifficulty.offset.x = 85;

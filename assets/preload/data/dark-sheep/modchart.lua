@@ -34,36 +34,36 @@ function update(elapsed)
 
 
 	--note teleportation
-	if curStep == 300 then
+	if curStep == 300 or curStep == 2508 then
 
 		for i=0,7 do
 			setActorY(_G['defaultStrum'..i..'Y'] - 30, i)
 		end
 	end
 
-	if curStep == 302 then
+	if curStep == 302 or curStep == 2510 then
 		for i=0,7 do
 			setActorY(_G['defaultStrum'..i..'Y'] + 40, i)
 		end
 	end
 
-	if curStep == 320 then
+	if curStep == 320 or curStep == 2528 then
 		for i=0,7 do
 			setActorY(_G['defaultStrum'..i..'Y'] +10, i)
 			setActorX(_G['defaultStrum'..i..'X'] +10, i)
 		end
 	end
 
-	if curStep == 332  or curStep == 334 or curStep == 336 then 
+	if curStep == 332  or curStep == 334 or curStep == 336 or curStep == 2540 or curStep == 2542 or curStep == 2544 then 
 		strumXLocat = strumXLocat - 5
-		strumYLocat = strumYLocat - 3
+		strumYLocat = strumYLocat - 1
 		for i= 0,7 do
 			setActorY(_G['defaultStrum'..i..'Y'] - strumYLocat, i)
 			setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
 		end
 	end
 
-	if curStep == 340 then
+	if curStep == 340 or curStep == 2548 then
 		strumXLocat = 0
 		strumYLocat = 0
 		for i = 0,7 do
@@ -72,31 +72,15 @@ function update(elapsed)
 		end
 	end
 
-	if curStep == 360 or curStep == 364 or curStep == 368 then
+	if curStep == 360 or curStep == 364 or curStep == 368 or curStep == 2568 or curStep == 2572 or curStep == 2576 then
 		strumYLocat = strumYLocat - 3
 		for i = 0,7 do
 			setActorY(_G['defaultStrum'..i..'Y'] - strumYLocat, i)
 		end
 	end
 
-	
-	--beat pattern find a way to make this into a function since this pattern happens 3 times in a row. 
-	if curStep == 448 or curStep == 456 or curStep == 464 or curStep == 480 or curStep == 488 or curStep == 496 or curStep == 512 or curStep == 520 or curStep == 528 or curStep == 544 or curStep == 552 or curStep == 560 then
-		strumXLocat = strumXLocat - 10
-		for i = 0,7 do
-			setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
-		end
-	end
-
-	if curStep == 472 or curStep == 476 or curStep == 504 or curStep == 508 or curStep == 536 or curStep == 540 then
-		strumXLocat = strumXLocat + 15
-		for i = 0,7 do
-			setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
-		end
-	end
-
-	if (curStep >= 568 and curStep < 576) then
-		strumXLocat = strumXLocat + 30 / (8)
+	if (curStep >= 568 and curStep < 576) or (curStep >= 2232 and curStep < 2240) then
+		strumXLocat = strumXLocat + 18 / (8)
 		for i = 0,7 do
 			setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
 		end
@@ -104,40 +88,62 @@ function update(elapsed)
 
 
 	--swoozynotes
-	if (curStep >= 576 and curStep < 640) or (curStep >=704 and curStep < 768) then
+	if (curStep >= 576 and curStep < 640) or (curStep >=704 and curStep < 768) or (curStep >= 2240 and curStep < 2304) or (curStep >= 2368 and curStep < 2432) then
 		swoozyNotes()
 	end
 
 
 	--fever mode
-	if curStep >= 576 and curStep < 768 then
+	if (curStep >= 576 and curStep < 768) or (curStep >= 2240 and curStep < 2432) then
 		showOnlyStrums = true;
 	end
 
-	if curStep == 832 then
+	if curStep == 832 or curStep == 2496 then
 		showOnlyStrums = false;
 	end
 
 
 	--cam zooms
-	if curStep == 384 then
+	if curStep == 384 or curStep == 2592 then
 		tweenHudZoom(1.1, 5.2)
 	end
 	
-	if curStep == 646 or curStep == 678 then
+	if curStep == 644 or curStep == 678 or curStep == 2308 or curStep == 2342 then
 		tweenHudZoom(1.1, 0.2)
 	end
 	
-	if curStep == 800 then
+	if curStep == 800 or curStep == 2464 then
 		tweenHudZoom(1.04, 0.2)
 	end
 
-	if curStep == 808 then
+	if curStep == 808 or curStep == 2472 then
 		tweenHudZoom(1.08, 0.2)
 	end
 
-	if curStep == 816 then 
-		tweenHudZoom(1.1, 1.4)
+	if curStep == 816 or curStep == 2480 then 
+		tweenHudZoom(1.1, 1.35)
+	end
+
+	if curStep >= 960 and curStep < 1088 then
+		woahCamZoomEpic()
+	end
+
+	if curStep == 1920 then
+		tweenHudZoom(1.1, 4.8)
+	end
+
+	if curStep == 2664 or curStep == 2686 then
+		tweenHudZoom(1.1, 0.75)
+	end
+	
+	if (curStep >= 1136 and curStep < 1152) or (curStep >= 1198 and curStep < 1216) then
+		for i=0,7 do
+			setActorAngle(getActorAngle(i) + 43, i) 
+    	end
+	end
+
+	if curStep >= 1280 and curStep <1328 then
+		leftRightBoogie()
 	end
 
 	if curStep == 1328 then
@@ -151,29 +157,32 @@ function update(elapsed)
 		strumLine1Visible = true;
 	end
 	
+	--1728 through 1968
+	
 	--ending disappear FIX NOTES NOT FULLY DISAPPEARING 
-	if curStep >= 2718 and curStep < 2784 then
+	if curStep >= 2720 and curStep < 2784 then
 		showOnlyStrums = true;
 		strumLineAlpha = strumLineAlpha - (1/780)
+		tweenHudZoom(1.1, 5.5)
 		if curStep == 2783 then
 			strumLineAlpha = 0
 		end
 	end
 	
 	--reset note rotation 
-	if curStep == 288 then
+	if curStep == 288 or curStep == 1152 or curStep == 1216 then
 		for i=0,7 do
 			setActorAngle(getActorAngle(i) * 0, i) 
     	end
 	end
 
 	--reset zoom out
-	if curStep == 576 or curStep == 1342 then	
+	if curStep == 576 or curStep == 1088 or curStep == 1342 then	
 		setHudZoom = 1.03;
 	end
 
 	--reset note placements
-	if curStep == 288 or curStep == 384 or curStep == 768 or curStep == 640 then
+	if curStep == 288 or curStep == 384 or curStep == 768 or curStep == 640 or curStep == 1328 or curStep == 2304 or curStep == 2432 or curStep == 2594 then
 		strumXLocat = 0
 		strumYLocat = 0
 		for i=0,7 do
@@ -197,11 +206,15 @@ stepHitCount = 0; --this function is useful for finding out what section starts 
 function stepHit (beat) 
 	print(stepHitCount);	
 	stepHitCount = stepHitCount + 1;
+
+	if (curStep >= 447 and curStep <= 560) or (curStep >= 1984 and curStep <= 2232) then
+		bangMove()
+	end
 end
 
 
+
 --SWAP LEFT AND RIGHT
-swaps = 0
 function swapTime(void)
 	if toTheLeft == true then
 		toTheRight = true 
@@ -211,7 +224,6 @@ function swapTime(void)
 		toTheLeft = true
 	end
 	print('swapped')
-	swaps = swaps + 1
 end
 
 
@@ -219,11 +231,21 @@ end
 function swoozyNotes(void)
 
 	local currentBeat = (songPos / 1000)*(bpm/60)
-		
-		for i=0,7 do
-			setActorY(_G['defaultStrum'..i..'Y'] + 62 * math.cos((currentBeat + i*0.3) * math.pi), i)
+		if difficulty == 2 then
+			for i=0,7 do
+				setActorY(_G['defaultStrum'..i..'Y'] + 32 * math.cos((currentBeat + i*0.3) * math.pi), i)
+			end
+		else if difficulty == 1 then
+				for i=0,7 do
+					setActorY(_G['defaultStrum'..i..'Y'] + 36 * math.cos((currentBeat + i*0.3) * math.pi), i)
+				end
+			else if difficulty == 0 then
+					for i=0,7 do
+						setActorY(_G['defaultStrum'..i..'Y'] + 40 * math.cos((currentBeat + i*0.3) * math.pi), i)
+					end
+				end
+			end
 		end
-
 
 		if toTheLeft == true then --
 			strumXLocat = strumXLocat - 2.08333333
@@ -244,4 +266,66 @@ function swoozyNotes(void)
 			end
 			print(strumXLocat)
 		end
+end
+
+--Hit to the left three times then right two times really fast
+function bangMove (void)
+	if toTheLeft == true then
+		if curStep % 8 == 0 then
+			strumXLocat = strumXLocat - 66.6666667
+			for i = 0,7 do
+				setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
+			end
+			print(strumXLocat)
+			if strumXLocat <= -140 then
+				swapTime()
+			end
+		end	
+	elseif toTheRight == true then
+		if curStep % 16 == 8 or curStep % 16 == 12 then
+			strumXLocat = strumXLocat + 100
+			for i = 0,7 do
+				setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
+			end
+			print(strumXLocat)
+			if strumXLocat >= -90 then
+				swapTime()
+			end
+		end
+	end
+end
+
+--zooming camera + hud on beat
+function woahCamZoomEpic(void)
+	if curStep % 4 == 0 then
+		tweenHudZoom(1.08, 0.05)
+		tweenCameraZoom(1.2, 0.05)
+	end
+end
+
+function leftRightBoogie(void)
+	if toTheLeft == true then 
+		if curStep %  4 == 0 then
+			strumXLocat = strumXLocat - 50
+		for i=0,7 do
+			setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
+		end
+		if strumXLocat <= -50 then
+			swapTime()
+		end
+		print(strumXLocat)
+		end
+		
+	elseif toTheRight == true then
+		if curStep % 4 == 2 then
+			strumXLocat = strumXLocat + 50
+			for i=0,7 do
+				setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
+			end
+			if strumXLocat >= 50 then
+				swapTime()
+			end
+			print(strumXLocat)
+		end	
+	end
 end
