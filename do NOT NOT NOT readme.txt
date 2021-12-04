@@ -32,7 +32,7 @@ Banana_Switch (animator/programmer) - https://www.youtube.com/channel/UCG5dlta5U
 blah133134 (musician) - https://www.roblox.com/users/136455748/profile
 NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
 fuzzybrexth (musician) - https://www.roblox.com/users/108915438/profile
-doofyplayer (lead mapper/reviewer) - https://www.roblox.com/users/127036995/profile
+doofyplayer (lead mapper/reviewer) - https://twitter.com/awsomeplayer200?s=20
 Technical_Sleepy (mapper) - https://www.roblox.com/users/147763448/profile
 Vixlovo (mapper) - https://www.roblox.com/users/2517715868/profile
 TheRussean (mapper) - https://www.roblox.com/users/474197899/profile
@@ -58,15 +58,14 @@ Credits:
 - Official Robeats assets were acquired from pierceisdyinglol https://www.roblox.com/users/71887421/profile
 - Some extra results screen debugging by EpicGamer https://twitter.com/Epic2469
 - Some hands were borrowed from https://twitter.com/esimplyj/status/1413036302644228097?s=21
-- Special thanks to NightSkii for making a map https://www.roblox.com/users/87128592/profile
 - Meowing from https://www.roblox.com/users/158507862/profile
 - Freedom Dive and Space Battle Cover art done by https://www.instagram.com/quirkeii/
 
 
 
 - week 1 opponent is a noob lol just look a picture of a noob
-- week 2 opponent is ChristsuYT https://www.youtube.com/channel/UC_D9wrmnZR4bqS8RmmqELQg
-- week 3 opponent is spotco (dev of robeats) https://www.roblox.com/users/103972519/profiles
+- week 2 opponent is ChrisuYT https://www.youtube.com/channel/UC_D9wrmnZR4bqS8RmmqELQg
+- week 3 opponent is spotco (dev of Robeats) https://www.roblox.com/users/103972519/profiles
 - secret song opponent is created by Terces https://www.roblox.com/users/72532056/profile
 
 
