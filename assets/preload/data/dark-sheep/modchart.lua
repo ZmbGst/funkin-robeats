@@ -37,26 +37,44 @@ function update(elapsed)
 	if curStep == 300 or curStep == 2508 then
 
 		for i=0,7 do
-			setActorY(_G['defaultStrum'..i..'Y'] - 30, i)
+			if downscroll then
+				setActorY(_G['defaultStrum'..i..'Y'] - 30, i)
+			else
+				setActorY(_G['defaultStrum'..i..'Y'] + 30, i)
+			end
+		
 		end
 	end
 
 	if curStep == 302 or curStep == 2510 then
 		for i=0,7 do
-			setActorY(_G['defaultStrum'..i..'Y'] + 40, i)
+			if downscroll then
+				setActorY(_G['defaultStrum'..i..'Y'] + 40, i)
+			else 
+				setActorY(_G['defaultStrum'..i..'Y'] - 40, i)
+			end
 		end
 	end
 
 	if curStep == 320 or curStep == 2528 then
 		for i=0,7 do
-			setActorY(_G['defaultStrum'..i..'Y'] +10, i)
+			if downscroll then
+				setActorY(_G['defaultStrum'..i..'Y'] +10, i)
+			else
+				setActorY(_G['defaultStrum'..i..'Y'] -10, i)
+			end
+
 			setActorX(_G['defaultStrum'..i..'X'] +10, i)
 		end
 	end
 
 	if curStep == 332  or curStep == 334 or curStep == 336 or curStep == 2540 or curStep == 2542 or curStep == 2544 then 
 		strumXLocat = strumXLocat - 5
-		strumYLocat = strumYLocat - 1
+		if downscroll then
+			strumYLocat = strumYLocat - 1
+		else
+			strumYLocat = strumYLocat + 1
+		end
 		for i= 0,7 do
 			setActorY(_G['defaultStrum'..i..'Y'] - strumYLocat, i)
 			setActorX(_G['defaultStrum'..i..'X'] + strumXLocat, i)
@@ -73,7 +91,12 @@ function update(elapsed)
 	end
 
 	if curStep == 360 or curStep == 364 or curStep == 368 or curStep == 2568 or curStep == 2572 or curStep == 2576 then
-		strumYLocat = strumYLocat - 3
+		if downscroll then
+			strumYLocat = strumYLocat - 3
+		else
+			strumYLocat = strumYLocat + 3
+		end
+	
 		for i = 0,7 do
 			setActorY(_G['defaultStrum'..i..'Y'] - strumYLocat, i)
 		end

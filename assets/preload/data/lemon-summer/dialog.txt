@@ -2,16 +2,16 @@
 :bf:Beep bap! Ski di bap.. booop.
 :gf:Ahaha! You're right, but I'm glad you had fun.
 :bf:Beep! Blee-
-:dad:Just a second, I need to have a word with you two
+:dad:Just a second, I need to have a word with you two.
 :gf:Umm, is there something wrong?
 :dad:See these? They’re all videos of you playing against a pro and winning without fault.
 :dad:Almost all of these reports claim you won with exploits.
 :dad:This city has a ZERO tolerance policy towards hacking, so unfortunately, I'm gonna have to ban you.
 :gf:Woah woah, there has to be some mistake here. We would never hack.
-:dad:I'd believe so if the evidence wasn’t so heavily stacked against you
+:dad:I'd believe so if the evidence wasn’t so heavily stacked against you.
 :gf:Who even are you, anyways?!
-:dad:I’m Spotco. You can consider me the founder of this town
-:dad:as well as its peacekeeper
+:dad:I’m Spotco. You can consider me the founder of this town.
+:dad:As well as its peacekeeper.
 :dad:Now, am I going to ban your code the easy way or the hard way?
 :bf:Beep bap beep! Aa... skidi beep bop bap!
 :gf:Wait! He says he'll play a song for you.
@@ -20,5 +20,5 @@
 :dad:Interesting...
 :dad:Let’s see if you’re bluffing. Please join my match.
 :gf:A-Alright. C’mon Boyfriend, let’s go prepare-
-:dad:Just him, you can watch by the bleachers
+:dad:Just him, you can watch by the bleachers.
 :bf:Beep?

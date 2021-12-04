@@ -30,7 +30,7 @@ class StoryMenuState extends MusicBeatState
 			['Monday Night Monsters'],
 			['Shelter','Alone','Friends'],
 			['Bibi Hendl','Bad Apple','Insight'],
-			['Lemon Summer', 'Space Battle']
+			['Lemon Summer', 'Space Battle', 'Freedom Dive']
 		];
 	}
 	var curDifficulty:Int = 0;

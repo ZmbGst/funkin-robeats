@@ -1632,7 +1632,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 			#end/*/
 			if(isStoryMode){
-				if ((SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'space battle'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight' ||SONG.song.toLowerCase() == 'dark sheep'))
+				if ((SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'freedom dive'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight' ||SONG.song.toLowerCase() == 'dark sheep'))
 					FlxG.sound.music.onComplete = stolenFromBobBosip;
 			}
 			else 
@@ -3180,9 +3180,9 @@ class PlayState extends MusicBeatState
 			{
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/insight/dialogend')); //wanna see if I can add bad ending dialogue but itll portray chrisu negatively and idk if I wanna do that
 			}
-			if(curSong == 'Space Battle')
+			if(curSong == 'Freedom Dive')
 			{
-				endDialog = CoolUtil.coolTextFile(Paths.txt('data/space-battle/dialogend'));
+				endDialog = CoolUtil.coolTextFile(Paths.txt('data/freedom-dive/dialogend'));
 			}
 			if (curSong == 'Dark Sheep')
 			{
@@ -3244,7 +3244,7 @@ class PlayState extends MusicBeatState
 		FlxG.sound.music.pause();
 		vocals.pause();
 		FlxG.save.data.cutscene = false;
-		if (SONG.song.toLowerCase() == 'space battle' && isStoryMode && accuracy >= 90.00){
+		if (SONG.song.toLowerCase() == 'freedom dive' && isStoryMode && accuracy >= 90.00){
 			storyPlaylist.push('dark sheep');  //you unlock dark sheep by getting the 90 acc no matter what
 			FlxG.save.data.sheep = true;
 		}
