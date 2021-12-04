@@ -29,12 +29,12 @@ FnF Featuring Robeats is made by
 Shad0wStar/Amy (Lead Project Manager/musician/storywriter/mapper) - https://www.youtube.com/user/ayylgirl
 ZmbGst (Co-Project Manager/artist/programmer/animator/storywriter/mapper) - https://twitter.com/ZmbGst
 Banana_Switch (animator/programmer) - https://www.youtube.com/channel/UCG5dlta5UkypnDvkLuttYew
-blah133134 (musician) - https://www.roblox.com/users/136455748/profile
-NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
+matthieumusic (musician) - https://www.youtube.com/c/matthieumusic
+NotTuxJacky (musician) - https://www.youtube.com/channel/UCr84SvZrOR-Min62CQZFGHQ
 fuzzybrexth (musician) - https://www.roblox.com/users/108915438/profile
 doofyplayer (lead mapper/reviewer) - https://twitter.com/awsomeplayer200?s=20
 Technical_Sleepy (mapper) - https://www.roblox.com/users/147763448/profile
-Vixlovo (mapper) - https://www.roblox.com/users/2517715868/profile
+Vixlovo (mapper) - https://quavergame.com/user/193511
 TheRussean (mapper) - https://www.roblox.com/users/474197899/profile
 Zembonics (mapper) - https://www.roblox.com/users/544940271/profile
 Kaiden (storywriter) - https://www.roblox.com/users/1480439134/profile
