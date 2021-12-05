@@ -2,36 +2,40 @@
 <TextureAtlas imagePath="thePeeps.png">
 	<!-- Created with Adobe Animate version 21.0.9.42677 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="person1 instance 10000" x="806" y="1134" width="272" height="330"/> <!--mario-->
-	<SubTexture name="person1 instance 10001" x="856" y="1466" width="272" height="330"/>
-	<SubTexture name="person1 instance 10002" x="1060" y="765" width="272" height="330"/>
-	<SubTexture name="person1 instance 10003" x="1080" y="1097" width="272" height="330"/>
-	<SubTexture name="person2 instance 10000" x="511" y="405" width="290" height="399"/><!--doofy-->
-	<SubTexture name="person2 instance 10001" x="1022" y="0" width="290" height="399"/>
-	<SubTexture name="person2 instance 10002" x="0" y="1215" width="290" height="399"/>
-	<SubTexture name="person2 instance 10003" x="511" y="806" width="290" height="399"/>
-	<SubTexture name="person3 instance 10000" x="0" y="0" width="509" height="403"/><!--zemb-->
-	<SubTexture name="person3 instance 10001" x="0" y="405" width="509" height="403"/>
-	<SubTexture name="person3 instance 10002" x="511" y="0" width="509" height="403"/>
-	<SubTexture name="person3 instance 10003" x="0" y="810" width="509" height="403"/>
-	<SubTexture name="person4 instance 10000" x="803" y="765" width="255" height="367"/><!--sleepy-->
-	<SubTexture name="person4 instance 10001" x="292" y="1215" width="255" height="367"/>
-	<SubTexture name="person4 instance 10002" x="549" y="1207" width="255" height="367"/>
-	<SubTexture name="person4 instance 10003" x="313" y="1584" width="255" height="367"/>
-	<SubTexture name="person5 instance 10000" x="1385" y="1404" width="269" height="310"/><!--kaiden-->
-	<SubTexture name="person5 instance 10001" x="1609" y="1027" width="269" height="310"/>
-	<SubTexture name="person5 instance 10002" x="1656" y="1339" width="269" height="310"/>
-	<SubTexture name="person5 instance 10003" x="1656" y="1651" width="269" height="310"/>
-	<SubTexture name="person6 instance 10000" x="1130" y="1429" width="253" height="334"/><!--blah-->
-	<SubTexture name="person6 instance 10001" x="1334" y="732" width="253" height="334"/>
-	<SubTexture name="person6 instance 10002" x="1589" y="691" width="253" height="334"/>
-	<SubTexture name="person6 instance 10003" x="1354" y="1068" width="253" height="334"/>
-	<SubTexture name="person7 instance 10000" x="1314" y="0" width="311" height="358"/><!--russean-->
-	<SubTexture name="person7 instance 10001" x="1627" y="0" width="311" height="358"/>
-	<SubTexture name="person7 instance 10002" x="0" y="1616" width="311" height="358"/>
-	<SubTexture name="person7 instance 10003" x="803" y="405" width="311" height="358"/>
-	<SubTexture name="person8 instance 10000" x="570" y="1576" width="284" height="329"/><!--fuzzy-->
-	<SubTexture name="person8 instance 10001" x="1116" y="401" width="284" height="329"/>
-	<SubTexture name="person8 instance 10002" x="1402" y="360" width="284" height="329"/>
-	<SubTexture name="person8 instance 10003" x="1688" y="360" width="284" height="329"/>
+	<SubTexture name="person10000" x="0" y="0" width="290" height="399"/>
+	<SubTexture name="person10001" x="292" y="0" width="290" height="399"/>
+	<SubTexture name="person10002" x="584" y="0" width="290" height="399"/>
+	<SubTexture name="person10003" x="876" y="0" width="290" height="399"/>
+	<SubTexture name="person20000" x="1168" y="0" width="508" height="403"/>
+	<SubTexture name="person20001" x="1678" y="0" width="508" height="403"/>
+	<SubTexture name="person20002" x="2188" y="0" width="508" height="403"/>
+	<SubTexture name="person20003" x="2698" y="0" width="508" height="403"/>
+	<SubTexture name="person30000" x="3208" y="0" width="254" height="366"/>
+	<SubTexture name="person30001" x="3464" y="0" width="254" height="366"/>
+	<SubTexture name="person30002" x="3720" y="0" width="254" height="366"/>
+	<SubTexture name="person30003" x="0" y="405" width="254" height="366"/>
+	<SubTexture name="person40000" x="256" y="405" width="269" height="309"/>
+	<SubTexture name="person40001" x="527" y="405" width="269" height="309"/>
+	<SubTexture name="person40002" x="798" y="405" width="269" height="309"/>
+	<SubTexture name="person40003" x="1069" y="405" width="269" height="309"/>
+	<SubTexture name="person50000" x="1340" y="405" width="252" height="333"/>
+	<SubTexture name="person50001" x="1594" y="405" width="252" height="333"/>
+	<SubTexture name="person50002" x="1848" y="405" width="252" height="333"/>
+	<SubTexture name="person50003" x="2102" y="405" width="252" height="333"/>
+	<SubTexture name="person60000" x="2356" y="405" width="309" height="357"/>
+	<SubTexture name="person60001" x="2667" y="405" width="309" height="357"/>
+	<SubTexture name="person60002" x="2978" y="405" width="309" height="357"/>
+	<SubTexture name="person60003" x="3289" y="405" width="309" height="357"/>
+	<SubTexture name="person70000" x="3600" y="405" width="283" height="327"/>
+	<SubTexture name="person70001" x="0" y="773" width="283" height="327"/>
+	<SubTexture name="person70002" x="285" y="773" width="283" height="327"/>
+	<SubTexture name="person70003" x="570" y="773" width="283" height="327"/>
+	<SubTexture name="person80000" x="855" y="773" width="365" height="359"/>
+	<SubTexture name="person80001" x="1222" y="773" width="365" height="359"/>
+	<SubTexture name="person80002" x="1589" y="773" width="365" height="359"/>
+	<SubTexture name="person80003" x="1956" y="773" width="365" height="359"/>
+	<SubTexture name="person90000" x="2323" y="773" width="252" height="287"/>
+	<SubTexture name="person90001" x="2577" y="773" width="252" height="287"/>
+	<SubTexture name="person90002" x="2831" y="773" width="252" height="287"/>
+	<SubTexture name="person90003" x="3085" y="773" width="252" height="287"/>
 </TextureAtlas>

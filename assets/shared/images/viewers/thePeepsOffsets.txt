@@ -1,8 +1,9 @@
-person1 0 -90
-person2 0 0
-person3 135 0
-person4 0 -50
-person5 0 -120
-person6 0 -95
-person7 0 -25
-person8 0 -90
+person1 0 0
+person2 135 0
+person3 0 -50
+person4 0 -120
+person5 0 -95
+person6 0 -25
+person7 0 -90
+person8 0 -50
+person9 0 -120

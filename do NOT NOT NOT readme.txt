@@ -66,12 +66,15 @@ Credits:
 - week 1 opponent is a noob lol just look a picture of a noob
 - week 2 opponent is ChrisuYT https://www.youtube.com/channel/UC_D9wrmnZR4bqS8RmmqELQg
 - week 3 opponent is spotco (dev of Robeats) https://www.roblox.com/users/103972519/profiles
-- secret song opponent is created by Terces https://www.roblox.com/users/72532056/profile
+- secret song opponent is created by Himitsu https://www.roblox.com/users/72532056/profile
 
 
 One more thing, this mod has a lot of fan-canon (i think the term is called? Basically the story / settings have been altered to fit a better narrative and aren't representative of
 an irl character's personality / the game itself) so a lot of it is fiction based on the game and its culture. I highly recommend playing the Roblox game
-to get a better idea on what the game is about. Consider this the "foot in the door" if you've never played the game. 
+to get a better idea on what the game is about. Consider this the "foot in the door" if you've never played the game.
+https://www.roblox.com/games/698448212
+https://www.roblox.com/games/698448212
+https://www.roblox.com/games/698448212 
 --------------------------------------------------------------------------------------
 
 Project Managers Note:

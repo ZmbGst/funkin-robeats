@@ -196,13 +196,13 @@ class DialogueBox extends FlxSpriteGroup
 
 		portraitExtra = new FlxSprite(200, 40);
 		portraitExtra.frames = Paths.getSparrowAtlas('viewers/thePeeps', 'shared');
-		for(i in 0...8){
+		for(i in 0...9){
 			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);// call animation name "person1" "1" in the code
 			trace('added ' + i);
 			loadOffsetFile(""+i);
 			
 		}
-		portraitExtra.animation.addByPrefix('8', 'person8', 24, false);
+		portraitExtra.animation.addByPrefix('9', 'person9', 24, false);
 		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.175));
 		portraitExtra.updateHitbox();
 		portraitExtra.scrollFactor.set();
@@ -427,12 +427,12 @@ class DialogueBox extends FlxSpriteGroup
 				//Code to randomize the portraits and make sure the same portrait doesn't come immediately after the first instance (still can come multiple times in a session)
 				//If you steal this; first, thank you I feel I actually have some idea of what I'm doing. second, please atleast understand the logic and what each line of code does just so you can fix the issues on your code yourself
 			
-				goodNumber = FlxG.random.int(1,7);
+				goodNumber = FlxG.random.int(1,8);
 				playAnim(""+goodNumber);
 				trace('1          '+portraitExtra.animation.frameName);//displays frame name (personx0000)
 				
-				if(portraitExtra.animation.frameName == "person"+badNumber+" instance 10000"){
-					var temporary:Int = FlxG.random.int(1,7,[badNumber]);
+				if(portraitExtra.animation.frameName == "person"+badNumber+"0000"){
+					var temporary:Int = FlxG.random.int(1,8,[badNumber]);
 					playAnim(""+temporary);
 					trace('2          lmao the new sprite is '+portraitExtra.animation.frameName + ' the dumb thing made the same image go twice');
 					badNumber = temporary;}
@@ -453,12 +453,12 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.visible = false;
 				portraitGirlfriend.visible = false;
 				portraitLeft.visible = false;
-				playAnim('8');
-
+				playAnim('9');
+				trace('1          '+portraitExtra.animation.frameName);//displays frame name (personx0000)
 				if (!portraitExtra.visible)
 				{
 					portraitExtra.visible = true;
-					playAnim('8');
+					playAnim('9');
 				}
 
 	}}

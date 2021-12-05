@@ -1632,7 +1632,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 			#end/*/
 			if(isStoryMode){
-				if ((SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'freedom dive'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight' ||SONG.song.toLowerCase() == 'dark sheep'))
+				if (SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'freedom dive'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight' ||SONG.song.toLowerCase() == 'dark sheep')
 					FlxG.sound.music.onComplete = stolenFromBobBosip;
 				else
 					FlxG.sound.music.onComplete = endSong;
@@ -4629,6 +4629,7 @@ class PlayState extends MusicBeatState
 				case 2784:
 					superShake = false;
 					announcerFlagOne = false; //I love reusing old variables
+					FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.001);
 			}
 		}
 	}
