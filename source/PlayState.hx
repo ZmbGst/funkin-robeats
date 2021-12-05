@@ -1634,6 +1634,8 @@ class PlayState extends MusicBeatState
 			if(isStoryMode){
 				if ((SONG.song.toLowerCase() == 'monday night monsters' ||SONG.song.toLowerCase() == 'freedom dive'||SONG.song.toLowerCase() == 'friends' ||SONG.song.toLowerCase() == 'insight' ||SONG.song.toLowerCase() == 'dark sheep'))
 					FlxG.sound.music.onComplete = stolenFromBobBosip;
+				else
+					FlxG.sound.music.onComplete = endSong;
 			}
 			else 
 				FlxG.sound.music.onComplete = endSong;
