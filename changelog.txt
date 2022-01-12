@@ -142,3 +142,17 @@ I love trolling my past self
 
 Everything is done today. Almost 6 months of progress all completed in your hands. I hope you enjoyed reading this
 and seeing all progress evolve. Now go out there and be a star
+
+
+##[1.0.5] (12-17-2021)
+
+###
+Redid entire week 1 / 2 code to prepare for freeplay stage functionality (coming soon)
+
+Made some Vocal tracks louder as to not be surpressed by Inst track
+
+Fixed all weeks being unlocked when you start the game. If this error persists, be sure to reset story week
+progress in options
+
+Made health drain / reward scaled based on difficulty (lose less / gain more health in easy mode, robeats
+difficulty has original health system)

@@ -27,7 +27,7 @@ Oh yeah forgot to mention, its a Roblox game oops.
 FnF Featuring Robeats is made by
 
 Shad0wStar/Amy (Lead Project Manager/musician/storywriter/mapper) - https://www.youtube.com/user/ayylgirl
-ZmbGst (Co-Project Manager/artist/programmer/animator/storywriter/mapper) - https://twitter.com/ZmbGst
+ZmbGst (Co-Project Manager/artist/programmer/animator/storywriter) - https://twitter.com/ZmbGst
 Banana_Switch (animator/programmer) - https://www.youtube.com/channel/UCG5dlta5UkypnDvkLuttYew
 blah133134 (musician) - https://www.roblox.com/users/136455748/profile
 NotTuxJacky (musician) - https://www.roblox.com/users/707998455/profile
@@ -66,7 +66,7 @@ Credits:
 - week 1 opponent is a noob lol just look a picture of a noob
 - week 2 opponent is ChrisuYT https://www.youtube.com/channel/UC_D9wrmnZR4bqS8RmmqELQg
 - week 3 opponent is spotco (dev of Robeats) https://www.roblox.com/users/103972519/profiles
-- secret song opponent is created by Terces https://www.roblox.com/users/72532056/profile
+- secret song opponent is created by HimitsuHiketsu https://www.roblox.com/users/72532056/profile
 
 
 One more thing, this mod has a lot of fan-canon (i think the term is called? Basically the story / settings have been altered to fit a better narrative and aren't representative of

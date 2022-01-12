@@ -1,5 +1,6 @@
 package;
 
+import flixel.input.FlxAccelerometer;
 import Song.Event;
 import openfl.media.Sound;
 #if sys
@@ -221,6 +222,9 @@ class PlayState extends MusicBeatState
 	var bgThree:FlxSprite;
 	var blackFade:FlxSprite;
 	public var ummBanned:FlxSprite;
+	public var coverArt:FlxSprite;
+	public var musicName:FlxText;
+	public var artistName:FlxText;
 
 	var hasDialogue:Bool = false;
 	
@@ -505,115 +509,79 @@ class PlayState extends MusicBeatState
 			stageCheck = SONG.stage;
 		}
 
+		generateSong(SONG.song);
+
 		if (!PlayStateChangeables.Optimize)
 		{
 			switch (stageCheck)
 			{
-				case 'shelter':
+				case 'rlounge':
 				{
-						defaultCamZoom = 1.0;
-						curStage = 'shelter';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djtwo'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-
-				}
-				case 'alone':
-				{
-						defaultCamZoom = 1.0;
-						curStage = 'alone';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djone'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-
-				}
-				case 'friends':
-				{
-						defaultCamZoom = 1.0;
-						curStage = 'friends';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djthree'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-
-				}
-				case 'bibi':
-				{
-						defaultCamZoom = 1.0;
-						curStage = 'bibi';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djfour'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-
-						people = new FlxSprite(-350, 600);
-						people.frames = Paths.getSparrowAtlas('one/peoplesprite', 'shared');
-						people.animation.addByPrefix('spectate', 'people', 24, true);
-						people.animation.play('spectate');
-						bg.scrollFactor.set(.85, .85);
-						
-
-				}
-				case 'bad-apple':
-				{
-						defaultCamZoom = 1.0;
-						curStage = 'bad-apple';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djfive'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-
-						people = new FlxSprite(-350, 600);
-						people.frames = Paths.getSparrowAtlas('one/peoplesprite', 'shared');
-						people.animation.addByPrefix('spectate', 'people', 24, true);
-						people.animation.play('spectate');
-						bg.scrollFactor.set(.85, .85);
 					
-					
+					defaultCamZoom = 1.0;
+					curStage = 'rlounge';
+					var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/RLounge'));
+					if(FlxG.save.data.antialiasing)
+						{
+							bg.antialiasing = true;
+						}
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+
+					coverArt = new FlxSprite(139, 110).loadGraphic(Paths.image('cover arts/'+ curSong));
+
+					coverArt.setGraphicSize(Std.int(coverArt.width * 0.335));
+					if(FlxG.save.data.antialiasing)
+						{
+							coverArt.antialiasing = true;
+						}
+					coverArt.scrollFactor.set(0.9, 0.9);
+					coverArt.active = false;
+
+					musicName = new FlxText(740, 290, 400, curSong, 54);
+					musicName.font = 'Righteous';
+					musicName.color = 0xFFFFEA00;
+					musicName.alignment = CENTER;
+					musicName.scrollFactor.set(0.9,0.9);
+
+					artistName = new FlxText(792, 360, 300, '', 21);
+					artistName.font = 'Righteous';
+					artistName.color = 0xFFFFEA00;
+					artistName.alignment = CENTER;
+					artistName.scrollFactor.set(0.9,0.9);
+
+					switch (curSong)
+					{
+						case 'Shelter':
+							artistName.text = 'Porter Robinson & Madeon';
+						case 'Alone':
+							artistName.text = 'Marshmello';
+						case 'Friends':
+							artistName.text = 'Hyper Potions';
+						case 'Bibi Hendl':
+							artistName.text = 'Takeo Ischi';
+						case 'Bad Apple': 
+							artistName.text = 'Nomico';
+						case 'Insight':
+							artistName.text = 'Haywyre';
+						case 'Rebeats':
+							artistName.text = 'Var. Artists';
+						default:
+							artistName.text = 'spotco';
 					}
-				case 'insight':
-				{
-						defaultCamZoom = 1.0;
-						curStage = 'insight';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djsix'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-						
-						people = new FlxSprite(-350, 600);
-						people.frames = Paths.getSparrowAtlas('one/peoplesprite', 'shared');
-						people.animation.addByPrefix('spectate', 'people', 24, true);
-						people.animation.play('spectate');
-						bg.scrollFactor.set(.85, .85);
-				
+							
+					people = new FlxSprite(-350, 600);
+					people.frames = Paths.getSparrowAtlas('one/peoplesprite', 'shared');
+					people.animation.addByPrefix('spectate', 'people', 24, true);
+					people.animation.play('spectate');
+					people.scrollFactor.set(.85, .85);
 
+					add(bg);
+					add(coverArt);
+					add(musicName);
+					add(artistName);
 				}
+				
 				case 'stadium':
 				{
 						defaultCamZoom = 1.0;
@@ -665,7 +633,7 @@ class PlayState extends MusicBeatState
 							health = 2;
 						
 						
-		bgThree = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium3'));
+						bgThree = new FlxSprite(-330, 30).loadGraphic(Paths.image('two/Stadium3'));
 						if(FlxG.save.data.antialiasing)
 							{
 								bgThree.antialiasing = true;
@@ -680,36 +648,44 @@ class PlayState extends MusicBeatState
 						
 
 				}
-				case 'rebeats':
-				{
-						defaultCamZoom = 1.0;
-						curStage = 'rebeats';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djseven'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-
-						/*/health = 2;/*/
-						//sherman squid if you want to play impossible mode of rebeats, delete the /*/ things on the line above this one
-
-				}
 				default:
 					{
 						defaultCamZoom = 1.25;
-						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/djzero'));
+						curStage = 'rlounge';
+						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/RLounge'));
 						if(FlxG.save.data.antialiasing)
 							{
 								bg.antialiasing = true;
 							}
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
-						add(bg);
 
+						coverArt = new FlxSprite(139, 110).loadGraphic(Paths.image('cover arts/'+ curSong));
+
+						coverArt.setGraphicSize(Std.int(coverArt.width * 0.335));
+						if(FlxG.save.data.antialiasing)
+							{
+								coverArt.antialiasing = true;
+							}
+						coverArt.scrollFactor.set(0.9, 0.9);
+						coverArt.active = false;
+
+						musicName = new FlxText(740, 290, 400, "monsters", 54);
+						musicName.font = 'Righteous';
+						musicName.color = 0xFFFFEA00;
+						musicName.alignment = CENTER;
+						musicName.scrollFactor.set(0.9,0.9);
+
+						artistName = new FlxText(792, 360, 300, 'spotco', 21);
+						artistName.font = 'Righteous';
+						artistName.color = 0xFFFFEA00;
+						artistName.alignment = CENTER;
+						artistName.scrollFactor.set(0.9,0.9);
+
+						add(bg);
+						add(coverArt);
+						add(musicName);
+						add(artistName);
 					}
 			}
 		}
@@ -816,72 +792,41 @@ class PlayState extends MusicBeatState
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
-			case 'limo':
-				boyfriend.y -= 220;
-				boyfriend.x += 260;
-				if (FlxG.save.data.distractions)
-				{
-					resetFastCar();
-					add(fastCar);
+			case 'rlounge':
+				if (curSong == 'Rebeats'){
+					boyfriend.y -= 60;
+					boyfriend.x-=80;
+					gf.x-=97;
+					gf.y-=5;
+					camPos.set(boyfriend.getGraphicMidpoint().x - 1000, boyfriend.getGraphicMidpoint().y);
+					trace('rebeats loaded');
+				} else {
+					boyfriend.y -= 60;
+					gf.x-=100;
+					gf.y-=5;
 				}
-
-			case 'shelter'://Imagine making defaults
-				boyfriend.y -= 60;
-				gf.x-=100;
-				gf.y-=5;
-			case 'alone':
-				boyfriend.y -= 60;
-				gf.x-=100;
-				gf.y-=5;
-			case 'friends':
-				boyfriend.y -= 60;
-				gf.x-=100;
-				gf.y-=5;
-			case 'bibi':
-				boyfriend.y -= 60;
-				gf.x-=100;
-				gf.y-=5;
-			case 'bad-apple':
-				boyfriend.y -= 60;
-				gf.x-=100;
-				gf.y-=5;
-			case 'insight':
-				boyfriend.y -= 60;
-				gf.x-=100;
-				gf.y-=5;
 			case 'stadium':
 				boyfriend.y -= 60;
 			case 'sheep':
 				boyfriend.y -= 70;
 				boyfriend.x+=15;
 			case 'rebeats':
-				boyfriend.y -= 60;
-				boyfriend.x-=80;
-				gf.x-=97;
-				gf.y-=5;
-				camPos.set(boyfriend.getGraphicMidpoint().x - 1000, boyfriend.getGraphicMidpoint().y);
+				
 		}
 
 		if (!PlayStateChangeables.Optimize)
 		{
 			add(gf);
-
-			
-		
-
 			add(dad);
 			add(boyfriend);
 			// Shitty layering but whatev it works LOL
-			if (curStage == 'bibi'||curStage == 'bad-apple'||curStage == 'insight'){
+			if (SONG.player2 == 'chris' || SONG.player2 == 'chrisangry'){
 				add(people);
-				trace('poopie');
-				}
+			}
 			if (curStage == 'sheep'){
 				add(blackFade);
 				add(ummBanned);
-				trace('why are you so mean to me');
-				}
-			
+				}			
 		}
 
 		if (loadRep)
@@ -929,7 +874,7 @@ class PlayState extends MusicBeatState
 		else
 			trace('song looks gucci');
 
-		generateSong(SONG.song);
+		
 
 		trace('generated');
 
@@ -998,7 +943,7 @@ class PlayState extends MusicBeatState
 		// healthBar
 		add(healthBar);
 
-		// Add Kade Engine watermark
+		// Add Kade Engine f
 		kadeEngineWatermark = new FlxText(4, healthBarBG.y
 			+ 50, 0,
 			SONG.song
@@ -2699,8 +2644,9 @@ class PlayState extends MusicBeatState
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;
-					case 'rebeats':
-						camFollow.x = boyfriend.getMidpoint().x - 350;
+					case 'rlounge':
+						if (curSong == 'Rebeats')
+							camFollow.x = boyfriend.getMidpoint().x - 350;
 				}
 			}
 		}
@@ -3045,13 +2991,27 @@ class PlayState extends MusicBeatState
 								else
 								{
 									if (!daNote.isSustainNote)
-										health -= 0.10;
+										switch (storyDifficulty){
+											case 0:
+												health -= 0.25;
+											case 1:
+												health -= 0.06;
+											case 2:
+												health -= 0.1;	
+										}
 									vocals.volume = 0;
 									if (theFunne && !daNote.isSustainNote)
 										noteMiss(daNote.noteData, daNote);
 									if (daNote.isParent)
 									{
-										health -= 0.20; // give a health punishment for failing a LN
+										switch (storyDifficulty){
+											case 0:
+												health -= 0.05;
+											case 1:
+												health -= 0.12;
+											case 2:
+												health -= 0.2;	
+										} // give a health punishment for failing a LN
 										trace("hold fell over at the start");
 										for (i in daNote.children)
 										{
@@ -3066,7 +3026,14 @@ class PlayState extends MusicBeatState
 											&& daNote.sustainActive
 											&& daNote.spotInLine != daNote.parent.children.length)
 										{
-											health -= 0.20; // give a health punishment for failing a LN
+											switch (storyDifficulty){
+												case 0:
+													health -= 0.05;
+												case 1:
+													health -= 0.12;
+												case 2:
+													health -= 0.2;	
+											} // give a health punishment for failing a LN
 											trace("hold fell over at " + daNote.spotInLine);
 											for (i in daNote.parent.children)
 											{
@@ -3083,14 +3050,28 @@ class PlayState extends MusicBeatState
 							else
 							{
 								if (!daNote.isSustainNote)
-									health -= 0.10;
+									switch (storyDifficulty){
+										case 0:
+											health -= 0.25;
+										case 1:
+											health -= 0.06;
+										case 2:
+											health -= 0.1;	
+									}
 								vocals.volume = 0;
 								if (theFunne && !daNote.isSustainNote)
 									noteMiss(daNote.noteData, daNote);
 
 								if (daNote.isParent)
 								{
-									health -= 0.20; // give a health punishment for failing a LN
+									switch (storyDifficulty){
+										case 0:
+											health -= 0.05;
+										case 1:
+											health -= 0.12;
+										case 2:
+											health -= 0.2;	
+									} // give a health punishment for failing a LN
 									trace("hold fell over at the start");
 									for (i in daNote.children)
 									{
@@ -3106,7 +3087,14 @@ class PlayState extends MusicBeatState
 										&& daNote.sustainActive
 										&& daNote.spotInLine != daNote.parent.children.length)
 									{
-										health -= 0.20; // give a health punishment for failing a LN
+										switch (storyDifficulty){
+											case 0:
+												health -= 0.05;
+											case 1:
+												health -= 0.12;
+											case 2:
+												health -= 0.2;	
+										} // give a health punishment for failing a LN
 										trace("hold fell over at " + daNote.spotInLine);
 										for (i in daNote.parent.children)
 										{
@@ -3325,7 +3313,7 @@ class PlayState extends MusicBeatState
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
-					if(storyDifficulty == 2 && storyWeek == 2 && !FlxG.save.data.rebeats){
+					if(storyDifficulty == 2 && storyWeek == 3 && !FlxG.save.data.rebeats){
 						rebeatsUnlocked = true;//so fun fact, you shouldn't use variables to determine if something should be saved or not because variables get reset after closing something (probably something to do with memory)
 											   //so unless you got a seperate document that youre writing on that has the data or whatever, use the program's FlxG.save feature to save info between game sessions
 					}
@@ -3431,7 +3419,15 @@ class PlayState extends MusicBeatState
 				score = -300;
 				combo = 0;
 				misses++;
-				health -= 0.06;
+				switch (storyDifficulty){
+					case 0:
+						health -= 0.03;
+					case 1:
+						health -= 0.04;
+					case 2:
+						health -= 0.06;	
+				}
+				
 				ss = false;
 				shits++;
 				if (FlxG.save.data.accuracyMod == 0)
@@ -3439,7 +3435,14 @@ class PlayState extends MusicBeatState
 			case 'bad':
 				daRating = 'bad';
 				score = 0;
-				health -= 0.03;
+				switch (storyDifficulty){
+					case 0:
+						health -= 0;
+					case 1:
+						health -= 0.01;
+					case 2:
+						health -= 0.03;	
+				}
 				ss = false;
 				bads++;
 				if (FlxG.save.data.accuracyMod == 0)
@@ -3447,15 +3450,28 @@ class PlayState extends MusicBeatState
 			case 'good':
 				daRating = 'good';
 				score = 200;
+				switch (storyDifficulty){
+					case 0:
+						health += 0.02;
+					case 1:
+						health += 0.01;
+					case 2:
+						health -= 0;	
+				}
 				ss = false;
 				goods++;
 				if (FlxG.save.data.accuracyMod == 0)
 					totalNotesHit += 0.75;
 			case 'sick':
-				if (health < 2)
-					/*/if (curSong != 'Rebeats')/*/ 
-						//sherman squid if you want to play impossible mode, remove the /*/s on the line above
-						health += 0.04;
+				switch (storyDifficulty){
+					case 0:
+						health += 0.07; 
+					case 1:
+						health += 0.06; 
+					case 2:
+						health += 0.04; 
+				}
+						    
 				if (FlxG.save.data.accuracyMod == 0)
 					totalNotesHit += 1;
 				sicks++;

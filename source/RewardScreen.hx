@@ -49,11 +49,11 @@ class RewardScreen extends MusicBeatState
 			}
 		
 		
-		song = new FlxSprite(225, 150).loadGraphic(Paths.image('one/cover arts/rebeats', 'shared')); //ok so I'm going to have to make these cover arts be the same dimensions so that I only have to chnage the file path, but I can imagine this	
+		song = new FlxSprite(225, 150).loadGraphic(Paths.image('cover arts/Rebeats', 'shared')); //ok so I'm going to have to make these cover arts be the same dimensions so that I only have to chnage the file path, but I can imagine this	
 		song.setGraphicSize(Std.int(song.width * 0.675));											 //screen being used to display different songs like dark sheep instead of just rebeats
 		song.updateHitbox();
 
-		var songBorder:FlxSprite = new FlxSprite(song.x-28.5, song.y-28.5).loadGraphic(Paths.image('songFrame'));
+		var songBorder:FlxSprite = new FlxSprite(song.x-3, song.y-2).loadGraphic(Paths.image('songFrame'));
 		songBorder.setGraphicSize(Std.int(song.width * 1.1375), Std.int(song.height *  1.1375));
 
 		var fanfare:FlxSound = new FlxSound().loadEmbedded(Paths.music('fanfare'), false, true);
