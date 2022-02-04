@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="EggYolk.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="relax0000" x="3" y="1003" width="1000" height="1000"/>
+	<SubTexture name="scared0000" x="1003" y="3" width="1000" height="1000"/>
+	<SubTexture name="hey0000" x="1003" y="1003" width="1000" height="1000"/>
+	<SubTexture name="happy0000" x="3" y="3" width="1000" height="1000"/>
+</TextureAtlas>

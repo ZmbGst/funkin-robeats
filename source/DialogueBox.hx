@@ -20,16 +20,18 @@ class DialogueBox extends FlxSpriteGroup
 	var box:FlxSprite;
 
 	var curCharacter:String = '';
+	var emotion:String='';
 
 	var dialogue:Alphabet;
 	var dialogueList:Array<String> = [];
 
-	// SECOND DIALOGUE FOR THE PIXEL SHIT INSTEAD???
 	var swagDialogue:FlxTypeText;
 
 	var dropText:FlxText;
 
 	var speakerText:FlxText;
+
+	var oldWeekStuff:Bool = true;
 
 	public var finishThing:Void->Void;
 	public var finishThingTwo:Void -> Void;
@@ -48,7 +50,6 @@ class DialogueBox extends FlxSpriteGroup
 
 	var opponent:String = '';
 
-	var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
 	var baseColor:FlxSprite;
 
@@ -100,23 +101,6 @@ class DialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'roses':
-				hasDialog = true;
-				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
-
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-senpaiMad');
-				box.animation.addByPrefix('normalOpen', 'SENPAI ANGRY IMPACT SPEECH', 24, false);
-				box.animation.addByIndices('normal', 'SENPAI ANGRY IMPACT SPEECH', [4], "", 24);
-
-			case 'thorns':
-				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-evil');
-				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
-				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
-
-				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
-				face.setGraphicSize(Std.int(face.width * 6));
-				add(face);
 			default:
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('textbox','shared');
@@ -126,7 +110,6 @@ class DialogueBox extends FlxSpriteGroup
 				box.height = 200;
 				box.x = 30;
 				box.y = 375;
-				trace ('shitface');
 		}
 
 		this.dialogueList = dialogueList;
@@ -134,45 +117,68 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 		
-		portraitLeft = new FlxSprite(200, 40);
-		portraitLeft.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
+		portraitLeft = new FlxSprite(200, 60);
+		if(PlayState.storyWeek == 1 || PlayState.storyWeek == 2 || PlayState.storyWeek == 3){
+			oldWeekStuff = true;
+			portraitLeft.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
 
-		//all of these switch statements are determined by songs as opposed to weeks because the people speaking for these songs are the ones going to sing
-		switch (PlayState.SONG.song.toLowerCase())
-		{
-			case 'shelter' | 'alone' | 'friends': 
-				portraitLeft.animation.addByPrefix('enter', 'Noob Animation', 24, false);
+			//all of these switch statements are determined by songs as opposed to weeks because the people speaking for these songs are the ones going to sing
+			switch (PlayState.SONG.song.toLowerCase())
+			{
+				case 'shelter' | 'alone' | 'friends': 
+					portraitLeft.animation.addByPrefix('enter', 'Noob Animation', 24, false);
 
-				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+					portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+				
+				case 'bibi hendl' | 'bad apple' | 'insight':	
+					portraitLeft.animation.addByPrefix('enter', 'Chris Animation', 24, false);
+
+					portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.135));
+				
+				case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':
+					portraitLeft.animation.addByPrefix('enter', 'Spotco Animation', 24, false);
+
+					portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
 			
-			case 'bibi hendl' | 'bad apple' | 'insight':	
-				portraitLeft.animation.addByPrefix('enter', 'Chris Animation', 24, false);
+				case 'rebeats':
+					portraitLeft.animation.addByPrefix('enter', 'kittyAnimation', 24, false);
 
-				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.135));
+					portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+				default:
+					portraitLeft.animation.addByPrefix('enter', 'Gf Animation', 24, false);
+
+					portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+			}
+		}	
+		else if (PlayState.storyWeek == 4 || PlayState.storyWeek == 5 || PlayState.storyWeek == 6){
 			
-			case 'lemon summer' | 'space battle' | 'freedom dive' | 'dark sheep':
-				portraitLeft.animation.addByPrefix('enter', 'Spotco Animation', 24, false);
-
-				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
-		
-			case 'rebeats':
-				portraitLeft.animation.addByPrefix('enter', 'kittyAnimation', 24, false);
-
-				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
-			default:
-				portraitLeft.animation.addByPrefix('enter', 'Gf Animation', 24, false);
-
-				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.175));
+			oldWeekStuff = false;
+			switch (PlayState.SONG.song.toLowerCase()){
+				case 'retaliation' | 'vix': 
+				//Egg Yolk
+					portraitLeft.frames = Paths.getSparrowAtlas('portraits/EggYolk', 'shared');
+					portraitLeft.animation.addByPrefix('hey', 'hey', 24, true);	
+					portraitLeft.animation.addByPrefix('relax', 'relax', 24, true);	
+					portraitLeft.animation.addByPrefix('scared', 'scared', 24, true);	
+					portraitLeft.animation.addByPrefix('happy', 'happy', 24, true);
+					portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065));
+				case 'mattyolk': //wip name. change later
+					portraitLeft.frames = Paths.getSparrowAtlas('portraits/EggYolkNoShell', 'shared');
+					portraitLeft.animation.addByPrefix('hey', 'hey', 24, true);	
+					portraitLeft.animation.addByPrefix('relax', 'relax', 24, true);	
+					portraitLeft.animation.addByPrefix('scared', 'scared', 24, true);	
+					portraitLeft.animation.addByPrefix('happy', 'happy', 24, true);
+					portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065));
+			}
+			
 		}
-		
-		
-		
+			
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
 		add(portraitLeft);
 		portraitLeft.visible = false;
 
-
+		//will repurpose this for GF exclusively later on
 		portraitRight = new FlxSprite(740, 140);
 		portraitRight.frames = Paths.getSparrowAtlas('portraits/Dialogue', 'shared');
 		portraitRight.animation.addByPrefix('enter', 'Bf Animation', 24, false);
@@ -193,14 +199,12 @@ class DialogueBox extends FlxSpriteGroup
 		portraitGirlfriend.visible = false;
 
 
-
+		//spectators
 		portraitExtra = new FlxSprite(200, 40);
 		portraitExtra.frames = Paths.getSparrowAtlas('viewers/thePeeps', 'shared');
 		for(i in 0...9){
-			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);// call animation name "person1" "1" in the code
-			trace('added ' + i);
-			loadOffsetFile(""+i);
-			
+			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);
+			loadOffsetFile(""+i);	
 		}
 		portraitExtra.animation.addByPrefix('9', 'person9', 24, false);
 		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.175));
@@ -214,10 +218,6 @@ class DialogueBox extends FlxSpriteGroup
 		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 		box.updateHitbox();
 		add(box);
-
-
-		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
-
 
 		if (!talkingRight)
 		{
@@ -305,7 +305,6 @@ class DialogueBox extends FlxSpriteGroup
 			if (dialogueList[1] == null && dialogueList[0] != null)
 			{
 				/*/if (${PlayState.SONG.song} == 'Tutorial'&& ${PlayState.songFinish}){ 
-								trace ('shitface');
 								FlxG.switchState(new ResultsScreen());
 							}/*/
 				if (!isEnding)
@@ -391,8 +390,12 @@ class DialogueBox extends FlxSpriteGroup
 				if (!portraitLeft.visible)
 				{
 					portraitLeft.visible = true;
-					portraitLeft.animation.play('enter');
 				}
+					if (oldWeekStuff)
+						portraitLeft.animation.play('enter');
+					else if (!oldWeekStuff)
+						portraitLeft.animation.play(emotion);
+				
 			case 'bf':
 
 				portraitLeft.visible = false;
@@ -418,14 +421,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.visible = false;
 				portraitGirlfriend.visible = false;
 				portraitLeft.visible = false;
-
-
-
-			
-				//Glasses = 1 Buzz = 2 thinking = 3 You'll never know what this means >=)
-				
-				//Code to randomize the portraits and make sure the same portrait doesn't come immediately after the first instance (still can come multiple times in a session)
-				//If you steal this; first, thank you I feel I actually have some idea of what I'm doing. second, please atleast understand the logic and what each line of code does just so you can fix the issues on your code yourself
 			
 				goodNumber = FlxG.random.int(1,8);
 				playAnim(""+goodNumber);
@@ -466,8 +461,10 @@ class DialogueBox extends FlxSpriteGroup
 	function cleanDialog():Void
 	{
 		var splitName:Array<String> = dialogueList[0].split(":");
+		emotion = splitName[3];
 		curCharacter = splitName[1];
-		dialogueList[0] = dialogueList[0].substr(splitName[1].length + 2).trim();
+		
+		dialogueList[0] = dialogueList[0].substr(splitName[1].length + splitName[3].length + 4).trim();
 	}
 
 	public function playAnim(AnimName:String):Void
