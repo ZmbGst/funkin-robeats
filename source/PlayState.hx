@@ -472,44 +472,44 @@ class PlayState extends MusicBeatState
 
 		// defaults if no stage was found in chart
 		var stageCheck:String = 'stage';
+		generateSong(SONG.song);
 
 		if (SONG.stage == null)
 		{
 			switch (storyWeek)
 			{
+				case 1:
+					stageCheck = 'rlounge';
 				case 2:
-					stageCheck = 'halloween';
+					stageCheck = 'rlounge';
 				case 3:
-					stageCheck = 'philly';
+					if (songLowercase == 'dark-sheep')
+						{
+							stageCheck = 'sheep';
+						}
+						else
+						{
+							stageCheck = 'stadium';
+						}
 				case 4:
-					stageCheck = 'limo';
+					stageCheck = 'concert';
 				case 5:
-					if (songLowercase == 'winter-horrorland')
-					{
-						stageCheck = 'mallEvil';
-					}
-					else
-					{
-						stageCheck = 'mall';
-					}
+					stageCheck = 'tbd';
 				case 6:
-					if (songLowercase == 'thorns')
-					{
-						stageCheck = 'schoolEvil';
-					}
-					else
-					{
-						stageCheck = 'school';
-					}
-					// i should check if its stage (but this is when none is found in chart anyway)
+					stageCheck = 'tbd';
 			}
 		}
 		else
 		{
 			stageCheck = SONG.stage;
+			if (!isStoryMode){
+				if(!(curSong == 'Dark Sheep')){
+					stageCheck = 'rlounge';
+				}
+			}
 		}
 
-		generateSong(SONG.song);
+		
 
 		if (!PlayStateChangeables.Optimize)
 		{
@@ -532,19 +532,19 @@ class PlayState extends MusicBeatState
 
 					coverArt.setGraphicSize(Std.int(coverArt.width * 0.335));
 					if(FlxG.save.data.antialiasing)
-						{
 							coverArt.antialiasing = true;
-						}
 					coverArt.scrollFactor.set(0.9, 0.9);
 					coverArt.active = false;
 
-					musicName = new FlxText(740, 290, 400, curSong, 54);
+					musicName = new FlxText(740, 293, 400, curSong, 54);
+					if(curSong.length >= 10)
+							musicName.size = 42;
 					musicName.font = 'Righteous';
 					musicName.color = 0xFFFFEA00;
 					musicName.alignment = CENTER;
 					musicName.scrollFactor.set(0.9,0.9);
 
-					artistName = new FlxText(792, 360, 300, '', 21);
+					artistName = new FlxText(792, 363, 300, '', 21);
 					artistName.font = 'Righteous';
 					artistName.color = 0xFFFFEA00;
 					artistName.alignment = CENTER;
@@ -566,6 +566,14 @@ class PlayState extends MusicBeatState
 							artistName.text = 'Haywyre';
 						case 'Rebeats':
 							artistName.text = 'Var. Artists';
+						case 'Lemon Summer':
+							artistName.text = 'Paitan';
+						case 'Space Battle':
+							artistName.text = 'F-777';
+						case 'Freedom Dive':
+							artistName.text = 'xi';
+						case 'Speedrun':
+							artistName.text = 'Shad0wStar';
 						default:
 							artistName.text = 'spotco';
 					}
@@ -573,7 +581,6 @@ class PlayState extends MusicBeatState
 					people = new FlxSprite(-350, 600);
 					people.frames = Paths.getSparrowAtlas('one/peoplesprite', 'shared');
 					people.animation.addByPrefix('spectate', 'people', 24, true);
-					people.animation.play('spectate');
 					people.scrollFactor.set(.85, .85);
 
 					add(bg);
@@ -698,10 +705,8 @@ class PlayState extends MusicBeatState
 			{
 				case 3:
 					gfCheck = 'gf-car';
-				case 5:
-					gfCheck = 'gf-christmas';
-				case 6:
-					gfCheck = 'gf-pixel';
+				default:
+					gfCheck = 'gf';
 			}
 		}
 		else
@@ -710,18 +715,38 @@ class PlayState extends MusicBeatState
 		}
 
 		var curGf:String = '';
-		switch (gfCheck)
+		
+		if (!isStoryMode)
+			{
+				if(curSong != 'Dark Sheep')
+					curGf = 'gf';
+				else 
+				{
+					switch (gfCheck)
+					{
+
+					case 'gf-car':
+						curGf = 'gf-car';
+					default:
+						curGf = 'gf';
+
+					}
+				}
+			}
+		else 
 		{
+			switch (gfCheck)
+			{
+
 			case 'gf-car':
 				curGf = 'gf-car';
-			case 'gf-christmas':
-				curGf = 'gf-christmas';
-			case 'gf-pixel':
-				curGf = 'gf-pixel';
 			default:
 				curGf = 'gf';
-		}
 
+			}
+
+		}
+		
 		gf = new Character(400, 130, curGf);
 		gf.scrollFactor.set(0.95, 0.95);
 
@@ -1845,7 +1870,7 @@ class PlayState extends MusicBeatState
 				switch (storyWeek)
 				{
 					case 6:
-						noteTypeCheck = 'pixel';
+						noteTypeCheck = 'normal';
 				}
 			}
 			else
@@ -4776,12 +4801,10 @@ class PlayState extends MusicBeatState
 					bgGirls.dance();
 				}
 
-			case 'mall':
+			case 'rlounge':
 				if (FlxG.save.data.distractions)
 				{
-					upperBoppers.animation.play('bop', true);
-					bottomBoppers.animation.play('bop', true);
-					santa.animation.play('idle', true);
+					people.animation.play('spectate', true);
 				}
 
 			case 'limo':

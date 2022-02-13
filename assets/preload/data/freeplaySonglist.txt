@@ -9,4 +9,6 @@ Lemon Summer:spotco:3
 Space Battle:spotco:3
 Freedom Dive:spotco:3
 Dark Sheep:spotcochair:3
-Rebeats:kitty:4
+Retaliation:kitty:4
+Speedrun:kitty:6
+Rebeats:kitty:10

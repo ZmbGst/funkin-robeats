@@ -1,3 +1,0 @@
-:dad::enter:Hello
-:dad::mouse:i think its working
-:dad::awesome:omg please don't crash

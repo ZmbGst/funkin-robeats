@@ -391,10 +391,9 @@ class DialogueBox extends FlxSpriteGroup
 
 				if (!(portraitLeftoldEmotion == emotion)){
 					portraitLeft.alpha = 0;
-					portraitLeft.scale.set(1.2,1.2);
-					FlxTween.tween(portraitLeft.scale, {x:1.0}, 0.5);
-					FlxTween.tween(portraitLeft.scale, {y:1.0}, 0.5);
-					FlxTween.tween(portraitLeft, {alpha:1.0}, 0.5);
+					portraitLeft.scale.set(1.0,1.0);
+					FlxTween.tween(portraitLeft.scale, {x:Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065)*0.003, y:Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065)*0.003}, 0.2);
+					FlxTween.tween(portraitLeft, {alpha:1.0}, 0.2);
 					portraitLeft.animation.play(emotion);
 					portraitLeftoldEmotion = emotion; 
 				}
@@ -405,9 +404,8 @@ class DialogueBox extends FlxSpriteGroup
 
 				if (!(portraitRightoldEmotion == emotion)){
 					portraitRight.alpha = 0;
-					portraitRight.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.070));
-					FlxTween.tween(portraitRight.scale, {x:Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065)*0.003}, 0.2);
-					FlxTween.tween(portraitRight.scale, {y:Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065)*0.003}, 0.2);
+					portraitRight.scale.set(1.0,1.0);
+					FlxTween.tween(portraitRight.scale, {x:Std.int(portraitRight.width * PlayState.daPixelZoom * 0.065)*0.003, y:Std.int(portraitRight.width * PlayState.daPixelZoom * 0.065)*0.003}, 0.2);
 					FlxTween.tween(portraitRight, {alpha:1.0}, 0.2);
 					portraitRight.animation.play(emotion);
 					portraitRightoldEmotion = emotion; 
