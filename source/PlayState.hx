@@ -784,6 +784,12 @@ class PlayState extends MusicBeatState
 			case 'spotcochair':
 				dad.y += 356;
                 dad.x -=340;
+			case 'eggNaked':  //Add if statement to see if the stage is rlounge or not
+				dad.y += 440;
+				dad.x -=30;
+			case 'matt':
+				dad.y +=135;
+				dad.x -= 70;
 				
 			case 'kitty':
 				dad.y+=300;

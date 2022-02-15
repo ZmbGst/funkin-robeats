@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.util.FlxColor;
 
 using StringTools;
 
@@ -179,6 +180,37 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 
 				playAnim('idle');
+			
+			case 'eggNaked':
+					healthColor = FlxColor.YELLOW;
+
+					tex = Paths.getSparrowAtlas('EggyBoiSprites', 'shared', true);
+					frames = tex;
+					animation.addByPrefix('idle', 'Egg Idle', 24);
+					animation.addByPrefix('singUP', 'Egg Up', 24);
+					animation.addByPrefix('singDOWN', 'Egg Down', 24);
+					animation.addByPrefix('singRIGHT', 'Egg Right', 24);
+					animation.addByPrefix('singLEFT', 'Egg Left', 24);
+
+					loadOffsetFile(curCharacter);
+
+					playAnim('idle');
+
+			case 'matt': 
+					healthColor = FlxColor.GRAY;
+
+					tex = Paths.getSparrowAtlas('MattSprites', 'shared', true);
+					frames = tex;
+					animation.addByPrefix('idle', 'Matt Idle', 24);
+					animation.addByPrefix('singUP', 'Matt Up', 24);
+					animation.addByPrefix('singDOWN', 'Matt Down', 24);
+					animation.addByPrefix('singRIGHT', 'Matt Right', 24);
+					animation.addByPrefix('singLEFT', 'Matt Left', 24);
+
+					loadOffsetFile(curCharacter);
+
+					playAnim('idle');
+
 
 			case 'kitty':
 				healthColor = 0xFFB47A3C;

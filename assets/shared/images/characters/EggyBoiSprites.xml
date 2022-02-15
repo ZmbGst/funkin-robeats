@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="EggyBoiSprites.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Egg Down0000" x="0" y="0" width="298" height="271" frameX="0" frameY="-15" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0001" x="0" y="0" width="298" height="271" frameX="0" frameY="-15" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0002" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0003" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0004" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0005" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0006" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0007" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0008" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0009" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0010" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0011" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0012" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Down0013" x="300" y="0" width="286" height="286" frameX="-6" frameY="0" frameWidth="298" frameHeight="286"/>
+	<SubTexture name="Egg Idle0000" x="588" y="0" width="311" height="270" frameX="0" frameY="-21" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0001" x="588" y="0" width="311" height="270" frameX="0" frameY="-21" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0002" x="901" y="0" width="298" height="277" frameX="-7" frameY="-15" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0003" x="901" y="0" width="298" height="277" frameX="-7" frameY="-15" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0004" x="1201" y="0" width="292" height="281" frameX="-10" frameY="-10" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0005" x="1201" y="0" width="292" height="281" frameX="-10" frameY="-10" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0006" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0007" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0008" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0009" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0010" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0011" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0012" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Idle0013" x="1495" y="0" width="292" height="292" frameX="-10" frameY="0" frameWidth="311" frameHeight="292"/>
+	<SubTexture name="Egg Left0000" x="0" y="294" width="293" height="293" frameX="-1" frameY="0" frameWidth="312" frameHeight="293"/>
+	<SubTexture name="Egg Left0001" x="0" y="294" width="293" height="293" frameX="-1" frameY="0" frameWidth="312" frameHeight="293"/>
+	<SubTexture name="Egg Left0002" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0003" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0004" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0005" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0006" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0007" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0008" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0009" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0010" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0011" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0012" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Left0013" x="295" y="294" width="312" height="293"/>
+	<SubTexture name="Egg Right0000" x="609" y="294" width="293" height="293" frameX="-24" frameY="0" frameWidth="319" frameHeight="293"/>
+	<SubTexture name="Egg Right0001" x="609" y="294" width="293" height="293" frameX="-24" frameY="0" frameWidth="319" frameHeight="293"/>
+	<SubTexture name="Egg Right0002" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0003" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0004" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0005" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0006" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0007" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0008" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0009" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0010" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0011" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0012" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Right0013" x="904" y="294" width="319" height="293"/>
+	<SubTexture name="Egg Up0000" x="1225" y="294" width="295" height="295" frameX="-5" frameY="0" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0001" x="1225" y="294" width="295" height="295" frameX="-5" frameY="0" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0002" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0003" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0004" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0005" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0006" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0007" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0008" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0009" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0010" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0011" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0012" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+	<SubTexture name="Egg Up0013" x="1522" y="294" width="305" height="281" frameX="0" frameY="-14" frameWidth="305" frameHeight="295"/>
+</TextureAtlas>
