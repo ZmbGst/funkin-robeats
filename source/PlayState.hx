@@ -467,8 +467,14 @@ class PlayState extends MusicBeatState
 			+ Conductor.timeScale + '\nBotPlay : ' + PlayStateChangeables.botPlay);
 
 		// dialogue shit
-		if (CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+'/dialog')) != null)
-		dialogue = CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+'/dialog'));
+		if (CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+'/dialog')) != null){
+			if (songLowercase == 'retaliation')
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+ '/dialog-'+FlxG.save.data.week3Ending));
+			else
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/'+songLowercase+'/dialog'));
+		}
+		
+		
 
 		// defaults if no stage was found in chart
 		var stageCheck:String = 'stage';
@@ -3204,20 +3210,23 @@ class PlayState extends MusicBeatState
 			if(curSong == 'Freedom Dive')
 			{
 				endDialog = CoolUtil.coolTextFile(Paths.txt('data/freedom-dive/dialogend'));
+				FlxG.save.data.week3Ending= 'bad';
 			}
 			if (curSong == 'Dark Sheep')
 			{
 				if (accuracy >= 98.00){
 					endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogendbad'));
+					FlxG.save.data.week3Ending = 'true';
 				}
 				else 
 				{
 					endDialog = CoolUtil.coolTextFile(Paths.txt('data/dark-sheep/dialogend'));
 					FlxTween.tween(boyfriend,{alpha:1},2);	
 					FlxTween.tween(iconP1,{alpha:1},2);	
+					FlxG.save.data.week3Ending = 'good';
 				}
 			}
-		
+			FlxG.save.flush();
 			hasDialogue = true;
 			ResultsScreen.isDialogue = hasDialogue;
 			ResultsScreen.dialogueText = endDialog;

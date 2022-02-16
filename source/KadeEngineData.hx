@@ -118,6 +118,17 @@ class KadeEngineData
 		if (FlxG.save.data.cutscene == null)
             FlxG.save.data.cutscene = false;
 
+		if (FlxG.save.data.week3Good == null)
+			FlxG.save.data.week3Good == true;
+
+		if (FlxG.save.data.week3Bad == null)
+			FlxG.save.data.week3Bad == true;
+
+		if (FlxG.save.data.week3Ending == null)
+			FlxG.save.data.week3Ending = 'good';
+		
+			
+
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 		
 		KeyBinds.gamepad = gamepad != null;
