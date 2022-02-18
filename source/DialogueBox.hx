@@ -53,6 +53,7 @@ class DialogueBox extends FlxSpriteGroup
 	var portraitRight:FlxSprite;
 	var portraitCenter:FlxSprite;
 	var portraitExtra:FlxSprite;
+	var multipleDad:Bool = false;
 
 	var opponent:String = '';
 	var opponentBuddy:String='';
@@ -122,7 +123,7 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 		
-		portraitLeft = new FlxSprite(200, 60);
+		portraitLeft = new FlxSprite(200, 100);
 		portraitCenter = new FlxSprite(200,100);
 
 		//all of these switch statements are determined by songs as opposed to weeks because the people speaking for these songs are the ones going to sing
@@ -151,7 +152,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.addByPrefix('scared', 'scared', 24, true);	
 				portraitLeft.animation.addByPrefix('happy', 'happy', 24, true);
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065));
-			
+				
 			//Week 4+ which will have more dynamic interactions w/ multiple portraitLeft characters
 			case 'retaliation' | 'vix': 
 				//Egg Yolk
@@ -160,7 +161,8 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.addByPrefix('relax', 'relax', 24, true);	
 				portraitLeft.animation.addByPrefix('scared', 'scared', 24, true);	
 				portraitLeft.animation.addByPrefix('happy', 'happy', 24, true);
-				portraitLeft.setGraphicSize(Std.int(portraitCenter.width * PlayState.daPixelZoom * 0.065));
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.035));
+				portraitLeft.y+=140;
 
 				portraitCenter.frames = Paths.getSparrowAtlas('portraits/EggYolk', 'shared');
 				portraitCenter.animation.addByPrefix('hey', 'hey', 24, true);	
@@ -168,6 +170,11 @@ class DialogueBox extends FlxSpriteGroup
 				portraitCenter.animation.addByPrefix('scared', 'scared', 24, true);	
 				portraitCenter.animation.addByPrefix('happy', 'happy', 24, true);
 				portraitCenter.setGraphicSize(Std.int(portraitCenter.width * PlayState.daPixelZoom * 0.065));
+
+				portraitCenter.updateHitbox();
+				portraitCenter.scrollFactor.set();
+				add(portraitCenter);
+				portraitCenter.visible = false;
 			case 'mattyolk': //wip name. change later
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/EggYolkNoShell', 'shared');
 				portraitLeft.animation.addByPrefix('hey', 'hey', 24, true);	
@@ -202,13 +209,13 @@ class DialogueBox extends FlxSpriteGroup
 		add(portraitLeft);
 		portraitLeft.visible = false;
 
-		portraitRight = new FlxSprite(740, 140);
+		portraitRight = new FlxSprite(800, 220);
 		portraitRight.frames = Paths.getSparrowAtlas('portraits/EggYolkNoShell', 'shared');
 		portraitRight.animation.addByPrefix('hey', 'hey', 24, true);	
 		portraitRight.animation.addByPrefix('relax', 'relax', 24, true);	
 		portraitRight.animation.addByPrefix('scared', 'scared', 24, true);	
 		portraitRight.animation.addByPrefix('happy', 'happy', 24, true);
-		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.065));
+		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.045));
 		portraitRight.updateHitbox();
 		portraitRight.scrollFactor.set();
 		add(portraitRight);
@@ -216,14 +223,14 @@ class DialogueBox extends FlxSpriteGroup
 
 
 		//spectators + randoms if we need them
-		portraitExtra = new FlxSprite(200, 40);
+		portraitExtra = new FlxSprite(470, 80);
 		portraitExtra.frames = Paths.getSparrowAtlas('viewers/thePeeps', 'shared');
 		for(i in 0...9){
 			portraitExtra.animation.addByPrefix(""+i, 'person'+i, 24, false);
 			loadOffsetFile(""+i);	
 		}
 		portraitExtra.animation.addByPrefix('9', 'person9', 24, false);
-		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.175));
+		portraitExtra.setGraphicSize(Std.int(portraitExtra.width*PlayState.daPixelZoom * 0.105));
 		portraitExtra.updateHitbox();
 		portraitExtra.scrollFactor.set();
 		add(portraitExtra);
@@ -266,6 +273,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	override function update(elapsed:Float)
 	{
+		
 		// HARD CODING CUZ IM STUPDI
 		switch (PlayState.SONG.song.toLowerCase())
 		{
@@ -400,25 +408,36 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			case 'dad':
 
-				if (!portraitLeft.visible)
+				if (!portraitLeft.visible){
 					portraitLeft.visible = true;
+					if (!portraitExtra.visible)
+						portraitLeft.x += 300;
+					if (!multipleDad){
+						portraitCenter.visible = false;
+						FlxTween.tween(portraitLeft, {alpha:1.0}, 0.2);
+					}					
+				}
 
 				if (!(portraitLeftoldEmotion == emotion)){
 					portraitLeft.alpha = 0;
-					portraitLeft.scale.set(1.0,1.0);
-					FlxTween.tween(portraitLeft.scale, {x:Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065)*0.003, y:Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.065)*0.003}, 0.2);
 					FlxTween.tween(portraitLeft, {alpha:1.0}, 0.2);
 					portraitLeft.animation.play(emotion);
 					portraitLeftoldEmotion = emotion; 
 				}
 			case 'dad2':
-				if (!portraitCenter.visible)
+				if (!portraitCenter.visible){
 					portraitCenter.visible = true;
+					if (portraitExtra.visible)
+						portraitExtra.visible = false;
+					if (!multipleDad){
+						portraitLeft.visible = false;
+						FlxTween.tween(portraitCenter, {alpha:1.0}, 0.2);
+					}
+						
+				}
 
 				if (!(portraitCenteroldEmotion == emotion)){
 					portraitCenter.alpha = 0;
-					portraitCenter.scale.set(1.0,1.0);
-					FlxTween.tween(portraitCenter.scale, {x:Std.int(portraitCenter.width * PlayState.daPixelZoom * 0.065)*0.003, y:Std.int(portraitCenter.width * PlayState.daPixelZoom * 0.065)*0.003}, 0.2);
 					FlxTween.tween(portraitCenter, {alpha:1.0}, 0.2);
 					portraitCenter.animation.play(emotion);
 					portraitCenteroldEmotion = emotion; 
@@ -430,14 +449,14 @@ class DialogueBox extends FlxSpriteGroup
 
 				if (!(portraitRightoldEmotion == emotion)){
 					portraitRight.alpha = 0;
-					portraitRight.scale.set(1.0,1.0);
-					FlxTween.tween(portraitRight.scale, {x:Std.int(portraitRight.width * PlayState.daPixelZoom * 0.065)*0.003, y:Std.int(portraitRight.width * PlayState.daPixelZoom * 0.065)*0.003}, 0.2);
 					FlxTween.tween(portraitRight, {alpha:1.0}, 0.2);
 					portraitRight.animation.play(emotion);
 					portraitRightoldEmotion = emotion; 
 				}
 			case 'extra':
-				
+				if (portraitLeft.visible)
+					FlxTween.tween(portraitLeft, {x:200}, 0.5, {ease:FlxEase.quadInOut});	
+
 				//Determine which npc will play based on randomization
 				goodNumber = FlxG.random.int(1,8);
 				playAnim(""+goodNumber);

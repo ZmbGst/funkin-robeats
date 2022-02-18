@@ -27,7 +27,6 @@ import io.newgrounds.NG;
 import lime.app.Application;
 import lime.utils.Assets;
 import flixel.math.FlxMath;
-import flixel.text.FlxText;
 import flixel.input.FlxKeyManager;
 import flixel.util.FlxTimer;
 
@@ -40,6 +39,7 @@ class ResultsScreen extends FlxSubState
     public static var dialogueText:Array<String>;
     
     public var background:FlxSprite;
+    public var resultsBackground:FlxSprite;
     public var text:FlxText;
 
     public var anotherBackground:FlxSprite;
@@ -65,13 +65,18 @@ class ResultsScreen extends FlxSubState
 
 	override function create()
 	{	
-        trace ('this is a new file');
         background = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
         background.scrollFactor.set();
         add(background);
        
-
         background.alpha = 0;
+
+        resultsBackground = new FlxSprite (110,10).loadGraphic(Paths.image('genericBox','preload'));
+        resultsBackground.setGraphicSize(Std.int(resultsBackground.width * 0.88), Std.int(resultsBackground.height * 0.7));
+        //resultsBackground.screenCenter();
+        resultsBackground.updateHitbox();
+        add(resultsBackground);
+
 
         text = new FlxText(20,-55,0,"Song Cleared!");
         text.size = 34;
@@ -184,7 +189,7 @@ class ResultsScreen extends FlxSubState
         {
             leaveSong = true;
             musicFUCKINGRULES();
-            FlxTween.tween(background, {alpha: 0.5},0.5);
+            FlxTween.tween(background, {alpha: 0.75},0.5);
             //FlxTween.tween(graph, {alpha:1},0.5);
             //FlxTween.tween(graphSprite, {alpha: 1},0.5);
             FlxTween.tween(text, {y:20},0.5,{ease: FlxEase.expoInOut});
