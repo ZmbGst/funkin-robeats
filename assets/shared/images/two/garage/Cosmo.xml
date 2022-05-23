@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Cosmo.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cosmo instance 10000" x="3" y="3" width="1679" height="1540" frameX="-53" frameY="0" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10001" x="3" y="3" width="1679" height="1540" frameX="-53" frameY="0" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10002" x="3" y="1543" width="1635" height="1488" frameX="-46" frameY="-32" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10003" x="3" y="1543" width="1635" height="1488" frameX="-46" frameY="-32" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10004" x="3" y="1543" width="1635" height="1488" frameX="-46" frameY="-32" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10005" x="1682" y="3" width="1622" height="1471" frameX="-25" frameY="-48" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10006" x="1638" y="3005" width="1622" height="1471" frameX="-25" frameY="-48" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10007" x="1638" y="3005" width="1622" height="1471" frameX="-25" frameY="-48" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10008" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10009" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10010" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10011" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10012" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10013" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10014" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10015" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10016" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10017" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10018" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10019" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10020" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10021" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10022" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+	<SubTexture name="cosmo instance 10023" x="1638" y="1543" width="1653" height="1462" frameX="0" frameY="-57" frameWidth="1732" frameHeight="1540"/>
+</TextureAtlas>

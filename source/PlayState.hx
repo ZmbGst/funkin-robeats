@@ -222,6 +222,14 @@ class PlayState extends MusicBeatState
 	var bgThree:FlxSprite;
 	var blackFade:FlxSprite;
 	public var ummBanned:FlxSprite;
+	
+	var speakerLeft:FlxSprite;
+	var speakerRight:FlxSprite;
+	var frontFence:FlxSprite;
+	var cosmo:FlxSprite;
+	var zircon:FlxSprite;
+	var concertZoom:Bool;
+
 	public var coverArt:FlxSprite;
 	public var musicName:FlxText;
 	public var artistName:FlxText;
@@ -578,6 +586,8 @@ class PlayState extends MusicBeatState
 							artistName.text = 'F-777';
 						case 'Freedom Dive':
 							artistName.text = 'xi';
+						case 'Retaliation':
+							artistName.text = 'Egg Yolk';
 						case 'Speedrun':
 							artistName.text = 'Shad0wStar';
 						default:
@@ -597,17 +607,81 @@ class PlayState extends MusicBeatState
 				
 				case 'stadium':
 				{
-						defaultCamZoom = 1.0;
-						curStage = 'stadium';
-						var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/Stadium'));
-						if(FlxG.save.data.antialiasing)
-							{
-								bg.antialiasing = true;
-							}
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
+					defaultCamZoom = 1.0;
+					curStage = 'stadium';
+					var bg:FlxSprite = new FlxSprite(-330, 30).loadGraphic(Paths.image('one/Stadium'));
+					if(FlxG.save.data.antialiasing)
+						{
+							bg.antialiasing = true;
+						}
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					add(bg);
 
+				}
+				case 'concert':
+				{
+					defaultCamZoom = 1;
+					curStage = 'concert';
+
+					var bg:FlxSprite = new FlxSprite(-1300, -700).loadGraphic(Paths.image('two/garage/background'));
+					bg.scrollFactor.set(0.75,0.75);
+					bg.active = false;
+
+					var crowd:FlxSprite = new FlxSprite(-1300, 200).loadGraphic(Paths.image('two/garage/crowd'));
+					crowd.scrollFactor.set(0.8, 0.8);
+					crowd.active = false;
+
+					var garage:FlxSprite = new FlxSprite(-1200, -700).loadGraphic(Paths.image('two/garage/Garage'));
+					garage.scrollFactor.set(0.85,0.85);
+					garage.active = false;
+
+					speakerLeft = new FlxSprite(-845, 75);
+					speakerLeft.frames = Paths.getSparrowAtlas('two/garage/left speaker', 'shared');
+					speakerLeft.animation.addByPrefix('bop', 'leftSpeaker instance', 24, true);
+					speakerLeft.scrollFactor.set(0.9,0.9);
+					speakerLeft.alpha = 0;
+
+					speakerRight = new FlxSprite(840, 75);
+					speakerRight.frames = Paths.getSparrowAtlas('two/garage/right speaker', 'shared');
+					speakerRight.animation.addByPrefix('bop', 'rightSpeaker instance', 24, true);
+					speakerRight.scrollFactor.set(0.9, 0.9);
+					speakerRight.alpha = 0;
+
+					frontFence = new FlxSprite (-1200, 90).loadGraphic(Paths.image('two/garage/Front Fence'));
+					frontFence.scrollFactor.set(1,1);
+					frontFence.active = false;
+					frontFence.alpha = 0;
+
+					cosmo = new FlxSprite (-1390, 250);
+					cosmo.frames = Paths.getSparrowAtlas('two/garage/Cosmo', 'shared');
+					cosmo.animation.addByPrefix('bop', 'cosmo instance', 24, true);
+					cosmo.scrollFactor.set(1,1);
+					cosmo.alpha = 0;
+					
+					zircon = new FlxSprite (1240, 170);
+					zircon.frames = Paths.getSparrowAtlas('two/garage/Zircon', 'shared');
+					zircon.animation.addByPrefix('bop', 'zircon instance', 24, true);
+					zircon.scrollFactor.set(1,1);
+					zircon.alpha = 0;
+
+					if (FlxG.save.data.antialiasing)
+						{
+							bg.antialiasing = true;
+							crowd.antialiasing = true;
+							garage.antialiasing = true;
+							speakerLeft.antialiasing = true;
+							speakerRight.antialiasing = true;
+							frontFence.antialiasing = true;
+							cosmo.antialiasing = true;
+							zircon.antialiasing = true;
+						}
+					
+					
+					add(bg);
+					if (curSong != 'replaceMe') 
+						add(crowd);
+					add(garage);
 				}
 				case 'sheep':
 				{
@@ -791,12 +865,34 @@ class PlayState extends MusicBeatState
 				dad.y += 356;
                 dad.x -=340;
 			case 'eggNaked':  //Add if statement to see if the stage is rlounge or not
-				dad.y += 440;
+				if (isStoryMode){
+					dad.y += 520;
+				}
+				else{
+					dad.y += 440;
+				}
 				dad.x -=30;
 			case 'matt':
-				dad.y +=135;
-				dad.x -= 70;
+				if (isStoryMode){
+					dad.y +=215;
+				}
+				else {
+					dad.y += 135;
+				}
 				
+				dad.x -= 70;
+			case 'mattYolk':
+				if (isStoryMode){
+					dad.y +=40;
+				}
+				else{
+					dad.y -=90;
+				}
+				
+				dad.x -=30;
+			case 'noobDrip':
+				dad.y += 50;
+                dad.x -=85;
 			case 'kitty':
 				dad.y+=300;
 				dad.x+=15;
@@ -845,10 +941,19 @@ class PlayState extends MusicBeatState
 			case 'stadium':
 				boyfriend.y -= 60;
 			case 'sheep':
+			{
 				boyfriend.y -= 70;
 				boyfriend.x+=15;
+			}
 			case 'rebeats':
-				
+			{
+
+			}
+			case 'concert':
+			{
+				gf.x -=100;
+				gf.y +=120;
+			}
 		}
 
 		if (!PlayStateChangeables.Optimize)
@@ -863,7 +968,19 @@ class PlayState extends MusicBeatState
 			if (curStage == 'sheep'){
 				add(blackFade);
 				add(ummBanned);
-				}			
+				}
+			if (curStage == 'concert'){
+				add(speakerLeft);
+				add(speakerRight);
+				if (curSong != 'replaceMe'){
+					add(frontFence);
+				}	
+				if (curSong == 'Retaliation'){
+					add(zircon);
+					add(cosmo);
+				}
+				
+			}			
 		}
 
 		if (loadRep)
@@ -2289,6 +2406,37 @@ class PlayState extends MusicBeatState
 				iconP1.animation.play(SONG.player1);
 			else
 				iconP1.animation.play('bf-old');
+		}
+
+		if (FlxG.keys.justPressed.FOUR && curStage == 'concert'){ //delete and place in stepHit code
+			if (defaultCamZoom == 1.0){ //zoom out
+				trace('hell');
+				defaultCamZoom = 0.45;
+				concertZoom = true;
+
+				FlxTween.tween(speakerLeft, {alpha: 1, x: speakerLeft.x+75, y: speakerLeft.y-75},.25);
+				FlxTween.tween(speakerRight, {alpha: 1, x: speakerRight.x-75, y: speakerRight.y-75},.25);
+				FlxTween.tween(frontFence, {alpha: 1, x: frontFence.x, y: frontFence.y-90},.25);
+				FlxTween.tween(cosmo, {alpha: 1, x: cosmo.x+90, y: cosmo.y-100},.25);
+				FlxTween.tween(zircon, {alpha: 1, x: zircon.x-90, y: zircon.y-100},.25);
+				return;
+			}
+			if (defaultCamZoom == 0.45){ //zoom in
+				trace('hell2');
+				defaultCamZoom = 1.0;
+				concertZoom = false;
+
+				FlxTween.tween(speakerLeft, {alpha: 0, x: speakerLeft.x-75, y: speakerLeft.y+75},.25);
+				FlxTween.tween(speakerRight, {alpha: 0, x: speakerRight.x+75, y: speakerRight.y+75},.25);
+				FlxTween.tween(frontFence, {alpha: 0, x: frontFence.x, y: frontFence.y+90},.25);
+				FlxTween.tween(cosmo, {alpha: 0, x: cosmo.x-90, y: cosmo.y+100},.25);
+				FlxTween.tween(zircon, {alpha: 0, x: zircon.x+90, y: zircon.y+100},.25);
+
+
+				return;
+			}
+			
+
 		}
 
 		switch (curStage)
@@ -4762,13 +4910,13 @@ class PlayState extends MusicBeatState
 		if (FlxG.save.data.camzoom)
 		{
 			// HARDCODING FOR MILF ZOOMS!
-			if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
+			if (curStage == 'concert' && camZooming && concertZoom && FlxG.camera.zoom < 1.35 )
 			{
 				FlxG.camera.zoom += 0.015;
 				camHUD.zoom += 0.03;
 			}
 
-			if (camZooming && FlxG.camera.zoom < 1.35 && curBeat % 4 == 0)
+			if (camZooming && concertZoom && FlxG.camera.zoom < 1.35 && curBeat % 4 == 0)
 			{
 				FlxG.camera.zoom += 0.015;
 				camHUD.zoom += 0.03;
@@ -4810,29 +4958,20 @@ class PlayState extends MusicBeatState
 			
 		switch (curStage)
 		{
-			case 'school':
-				if (FlxG.save.data.distractions)
-				{
-					bgGirls.dance();
-				}
-
 			case 'rlounge':
 				if (FlxG.save.data.distractions)
 				{
 					people.animation.play('spectate', true);
 				}
-
-			case 'limo':
+		
+			case 'concert':
 				if (FlxG.save.data.distractions)
-				{
-					grpLimoDancers.forEach(function(dancer:BackgroundDancer)
 					{
-						dancer.dance();
-					});
-
-					if (FlxG.random.bool(10) && fastCarCanDrive)
-						fastCarDrive();
-				}				
+						speakerLeft.animation.play('bop', true);
+						speakerRight.animation.play('bop', true);
+						cosmo.animation.play('bop', true);
+						zircon.animation.play('bop', true);
+					}
 			case "philly":
 				if (FlxG.save.data.distractions)
 				{

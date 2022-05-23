@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="right speaker.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="rightSpeaker instance 10000" x="3" y="3" width="1326" height="1019" frameX="0" frameY="-33" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10001" x="3" y="3" width="1326" height="1019" frameX="0" frameY="-33" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10002" x="3" y="1022" width="1318" height="1021" frameX="-6" frameY="-31" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10003" x="3" y="1022" width="1318" height="1021" frameX="-6" frameY="-31" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10004" x="3" y="2043" width="1252" height="1043" frameX="-55" frameY="-12" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10005" x="3" y="2043" width="1252" height="1043" frameX="-55" frameY="-12" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10006" x="1329" y="3" width="1236" height="1056" frameX="-67" frameY="0" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10007" x="1329" y="3" width="1236" height="1056" frameX="-67" frameY="0" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10008" x="1329" y="3" width="1236" height="1056" frameX="-67" frameY="0" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="rightSpeaker instance 10009" x="1329" y="3" width="1236" height="1056" frameX="-67" frameY="0" frameWidth="1326" frameHeight="1056"/>
+</TextureAtlas>

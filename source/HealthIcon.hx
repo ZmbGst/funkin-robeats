@@ -39,8 +39,10 @@ class HealthIcon extends FlxSprite
 		animation.add('spotco', [28,29], 0, false, isPlayer);
 		animation.add('spotcochair', [30,31], 0, false, isPlayer);
 		animation.add('kitty', [32,33], 0, false, isPlayer);
-		animation.add('matt', [10, 11], 0, false, isPlayer);
-		animation.add('eggNaked', [10, 11], 0, false, isPlayer);
+		animation.add('matt', [34, 35], 0, false, isPlayer);
+		animation.add('mattYolk', [40, 41], 0, false, isPlayer);
+		animation.add('eggNaked', [38, 39], 0, false, isPlayer);
+		animation.add('noobDrip', [36, 37], 0, false, isPlayer);
 
 
 		animation.play(char);

@@ -182,7 +182,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 			
 			case 'eggNaked':
-					healthColor = FlxColor.YELLOW;
+					healthColor = 0xFFFFF3A0;
 
 					tex = Paths.getSparrowAtlas('EggyBoiSprites', 'shared', true);
 					frames = tex;
@@ -197,7 +197,7 @@ class Character extends FlxSprite
 					playAnim('idle');
 
 			case 'matt': 
-					healthColor = FlxColor.GRAY;
+					healthColor = 0xFF2B2B2B;
 
 					tex = Paths.getSparrowAtlas('MattSprites', 'shared', true);
 					frames = tex;
@@ -210,7 +210,41 @@ class Character extends FlxSprite
 					loadOffsetFile(curCharacter);
 
 					playAnim('idle');
+			
+			case 'mattYolk':
+				healthColor = 0xFFCAC49B;
+				frames = Paths.getSparrowAtlas('MattEgg','shared',true);
+				animation.addByPrefix('idle', 'Matt Idle', 24, false);
+				
+				animation.addByPrefix('singUP', 'Matt Up EGG', 24, false);
+				animation.addByPrefix('singDOWN', 'Matt Down EGG', 24, false);
+				animation.addByPrefix('singLEFT', 'Matt Left EGG', 24, false);
+				animation.addByPrefix('singRIGHT', 'Matt Right EGG', 24, false);
 
+				animation.addByPrefix('singUP-alt', 'Matt Up Matt', 24, false);
+				animation.addByPrefix('singDOWN-alt', 'Matt Down Matt', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'Matt Left Matt', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'Matt Right Matt', 24, false);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+
+				
+			case 'noobDrip': 
+				healthColor = 0xFFFFE318;
+
+				tex = Paths.getSparrowAtlas('CockyNoobSprites', 'shared', true);
+				frames = tex;
+				animation.addByPrefix('idle', 'CockyNoob Idle', 24);
+				animation.addByPrefix('singUP', 'CockyNoob Up', 24);
+				animation.addByPrefix('singDOWN', 'CockyNoob Down', 24);
+				animation.addByPrefix('singRIGHT', 'CockyNoob Right', 24);
+				animation.addByPrefix('singLEFT', 'CockyNoob Left', 24);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
 
 			case 'kitty':
 				healthColor = 0xFFB47A3C;

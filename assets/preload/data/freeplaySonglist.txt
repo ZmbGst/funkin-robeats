@@ -12,3 +12,4 @@ Dark Sheep:spotcochair:3
 Retaliation:kitty:4
 Speedrun:kitty:6
 Rebeats:kitty:10
+Debug:gf:0

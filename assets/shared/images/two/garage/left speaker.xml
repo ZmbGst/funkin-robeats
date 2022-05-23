@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="left speaker.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="leftSpeaker instance 10000" x="3" y="3" width="1326" height="1018" frameX="0" frameY="-34" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10001" x="3" y="3" width="1326" height="1018" frameX="0" frameY="-34" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10002" x="3" y="1021" width="1312" height="1022" frameX="-3" frameY="-31" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10003" x="3" y="1021" width="1312" height="1022" frameX="-3" frameY="-31" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10004" x="3" y="2043" width="1238" height="1046" frameX="-21" frameY="-9" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10005" x="3" y="2043" width="1238" height="1046" frameX="-21" frameY="-9" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10006" x="1315" y="1021" width="1230" height="1056" frameX="-23" frameY="0" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10007" x="1315" y="1021" width="1230" height="1056" frameX="-23" frameY="0" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10008" x="1315" y="1021" width="1230" height="1056" frameX="-23" frameY="0" frameWidth="1326" frameHeight="1056"/>
+	<SubTexture name="leftSpeaker instance 10009" x="1315" y="1021" width="1230" height="1056" frameX="-23" frameY="0" frameWidth="1326" frameHeight="1056"/>
+</TextureAtlas>

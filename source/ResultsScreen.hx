@@ -46,7 +46,11 @@ class ResultsScreen extends FlxSubState
     public var graph:HitGraph;
     public var graphSprite:OFLSprite;
 
-    public var comboText:FlxText;
+    public var currentCoverart:FlxSprite;
+    private var currentSong:FlxText;
+
+    public var judgementText:FlxText;
+    public var accuracyText:FlxText;
     public var contText:FlxText;
     public var settingsText:FlxText;
 
@@ -77,6 +81,17 @@ class ResultsScreen extends FlxSubState
         resultsBackground.updateHitbox();
         add(resultsBackground);
 
+        currentCoverart = new FlxSprite (resultsBackground.x + 120,resultsBackground.y + 230).loadGraphic(Paths.image('cover arts/' + PlayState.SONG.song));
+        currentCoverart.setGraphicSize(Std.int(resultsBackground.width*0.1125),Std.int(resultsBackground.height*0.15));
+        currentCoverart.updateHitbox();
+        add(currentCoverart);
+
+        currentSong = new FlxText(currentCoverart.x, currentCoverart.y - 60, 0, PlayState.SONG.song, 34);
+        currentSong.font = 'Righteous';
+        currentSong.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK, 4, 1);
+        currentSong.color = FlxColor.WHITE;
+        currentSong.scrollFactor.set();
+        add(currentSong);
 
         text = new FlxText(20,-55,0,"Song Cleared!");
         text.size = 34;
@@ -92,14 +107,22 @@ class ResultsScreen extends FlxSubState
             score = PlayState.campaignScore;
             text.text = "Week Cleared!";
         }
+        
+        //\nHighest Combo: ${PlayState.highestCombo + 1}\nScore: ${PlayState.instance.songScore}
+        judgementText = new FlxText(currentCoverart.x + 160, currentCoverart.y + 180, 0,'Perfects - ${PlayState.sicks}\nGreats - ${PlayState.goods}\nOkays - ${PlayState.bads}\nMisses - ${(PlayState.isStoryMode ? PlayState.campaignMisses : PlayState.misses)}\n');
+        judgementText.size = 20;
+        judgementText.font = 'Righteous';
+        judgementText.setBorderStyle(FlxTextBorderStyle.OUTLINE,FlxColor.BLACK,4,1);
+        judgementText.color = FlxColor.WHITE;
+        judgementText.scrollFactor.set();
+        add(judgementText);
 
-        comboText = new FlxText(20,-75,0,'Judgements:\nPerfects - ${PlayState.sicks}\nGreats - ${PlayState.goods}\nOkays - ${PlayState.bads}\n\nMisses: ${(PlayState.isStoryMode ? PlayState.campaignMisses : PlayState.misses)}\nHighest Combo: ${PlayState.highestCombo + 1}\nScore: ${PlayState.instance.songScore}\nAccuracy: ${HelperFunctions.truncateFloat(PlayState.instance.accuracy,2)}%\n\n${Ratings.GenerateLetterRank(PlayState.instance.accuracy)}\n\n ');
-        comboText.size = 28;
-        comboText.font = 'Righteous';
-        comboText.setBorderStyle(FlxTextBorderStyle.OUTLINE,FlxColor.BLACK,4,1);
-        comboText.color = FlxColor.WHITE;
-        comboText.scrollFactor.set();
-        add(comboText);
+        accuracyText = new FlxText(judgementText.x+ 40, judgementText.y-140, 0, 'Accuracy: ${HelperFunctions.truncateFloat(PlayState.instance.accuracy,2)}%\n\n${Ratings.GenerateLetterRank(PlayState.instance.accuracy)}\n\n ', 22);
+        accuracyText.font = 'Righteous';
+        accuracyText.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK, 4,1);
+        accuracyText.color = FlxColor.WHITE;
+        accuracyText.scrollFactor.set();
+        add(accuracyText);
 
         contText = new FlxText(FlxG.width - 475,FlxG.height + 50,0,'Press ${KeyBinds.gamepad ? 'A' : 'ENTER'} to continue.');
         contText.size = 28;
@@ -109,15 +132,16 @@ class ResultsScreen extends FlxSubState
         contText.scrollFactor.set();
         add(contText);
 
-        anotherBackground = new FlxSprite(FlxG.width - 500,45).makeGraphic(450,240,FlxColor.BLACK);
+        //Graph
+        anotherBackground = new FlxSprite(FlxG.width - 655,165).makeGraphic(400,215,FlxColor.BLACK);
         anotherBackground.scrollFactor.set();
         anotherBackground.alpha = 0;
         add(anotherBackground);
         
-        graph = new HitGraph(FlxG.width - 500,45,495,240);
+        graph = new HitGraph(FlxG.width - 655,165,440,215);
         graph.alpha = 1;
 
-        graphSprite = new OFLSprite(FlxG.width - 510,45,460,240,graph);
+        graphSprite = new OFLSprite(FlxG.width - 665,165,405,215,graph);
 
         graphSprite.scrollFactor.set();
         graphSprite.alpha = 1;
@@ -193,7 +217,7 @@ class ResultsScreen extends FlxSubState
             //FlxTween.tween(graph, {alpha:1},0.5);
             //FlxTween.tween(graphSprite, {alpha: 1},0.5);
             FlxTween.tween(text, {y:20},0.5,{ease: FlxEase.expoInOut});
-            FlxTween.tween(comboText, {y:145},0.5,{ease: FlxEase.expoInOut});
+            FlxTween.tween(judgementText, {y:145},0.5,{ease: FlxEase.expoInOut});
             FlxTween.tween(contText, {y:FlxG.height - 45},0.5,{ease: FlxEase.expoInOut});
             FlxTween.tween(settingsText, {y:FlxG.height - 35},0.5,{ease: FlxEase.expoInOut});
             FlxTween.tween(anotherBackground, {alpha: 0.6},0.5, {onUpdate: function(tween:FlxTween) {

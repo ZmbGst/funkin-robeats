@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Zircon.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="zircon instance 10000" x="2750" y="1372" width="1290" height="1459" frameX="-58" frameY="0" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10001" x="2750" y="1372" width="1290" height="1459" frameX="-58" frameY="0" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10002" x="1382" y="1384" width="1368" height="1404" frameX="-35" frameY="-52" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10003" x="1382" y="1384" width="1368" height="1404" frameX="-35" frameY="-52" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10004" x="1382" y="1384" width="1368" height="1404" frameX="-35" frameY="-52" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10005" x="3" y="1384" width="1379" height="1393" frameX="-32" frameY="-59" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10006" x="3" y="3" width="1411" height="1381" frameX="0" frameY="-71" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10007" x="3" y="3" width="1411" height="1381" frameX="0" frameY="-71" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10008" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10009" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10010" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10011" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10012" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10013" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10014" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10015" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10016" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10017" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10018" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10019" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10020" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10021" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10022" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+	<SubTexture name="zircon instance 10023" x="1414" y="3" width="1412" height="1369" frameX="-7" frameY="-80" frameWidth="1419" frameHeight="1459"/>
+</TextureAtlas>
