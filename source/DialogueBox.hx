@@ -86,7 +86,25 @@ class DialogueBox extends FlxSpriteGroup
 		}
 		
 
-		bgFade = new FlxSprite(0, 0).loadGraphic(Paths.image('bgpurple')); //Change this to get backgrounds based on what week it is
+		switch (PlayState.storyWeek){
+			case 0:
+				bgFade = new FlxSprite(0, -100).loadGraphic(Paths.image('visnovBG/rlounge', 'shared'));
+			case 1:
+				bgFade = new FlxSprite(0, -100).loadGraphic(Paths.image('visnovBG/rlounge', 'shared'));
+			case 2:
+				bgFade = new FlxSprite(0, -100).loadGraphic(Paths.image('visnovBG/rlounge', 'shared'));
+			case 3:
+				bgFade = new FlxSprite(0, -30).loadGraphic(Paths.image('visnovBG/stadium', 'shared'));
+			case 4:
+				bgFade = new FlxSprite(0, 0).loadGraphic(Paths.image('visnovBG/rlounge', 'shared'));
+			default:
+				bgFade = new FlxSprite(0, 0).loadGraphic(Paths.image('bgpurple'));
+
+		}
+		
+		bgFade.setGraphicSize(Std.int(FlxG.width));
+		bgFade.updateHitbox();
+		bgFade.antialiasing = true;
 		bgFade.scrollFactor.set();
 		bgFade.alpha = 0;
 
@@ -97,9 +115,9 @@ class DialogueBox extends FlxSpriteGroup
 		 if (${PlayState.SONG.song} != 'Tutorial'){
 		 new FlxTimer().start(0.83, function(tmr:FlxTimer)
 		{
-			bgFade.alpha += (1 / 5) * 0.7;
-			if (bgFade.alpha > 0.7)
-				bgFade.alpha = 0.7;
+			bgFade.alpha += (1 / 5) * 0.85;
+			if (bgFade.alpha > 0.85)
+				bgFade.alpha = 0.85;
 		}, 7);}
 
 		box = new FlxSprite(-20, 45);
